@@ -67,7 +67,7 @@ try {
   assert.ok((await page.locator('#slkr-build-targets').textContent()).includes('R7'));
   assert.equal(await page.locator('#inquisitor-targets .farm-target').count(), 5);
   assert.ok((await page.locator('#grievous-targets').textContent()).includes('General Grievous'));
-  assert.ok((await page.locator('#slkr-status').textContent()).includes('Two normal zetas are user-reported'));
+  assert.ok((await page.locator('#slkr-status').textContent()).includes('Four ability rows now show upgrades'));
   assert.ok((await page.locator('#era-targets').textContent()).includes('Adelphi Ranger'));
   assert.ok((await page.locator('#era-targets').textContent()).includes('Mercenary Guard Droid (B1)'));
   // The roster updates over time: never hardcode a character's current stars.
@@ -75,7 +75,7 @@ try {
   if (adelphi) {
     assert.ok((await page.locator('#era-targets').textContent()).includes(adelphi.stars + '★ of 5★'));
   }
-  assert.ok((await page.locator('#farm-plan').textContent()).includes('20 Oct – 17 Nov 2026'));
+  assert.ok((await page.locator('#farm-plan').textContent()).includes('ended 17 Nov 2026'));
   assert.ok((await page.locator('#executor-targets').textContent()).includes('Darth Vader'));
   // Once SLKR is unlocked the status legitimately changes, so check both cases.
   const slkrMessage = await page.locator('#slkr-status').textContent();
@@ -87,16 +87,16 @@ try {
   await page.locator('[data-tab="squads-5v5"]').click();
   assert.ok(await page.locator('#squads-5v5').isVisible());
   assert.ok(!(await page.locator('#farm-plan').isVisible()));
-  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 15);
+  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 18);
   await page.locator('#squad-search-5v5').fill('Great Mothers');
   assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 1);
   await page.locator('#squad-list-5v5 summary').click();
   assert.ok((await page.locator('#squad-list-5v5').innerText()).includes('Night Trooper'));
   await page.locator('#squad-search-5v5').fill('');
   await page.locator('#squad-filter-5v5').selectOption('project');
-  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 3);
+  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 6);
   await page.locator('[data-tab="squads-3v3"]').click();
-  assert.equal(await page.locator('#squad-list-3v3 .squad-card').count(), 16);
+  assert.equal(await page.locator('#squad-list-3v3 .squad-card').count(), 19);
   assert.ok((await page.locator('#squad-list-3v3').textContent()).includes('Enoch'));
   await page.locator('#tab-squads-3v3').press('ArrowRight');
   assert.ok(await page.locator('#roster').isVisible(), 'Arrow navigation selects the roster');

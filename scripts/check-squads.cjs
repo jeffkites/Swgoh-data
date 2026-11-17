@@ -17,6 +17,10 @@ for (const [mode, squads] of Object.entries(plans)) {
 }
 const mothers5 = plans['5v5'].find(s => s.name==='Great Mothers');
 assert.ok(mothers5.members.includes('NIGHTTROOPER') && mothers5.members.includes('DEATHTROOPERPERIDEA'));
+const padme5 = plans['5v5'].find(s => s.name.startsWith('Padmé'));
+assert.ok(padme5?.project, 'Padmé/CAT should remain a readiness project until saved mods are verified');
+const kelleran5 = plans['5v5'].find(s => s.name.startsWith('Kelleran'));
+assert.ok(!kelleran5.members.includes('ANAKINKNIGHT') && !kelleran5.members.includes('AHSOKATANO'), 'JKA and Snips should be released for the Padmé project');
 assert.ok(!plans['5v5'].some(s=>s.members[0]==='CAPTAINENOCH'));
 assert.ok(plans['3v3'].find(s=>s.members[0]==='CAPTAINENOCH').project);
 for(const mode of Object.keys(plans)) {

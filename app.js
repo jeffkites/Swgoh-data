@@ -33,13 +33,13 @@ const farmGoals = {
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · unlock relics',track:'gear',target:13,goal:'G13'},
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · first milestone',track:'relic',target:5,goal:'R5'},
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · main target',track:'relic',target:7,goal:'R7'},
-    {id:'SUPREMELEADERKYLOREN',name:'SLKR · purchased abilities',track:'manual',goal:'Verify remaining zetas',status:'Two normal zetas are user-reported; public tier mapping does not identify them. Verify the remaining four in game.'},
+    {id:'SUPREMELEADERKYLOREN',name:'SLKR · remaining normal abilities',track:'manual',goal:'Press the Advantage, then Brutal Assault',status:'Four ability rows now show upgrades; these two remain at the lower exported tier. Verify the in-game screen before spending.'},
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · ultimate',track:'manual',goal:'Complete ultimate',status:'Not evidenced in the export; verify event progress and unlock in game.'}
   ],
   inquisitors: [
     {id:'NINTHSISTER',name:'Ninth Sister · tank token',track:'relic',target:5,goal:'R5'},
     {id:'EIGHTHBROTHER',name:'Eighth Brother · completed attacker token',track:'relic',target:5,goal:'R5'},
-    {id:'SECONDSISTER',name:'Second Sister · next attacker token',track:'relic',target:5,goal:'R5'},
+    {id:'SECONDSISTER',name:'Second Sister · completed attacker token',track:'relic',target:5,goal:'R5'},
     {id:'SEVENTHSISTER',name:'Seventh Sister · healer token',track:'relic',target:5,goal:'R5'},
     {id:'FIFTHBROTHER',name:'Fifth Brother · completed support token',track:'relic',target:5,goal:'R5'}
   ],
@@ -139,7 +139,7 @@ function slkrProgressText(unit) {
   const milestone = (unit.gear ?? 0) < 13 ? 'Finish G13, then R5 and R7.'
     : (unit.relic ?? 0) < 7 ? 'G13 complete; R' + unit.relic + ' saved. Finish R7.'
     : 'R7 target complete. Reserve further relic spending for Executor.';
-  return 'SLKR is unlocked. ' + milestone + ' Two normal zetas are user-reported, but the public export does not identify them or evidence the ultimate. Verify the remaining kit in game; do not assume a finished GL.';
+  return 'SLKR is unlocked. ' + milestone + ' Four ability rows now show upgrades; Press the Advantage and Brutal Assault remain at the lower exported tier, and the ultimate is not evidenced. Verify the in-game screen before spending.';
 }
 function modReadiness(unit) {
   if (!unit || !Array.isArray(unit.modLevels)) return null;
@@ -484,7 +484,7 @@ function renderSquads(mode) {
   });
   if (!shown) container.append(squadElement('p','squad-empty','No squads match. Try another character or show all squads.'));
   $('squad-count-' + mode).textContent = shown + ' of ' + plans.length + ' squads shown';
-  $('squad-freshness-' + mode).textContent = 'Order reviewed 10 Nov 2026 · live roster ' + new Date(snapshot.refreshedAt).toLocaleString();
+  $('squad-freshness-' + mode).textContent = 'Order reviewed 17 Nov 2026 · live roster ' + new Date(snapshot.refreshedAt).toLocaleString();
 }
 ['5v5','3v3'].forEach(mode => {
   $('squad-search-' + mode).addEventListener('input', () => snapshot && renderSquads(mode));
