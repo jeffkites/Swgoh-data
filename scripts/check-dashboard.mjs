@@ -60,7 +60,7 @@ try {
   const executorPlan = await page.locator('#executor-targets').textContent();
   assert.ok(executorPlan.includes('Dengar') && executorPlan.includes('R5'));
   assert.ok(executorPlan.includes('Razor Crest'));
-  assert.ok((await page.locator('#farm-plan').textContent()).includes('Fleet Store'));
+  assert.match(await page.locator('#farm-plan').textContent(), /Fleet (?:Arena )?Store/);
   assert.ok((await page.locator('#fleet-targets').innerText()).includes('Punishing One'));
   assert.ok((await page.locator('#slkr-targets').textContent()).includes('Emperor Palpatine'));
   assert.ok((await page.locator('#slkr-build-targets').textContent()).includes('G13'));
@@ -134,4 +134,35 @@ try {
   await page.waitForFunction(() => document.querySelector('#status').textContent.includes('Keeping'));
   assert.deepEqual(errors, []);
   console.log('PASS: real roster, names, relics, ships, search, sort, mobile width and failed reload.');
+
+  // Simulate Pages with a raw branch file that lags behind GitHub's Contents API.
+  const pagesUrl = 'https://mrfaberzen-crypto.github.io/Swgoh-data/';
+  const cors = {'Access-Control-Allow-Origin':'https://mrfaberzen-crypto.github.io'};
+  await page.route(pagesUrl + '**', route => {
+    const path = new URL(route.request().url()).pathname.slice('/Swgoh-data/'.length) || 'index.html';
+    return route.fulfill({path});
+  });
+  const older = {...data, refreshedAt:new Date(Date.now() - 120000).toISOString(), arena:{'2':95}};
+  const newer = {...data, refreshedAt:new Date(Date.now() - 60000).toISOString(), arena:{'2':73}};
+  let githubSnapshot = older;
+  await page.route('https://api.github.com/repos/mrfaberzen-crypto/Swgoh-data/contents/data/dashboard.json*',
+    route => githubSnapshot
+      ? route.fulfill({json:{encoding:'base64',content:Buffer.from(JSON.stringify(githubSnapshot)).toString('base64')},headers:cors})
+      : route.fulfill({status:403,headers:cors}));
+  await page.route('https://raw.githubusercontent.com/mrfaberzen-crypto/Swgoh-data/main/data/dashboard.json*',
+    route => route.fulfill({json:older,headers:cors}));
+
+  await page.goto(pagesUrl);
+  await page.waitForFunction(() => document.querySelector('#fleet').textContent === '#95');
+  githubSnapshot = newer;
+  await page.locator('#reload').click();
+  await page.waitForFunction(() => document.querySelector('#refresh-status').textContent.includes('New roster loaded'));
+  assert.equal(await page.locator('#fleet').textContent(), '#73');
+
+  githubSnapshot = null;
+  await page.locator('#reload').click();
+  await page.waitForFunction(() => document.querySelector('#refresh-status').textContent.includes('Saved roster unchanged'));
+  assert.equal(await page.locator('#fleet').textContent(), '#73', 'An older fallback must not replace a newer roster');
+  assert.deepEqual(errors, []);
+  console.log('PASS: Pages reloads the newer GitHub snapshot and keeps it if an older fallback is returned.');
 } finally { await browser.close(); }

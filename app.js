@@ -1,8 +1,9 @@
 const $ = id => document.getElementById(id);
-// Pages builds are not triggered by GITHUB_TOKEN data commits; read main directly there.
-const snapshotUrl = location.hostname === 'mrfaberzen-crypto.github.io'
-  ? 'https://raw.githubusercontent.com/mrfaberzen-crypto/Swgoh-data/main/data/dashboard.json'
-  : 'data/dashboard.json';
+const rosterRepository = 'mrfaberzen-crypto/Swgoh-data';
+const rosterPath = 'data/dashboard.json';
+const onGitHubPages = location.hostname === 'mrfaberzen-crypto.github.io';
+const githubContentsUrl = `https://api.github.com/repos/${rosterRepository}/contents/${rosterPath}?ref=main`;
+const rawSnapshotUrl = `https://raw.githubusercontent.com/${rosterRepository}/main/${rosterPath}`;
 let snapshot;
 
 const farmGoals = {
@@ -197,47 +198,75 @@ function render() {
   renderSquads('5v5');
   renderSquads('3v3');
 }
+async function fetchSnapshot(url) {
+  const separator = url.includes('?') ? '&' : '?';
+  const response = await fetch(url + separator + 'v=' + Date.now(), {cache:'no-store'});
+  if (!response.ok) throw Error('Roster unavailable (HTTP ' + response.status + ')');
+  let data = await response.json();
+  if (data.encoding === 'base64') {
+    const bytes = Uint8Array.from(atob(data.content), char => char.charCodeAt(0));
+    data = JSON.parse(new TextDecoder().decode(bytes));
+  }
+  if (data.allyCode !== '843153117' || !Array.isArray(data.units) || !data.units.length ||
+      !Number.isFinite(Date.parse(data.refreshedAt))) throw Error('Unexpected roster response');
+  return data;
+}
+
+async function readSnapshot() {
+  if (!onGitHubPages) return fetchSnapshot(rosterPath);
+  // The raw branch URL can lag behind a successful commit, even with a cache-busting query.
+  try {
+    return await fetchSnapshot(githubContentsUrl);
+  } catch {
+    return fetchSnapshot(rawSnapshotUrl);
+  }
+}
+
+function showSnapshot(data) {
+  if (snapshot && Date.parse(data.refreshedAt) < Date.parse(snapshot.refreshedAt)) return;
+  snapshot = data;
+  $('name').textContent = data.name;
+  $('guild').textContent = data.guild;
+  $('ally').textContent = data.allyCode;
+  $('total').textContent = data.units.length;
+  $('seven').textContent = data.units.filter(u => u.stars === 7).length;
+  $('g13').textContent = data.units.filter(u => u.type === 'Character' && u.gear === 13).length;
+  $('fleet').textContent = data.arena['2'] ? '#' + data.arena['2'] : '—';
+  const date = new Date(data.refreshedAt);
+  const valid = date.getTime() <= Date.now() + 300000;
+  const old = valid && Date.now() - date.getTime() > 86400000;
+  $('freshness').textContent = valid
+    ? 'Saved ' + date.toLocaleString() + (old ? ' · More than 24 hours old' : '')
+    : 'Refresh time unavailable';
+  $('freshness').classList.toggle('warning', !valid || old);
+  render();
+}
+
 async function load() {
   $('reload').disabled = true;
   try {
-    const response = await fetch(freshSnapshotUrl(), {cache: 'no-store'});
-    if (!response.ok) throw Error('Roster unavailable (HTTP ' + response.status + ')');
-    const data = await response.json();
-    if (data.allyCode !== '843153117' || !Array.isArray(data.units) || !data.units.length)
-      throw Error('Unexpected roster response');
-    snapshot = data;
-    $('name').textContent = data.name;
-    $('guild').textContent = data.guild;
-    $('ally').textContent = data.allyCode;
-    $('total').textContent = data.units.length;
-    $('seven').textContent = data.units.filter(u => u.stars === 7).length;
-    $('g13').textContent = data.units.filter(u => u.type === 'Character' && u.gear === 13).length;
-    $('fleet').textContent = data.arena['2'] ? '#' + data.arena['2'] : '—';
-    const date = new Date(data.refreshedAt);
-    const valid = Number.isFinite(date.getTime()) && date.getTime() <= Date.now() + 300000;
-    const old = valid && Date.now() - date.getTime() > 86400000;
-    $('freshness').textContent = valid
-      ? 'Saved ' + date.toLocaleString() + (old ? ' · More than 24 hours old' : '')
-      : 'Refresh time unavailable';
-    $('freshness').classList.toggle('warning', !valid || old);
+    showSnapshot(await readSnapshot());
     $('status').textContent = '';
-    render();
-  } catch(error) {
+    return true;
+  } catch (error) {
     $('status').textContent = (snapshot ? 'Keeping the previous view. ' : '') +
-      error.message + '. Run a roster refresh, then reload.';
-  } finally { $('reload').disabled = false; }
+      error.message + '. Try reloading the saved roster.';
+    return false;
+  } finally {
+    $('reload').disabled = false;
+  }
 }
 $('search').addEventListener('input', () => snapshot && render());
 $('filter').addEventListener('change', () => snapshot && render());
 $('sort').addEventListener('change', () => snapshot && render());
 $('reload').addEventListener('click', async () => {
   const prior = snapshot?.refreshedAt;
-  await load();
+  if (!await load()) return;
   if (snapshot?.refreshedAt && snapshot.refreshedAt !== prior) {
     $('refresh-status').textContent = 'New roster loaded · ' +
       new Date(snapshot.refreshedAt).toLocaleString();
   } else if (snapshot?.refreshedAt) {
-    $('refresh-status').textContent = 'Showing the latest saved roster · ' +
+    $('refresh-status').textContent = 'Saved roster unchanged · ' +
       new Date(snapshot.refreshedAt).toLocaleString();
   }
 });
@@ -247,7 +276,6 @@ const privateApiBase = 'https://swgoh-data.mrfaberzen.workers.dev';
 // the server-side GitHub credential and authenticates the dashboard access token.
 const pollDelayMs = 15000;
 const pollMaximumMs = 10 * 60 * 1000;
-const freshSnapshotUrl = () => snapshotUrl + (snapshotUrl.includes('?') ? '&' : '?') + 'v=' + Date.now();
 
 // Read-only workflow status, so the mobile dashboard can diagnose a failed
 // GitHub action without requiring navigation to GitHub or a browser token.
@@ -316,17 +344,15 @@ async function refreshFromGame() {
       await new Promise(resolve => setTimeout(resolve, pollDelayMs));
       let data;
       try {
-        const check = await fetch(freshSnapshotUrl(), {cache:'no-store'});
-        if (!check.ok) continue;
-        data = await check.json();
+        data = await readSnapshot();
       } catch {
         continue;
       }
-      if (data.allyCode === '843153117' && Array.isArray(data.units) &&
-          Date.parse(data.refreshedAt) > previousRefreshAt) {
-        await load();
+      if (Date.parse(data.refreshedAt) > previousRefreshAt) {
+        showSnapshot(data);
+        $('status').textContent = '';
         status.textContent = 'Roster refreshed from the game · ' +
-          new Date(data.refreshedAt).toLocaleString();
+          new Date(snapshot.refreshedAt).toLocaleString();
         return;
       }
     }
