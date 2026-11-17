@@ -2,11 +2,11 @@
   "name": "Faberzen",
   "allyCode": "843153117",
   "guild": "The Secondhand Scoundrels",
-  "refreshedAt": "2026-11-15T22:51:54Z",
+  "refreshedAt": "2026-11-17T01:52:28Z",
   "source": "SWGoH Comlink",
   "arena": {
     "1": 281,
-    "2": 56
+    "2": 46
   },
   "units": [
     {
@@ -150,7 +150,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         12,
@@ -273,6 +273,17 @@
       ]
     },
     {
+      "id": "GENERALKENOBI",
+      "name": "General Kenobi",
+      "type": "Character",
+      "stars": 7,
+      "level": 85,
+      "gear": 13,
+      "relic": 7,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
       "id": "JAWASCAVENGER",
       "name": "Jawa Scavenger",
       "type": "Character",
@@ -308,7 +319,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         15,
@@ -468,7 +479,7 @@
       "id": "ARC170REX",
       "name": "Rex's ARC-170",
       "type": "Ship",
-      "stars": 2,
+      "stars": 3,
       "level": 1,
       "gear": null,
       "relic": null,
@@ -493,7 +504,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         12,
@@ -754,7 +765,7 @@
       "id": "JEDISTARFIGHTERANAKIN",
       "name": "Anakin's Eta-2 Starfighter",
       "type": "Ship",
-      "stars": 5,
+      "stars": 7,
       "level": 85,
       "gear": null,
       "relic": null,
@@ -887,7 +898,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 3,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         12,
@@ -897,6 +908,17 @@
         12,
         12
       ]
+    },
+    {
+      "id": "COMMANDERAHSOKA",
+      "name": "Commander Ahsoka Tano",
+      "type": "Character",
+      "stars": 7,
+      "level": 85,
+      "gear": 13,
+      "relic": 9,
+      "mods": 0,
+      "modLevels": []
     },
     {
       "id": "LUKESKYWALKER",
@@ -1021,7 +1043,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 0,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         15,
@@ -1114,8 +1136,8 @@
       "type": "Character",
       "stars": 7,
       "level": 85,
-      "gear": 8,
-      "relic": null,
+      "gear": 13,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         9,
@@ -1166,10 +1188,10 @@
       "id": "FULCRUMAHSOKA",
       "name": "Ahsoka Tano (Fulcrum)",
       "type": "Character",
-      "stars": 5,
-      "level": 1,
-      "gear": 1,
-      "relic": null,
+      "stars": 7,
+      "level": 85,
+      "gear": 13,
+      "relic": 9,
       "mods": 0,
       "modLevels": []
     },
@@ -1460,7 +1482,7 @@
       "id": "BLADEOFDORIN",
       "name": "Plo Koon's Jedi Starfighter",
       "type": "Ship",
-      "stars": 4,
+      "stars": 7,
       "level": 85,
       "gear": null,
       "relic": null,
@@ -1539,7 +1561,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         12,
@@ -1853,7 +1875,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         9,
@@ -2114,7 +2136,7 @@
       "id": "UMBARANSTARFIGHTER",
       "name": "Umbaran Starfighter",
       "type": "Ship",
-      "stars": 6,
+      "stars": 7,
       "level": 85,
       "gear": null,
       "relic": null,
@@ -2722,7 +2744,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         9,
@@ -2770,6 +2792,17 @@
       ]
     },
     {
+      "id": "CAPITALNEGOTIATOR",
+      "name": "Negotiator",
+      "type": "Ship",
+      "stars": 7,
+      "level": 85,
+      "gear": null,
+      "relic": null,
+      "mods": null,
+      "modLevels": null
+    },
+    {
       "id": "KANANJARRUSS3",
       "name": "Kanan Jarrus",
       "type": "Character",
@@ -2794,7 +2827,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         15,
@@ -2946,7 +2979,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 6,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         15,
@@ -3907,7 +3940,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 0,
+      "relic": 7,
       "mods": 6,
       "modLevels": [
         3,
