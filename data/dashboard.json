@@ -2,12 +2,12 @@
   "name": "Faberzen",
   "allyCode": "843153117",
   "guild": "The Secondhand Scoundrels",
-  "refreshedAt": "2026-11-18T00:58:41Z",
+  "refreshedAt": "2026-11-18T07:30:44Z",
   "source": "SWGoH Comlink",
   "arena": {
     "1": 281,
-    "2": 46,
-    "4": 51
+    "2": 36,
+    "4": 65
   },
   "units": [
     {
@@ -1397,6 +1397,17 @@
       "modLevels": []
     },
     {
+      "id": "QUIGGOLD",
+      "name": "Quiggold",
+      "type": "Character",
+      "stars": 2,
+      "level": 1,
+      "gear": 1,
+      "relic": null,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
       "id": "CAPTAINENOCH",
       "name": "Captain Enoch",
       "type": "Character",
@@ -1529,6 +1540,17 @@
         9,
         12
       ]
+    },
+    {
+      "id": "BRUTUS",
+      "name": "Brutus",
+      "type": "Character",
+      "stars": 2,
+      "level": 1,
+      "gear": 1,
+      "relic": null,
+      "mods": 0,
+      "modLevels": []
     },
     {
       "id": "EMPERORPALPATINE",
@@ -1867,6 +1889,17 @@
       "name": "Clone Wars Chewbacca",
       "type": "Character",
       "stars": 4,
+      "level": 1,
+      "gear": 1,
+      "relic": null,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
+      "id": "KIX",
+      "name": "Kix",
+      "type": "Character",
+      "stars": 2,
       "level": 1,
       "gear": 1,
       "relic": null,
@@ -2276,6 +2309,17 @@
       "modLevels": []
     },
     {
+      "id": "CAPTAINSILVO",
+      "name": "Captain Silvo",
+      "type": "Character",
+      "stars": 2,
+      "level": 1,
+      "gear": 1,
+      "relic": null,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
       "id": "THEMANDALORIANBESKARARMOR",
       "name": "The Mandalorian (Beskar Armor)",
       "type": "Character",
@@ -2327,6 +2371,17 @@
       "name": "Coruscant Underworld Police",
       "type": "Character",
       "stars": 1,
+      "level": 1,
+      "gear": 1,
+      "relic": null,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
+      "id": "ITHANO",
+      "name": "Captain Ithano",
+      "type": "Character",
+      "stars": 2,
       "level": 1,
       "gear": 1,
       "relic": null,
@@ -3898,6 +3953,17 @@
       "name": "Kyle Katarn",
       "type": "Character",
       "stars": 5,
+      "level": 1,
+      "gear": 1,
+      "relic": null,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
+      "id": "VANE",
+      "name": "Vane",
+      "type": "Character",
+      "stars": 2,
       "level": 1,
       "gear": 1,
       "relic": null,
