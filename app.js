@@ -369,6 +369,137 @@ $('trigger-refresh').addEventListener('click', refreshFromGame);
 // The secret is not persisted to browser storage by site code.
 $('private-key-form').addEventListener('submit', event => event.preventDefault());
 
+async function readTwUnitCatalog() {
+  try {
+    const response = await fetch('data/unit-catalog.json');
+    return response.ok ? (await response.json()).units : null;
+  } catch {
+    return null;
+  }
+}
+
+function formatTwSnapshot(data, loadedAt, catalog) {
+  const war = data?.data;
+  const zones = war?.awayGuild?.conflictStatus;
+  if (!Array.isArray(zones)) return '';
+
+  const rosterNames = new Map((snapshot?.units ?? []).map(unit => [unit.id, unit.name]));
+  const unitName = unit => {
+    const id = unit?.unitDefId?.split(':')[0];
+    return catalog?.[id]?.name ?? rosterNames.get(id) ?? id ?? 'Unknown unit';
+  };
+  const rarities = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN'];
+  const describeDefender = cell => {
+    const stats = cell.unitBattleStat ?? {};
+    const rarity = cell.unitDefId?.split(':')[1]?.replace('_STAR', '');
+    const stars = rarities.indexOf(rarity) + 1;
+    const details = [];
+    if (stars && (stars < 7 || cell.squadUnitType === 3 || stats.tier === 1)) details.push(stars + '★');
+    if (stats.unitRelicTier >= 2) details.push('R' + (stats.unitRelicTier - 2));
+    else if (stats.tier > 1) details.push('G' + stats.tier);
+
+    const state = cell.unitState ?? {};
+    const health = Number.parseFloat(state.healthPercent);
+    const protection = Number.parseFloat(state.shieldPercent);
+    const turnMeter = Number.parseFloat(state.turnPercent);
+    if (state.hasFled) details.push('fled');
+    else if (health === 0) details.push('defeated');
+    else {
+      if (health < 100) details.push('HP ' + Math.round(health) + '%');
+      if (protection < 100) details.push('prot ' + Math.round(protection) + '%');
+      if (turnMeter > 0) details.push('TM ' + Math.round(turnMeter) + '%');
+    }
+    const role = cell.squadUnitType === 2 ? ' (lead)' : '';
+    return [unitName(cell) + role, ...details].join(' ');
+  };
+
+  const localTime = date => date.toLocaleString('en-AU', {timeZoneName:'short'});
+  const lines = [
+    'SWGOH Territory War — ' + (war.homeGuild?.profile?.name ?? 'Home guild') +
+      ' vs ' + (war.awayGuild?.profile?.name ?? 'Unknown opponent'),
+    'Loaded ' + localTime(loadedAt)
+  ];
+  if (+war.currentRoundEndTime > 0) {
+    lines.push('Current phase ends ' + localTime(new Date(+war.currentRoundEndTime)));
+  }
+  // Zone state 3 is open for attack. Defeated squads (status 3) remain in the response.
+  const openZones = zones.filter(zone => zone.zoneStatus?.zoneState === 3);
+  if (!openZones.length) lines.push('', 'No open enemy territories in this snapshot.');
+  for (const zone of openZones) {
+    const remaining = (zone.warSquad ?? []).filter(squad => squad.squadStatus !== 3);
+    const zoneId = zone.zoneStatus.zoneId?.match(/phase(\d+)_conflict(\d+)$/);
+    const title = zoneId
+      ? 'Row ' + Number(zoneId[1]) + ', territory ' + Number(zoneId[2])
+      : zone.zoneStatus.zoneId ?? 'Open territory';
+    lines.push('', title + ' | ' + (zone.squadCount ?? remaining.length) + ' remaining' +
+      (zone.squadCapacity ? ' / ' + zone.squadCapacity + ' slots' : ''));
+    if (zone.zoneStatus.commandMessage) lines.push('Guild order — ' + zone.zoneStatus.commandMessage);
+    for (const squad of remaining) {
+      const cells = [...(squad.squad?.cell ?? [])].sort((a, b) => a.cellIndex - b.cellIndex);
+      const starters = cells.filter(cell => cell.squadUnitType !== 5).map(describeDefender);
+      const reinforcements = cells.filter(cell => cell.squadUnitType === 5).map(describeDefender);
+      const power = squad.power == null ? 'GP unknown' : Number(squad.power).toLocaleString('en-AU') + ' GP';
+      const row = [power, squad.playerName, starters.join(', ')];
+      if (reinforcements.length) row.push('reinforcements ' + reinforcements.join(', '));
+      if (squad.successfulDefends) row.push('holds ' + squad.successfulDefends);
+      if (squad.lockName) row.push('engaged by ' + squad.lockName);
+      const datacron = squad.squad?.datacron;
+      if (datacron) {
+        const abilities = (datacron.affix ?? []).map(affix => affix.abilityId).filter(Boolean);
+        row.push(['datacron ' + (datacron.templateId || datacron.setId), ...abilities].join(', '));
+      }
+      const upgrades = cells.flatMap(cell => (cell.unitBattleStat?.skill ?? [])
+        .filter(skill => skill.tier >= 6)
+        .map(skill => skill.id + ' L' + (+skill.tier + 2)));
+      if (upgrades.length) row.push('abilities ' + upgrades.join(', '));
+      lines.push('- ' + row.filter(Boolean).join(' | '));
+    }
+  }
+
+  if (Array.isArray(war.playerStatus?.unitStatus)) {
+    const roster = new Map((war.playerStatus.warRoster ?? []).map(unit => [unit.unitId, unit]));
+    const defenceIds = new Set((war.homeGuild?.conflictStatus ?? [])
+      .flatMap(zone => (zone.warSquad ?? [])
+        .flatMap(squad => (squad.squad?.cell ?? []).map(cell => cell.unitId))));
+    const defence = [];
+    const attack = [];
+    for (const status of war.playerStatus.unitStatus) {
+      const used = defenceIds.has(status.unitId) ? defence : attack;
+      used.push(unitName(roster.get(status.unitId)));
+    }
+    lines.push('', 'My units on defence — ' + (defence.sort().join(', ') || 'None shown'),
+      'My units spent on attack — ' + (attack.sort().join(', ') || 'None shown'));
+  }
+  return lines.join('\n');
+}
+
+const twCopyText = $('tw-copy-text');
+const twCopyStatus = $('tw-copy-status');
+
+function showTwCopy(text) {
+  twCopyText.value = text;
+  twCopyText.hidden = true;
+  twCopyStatus.textContent = '';
+  $('tw-copy-controls').hidden = !text;
+}
+
+$('copy-tw-snapshot').addEventListener('click', async () => {
+  const text = twCopyText.value;
+  if (!text) return;
+  try {
+    await navigator.clipboard.writeText(text);
+    if (twCopyText.value !== text) return;
+    twCopyText.hidden = true;
+    twCopyStatus.textContent = 'Copied. Paste the snapshot into ChatGPT.';
+  } catch {
+    if (twCopyText.value !== text) return;
+    twCopyText.hidden = false;
+    twCopyText.focus();
+    twCopyText.select();
+    twCopyStatus.textContent = 'Copy the selected text, then paste it into ChatGPT.';
+  }
+});
+
 async function loadPrivateData(resource, button) {
   const token = $('access-token').value;
   const status = $('private-status');
@@ -378,9 +509,11 @@ async function loadPrivateData(resource, button) {
     $('access-token').focus();
     return;
   }
+  showTwCopy('');
   button.disabled = true;
   status.textContent = 'Requesting ' + resource.toUpperCase() + ' data…';
   try {
+    const catalog = resource === 'tw' ? readTwUnitCatalog() : null;
     const response = await fetch(privateApiBase + '/api/private/' + encodeURIComponent(resource), {
       method: 'POST',
       headers: {
@@ -392,8 +525,11 @@ async function loadPrivateData(resource, button) {
     });
     const data = await response.json();
     if (!response.ok) throw Error(data.error || 'Request failed (HTTP ' + response.status + ')');
+    const loadedAt = new Date();
+    const copyText = resource === 'tw' ? formatTwSnapshot(data, loadedAt, await catalog) : '';
     output.textContent = JSON.stringify(data, null, 2);
-    status.textContent = resource.toUpperCase() + ' data loaded at ' + new Date().toLocaleTimeString() +
+    showTwCopy(copyText);
+    status.textContent = resource.toUpperCase() + ' data loaded at ' + loadedAt.toLocaleTimeString() +
       (response.headers.get('X-Snapshot-Saved') === 'true'
         ? ' and saved to your private GitHub repository.'
         : '. Live data is shown below, but the private GitHub snapshot was not saved. ' +

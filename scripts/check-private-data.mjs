@@ -77,18 +77,70 @@ try {
 
   // Exercise the actual page handler against both persistence outcomes.
   const app = readFileSync('app.js','utf8');
-  const handler = app.slice(app.indexOf('async function loadPrivateData('),app.indexOf("document.querySelectorAll('[data-private]')"));
+  const handler = app.slice(app.indexOf('async function readTwUnitCatalog('),app.indexOf("document.querySelectorAll('[data-private]')"));
+  const tw = {code:0,data:{
+    homeGuild:{profile:{name:'Home'},conflictStatus:[{warSquad:[{squad:{cell:[{unitId:'defence'}]}}]}]},
+    awayGuild:{profile:{name:'Away'},conflictStatus:[
+      {zoneStatus:{zoneId:'tw_map_phase01_conflict01',zoneState:4},squadCount:0},
+      {zoneStatus:{zoneId:'tw_map_phase02_conflict02',zoneState:3},squadCount:1,squadCapacity:13,warSquad:[
+        {playerName:'Cleared',squadStatus:3},
+        {playerName:'Live',squadStatus:1,power:133158,successfulDefends:2,squad:{cell:[
+          {unitDefId:'BOBAFETT:SEVEN_STAR',cellIndex:0,squadUnitType:2,unitBattleStat:{tier:13,unitRelicTier:7},
+            unitState:{healthPercent:'50',shieldPercent:'0',turnPercent:'37'}}
+        ]}}
+      ]},
+      {zoneStatus:{zoneId:'tw_map_phase03_conflict01',zoneState:1},squadCount:13}
+    ]},
+    playerStatus:{
+      warRoster:[{unitId:'defence',unitDefId:'SLKR:SEVEN_STAR'},{unitId:'attack',unitDefId:'VEERS:SEVEN_STAR'}],
+      unitStatus:[{unitId:'defence'},{unitId:'attack'}]
+    }
+  }};
   for (const saved of [true,false]) {
-    const nodes = {'access-token':{value:'test-dashboard'},'private-status':{},'private-output':{textContent:'No private data loaded.'}};
-    const context = vm.createContext({$:id=>nodes[id], privateApiBase:'https://example.test', Date, JSON, encodeURIComponent,
-      fetch:async()=>Response.json(inventory,{headers:{'X-Snapshot-Saved':String(saved),'X-Snapshot-Error':'GitHub snapshot save failed (HTTP 401).'}})});
+    let clickCopy;
+    let clipboard;
+    const nodes = {
+      'access-token':{value:'test-dashboard'},
+      'private-status':{},
+      'private-output':{},
+      'tw-copy-controls':{hidden:true},
+      'tw-copy-status':{},
+      'tw-copy-text':{},
+      'copy-tw-snapshot':{addEventListener(type, handler) { clickCopy = handler; }}
+    };
+    const context = vm.createContext({
+      $:id=>nodes[id],
+      snapshot:null,
+      privateApiBase:'https://example.test',
+      navigator:{clipboard:{writeText:async text => { clipboard = text; }}},
+      fetch:async url => {
+        if (url === 'data/unit-catalog.json') {
+          return Response.json({units:{BOBAFETT:{name:'Boba Fett'},SLKR:{name:'Supreme Leader Kylo Ren'},VEERS:{name:'General Veers'}}});
+        }
+        return Response.json(url.endsWith('/tw') ? tw : inventory, {
+          headers:{'X-Snapshot-Saved':String(saved),'X-Snapshot-Error':'GitHub snapshot save failed (HTTP 401).'}
+        });
+      }
+    });
     vm.runInContext(handler, context);
     const button = {};
+    await context.loadPrivateData('tw',button);
+    assert.equal(nodes['tw-copy-controls'].hidden,false);
+    await clickCopy();
+    assert.match(clipboard,/Row 2, territory 2 \| 1 remaining \/ 13 slots/);
+    assert.match(clipboard,/133,158 GP \| Live \| Boba Fett \(lead\) R5 HP 50% prot 0% TM 37% \| holds 2/);
+    assert.match(clipboard,/My units on defence — Supreme Leader Kylo Ren/);
+    assert.match(clipboard,/My units spent on attack — General Veers/);
+    assert.doesNotMatch(clipboard,/Row [13], territory|Cleared|test-dashboard/);
+    assert.equal(nodes['private-output'].textContent, JSON.stringify(tw,null,2));
+
     await context.loadPrivateData('inventory',button);
+    assert.equal(nodes['tw-copy-controls'].hidden,true);
+    assert.equal(nodes['tw-copy-text'].value,'');
     assert.equal(nodes['private-output'].textContent, JSON.stringify(inventory,null,2));
     assert.equal(button.disabled,false);
     assert.ok(nodes['private-status'].textContent.includes(saved ? 'and saved to your private GitHub' : 'snapshot was not saved'));
     if (!saved) assert.ok(nodes['private-status'].textContent.includes('HTTP 401'));
   }
-  console.log('PASS: private data success, retries, conflicts, expired token, missing token, network failure, access checks and page display.');
+  console.log('PASS: private data access and saves, page display and copying the open TW territories.');
 } finally { globalThis.fetch = realFetch; }

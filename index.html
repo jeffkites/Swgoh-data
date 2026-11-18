@@ -33,6 +33,7 @@ header>div.header-actions{display:flex;flex-direction:column;align-items:stretch
 
 [hidden]{display:none!important}.tab-bar{display:flex;gap:6px;overflow-x:auto;padding:8px 0;margin:14px 0;scrollbar-width:thin}.tab-bar button{white-space:nowrap;background:#1b2735;color:#c4d2e1;border:1px solid #40546a;min-height:44px}.tab-bar button[aria-selected="true"]{background:#76d4bc;color:#11251f;border-color:#76d4bc;font-weight:750}.main-tabs{position:sticky;top:0;z-index:5;background:#101722;padding:10px 0}.sub-tabs{flex-wrap:wrap}.sub-tabs button{font-size:.85rem;padding:9px 12px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #87caff;outline-offset:3px}.overview{margin-top:12px}.overview>summary{cursor:pointer;color:#a8b8ca;font-size:.85rem}.overview .cards{margin:12px 0}.plan-grid{display:block;margin-top:10px}.plan-card{max-width:850px}.squad-list{display:grid;gap:10px}.squad-card{border:1px solid #40546a;border-radius:10px;background:#131d29;overflow:hidden}.squad-card>summary{padding:14px;cursor:pointer;list-style:none}.squad-card>summary::-webkit-details-marker{display:none}.squad-top{display:flex;gap:10px;align-items:center}.squad-rank{color:#7ed6c2;font-weight:800;font-size:1.1rem;min-width:35px}.squad-title{font-weight:750;flex:1}.squad-open{color:#87caff}.squad-card[open] .squad-open{transform:rotate(45deg)}.squad-members{font-size:.88rem;line-height:1.5;color:#c5d3e2;margin:9px 0}.squad-tags{display:flex;flex-wrap:wrap;gap:6px}.badge{border:1px solid #40546a;border-radius:6px;font-size:.75rem;padding:4px 7px;color:#c4d2e1}.badge.warn{color:#ffd28b;border-color:#775b36}.squad-detail{border-top:1px solid #304055;padding:14px;line-height:1.5}.unit-line{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px;padding:7px 0;border-bottom:1px solid #263749;font-size:.85rem}.unit-line span:last-child{color:#a8b8ca}.squad-help{font-size:.85rem;line-height:1.5}.squad-controls input{min-width:0;width:100%}.squad-section-title{margin:22px 0 10px;font-size:1rem}.squad-freshness{font-size:.8rem;color:#a8b8ca}.squad-empty{padding:20px}.nav-hint{font-size:.75rem;color:#a8b8ca;margin:0}.panel{scroll-margin-top:80px}
 @media(max-width:600px){.main-tabs{margin:8px -3px;padding:8px 3px}.main-tabs button{font-size:.85rem;padding:10px}.squad-top{gap:7px}.panel{padding:14px}.squad-title{font-size:.95rem}.header-actions .action-row button{font-size:.82rem;min-width:120px}.overview .cards{grid-template-columns:repeat(2,minmax(0,1fr))}.sub-tabs{gap:5px}.sub-tabs button{font-size:.8rem}}
+.private-copy-text{display:block;width:100%;min-height:145px;resize:vertical;color:inherit}
 </style>
 </head>
 <body><main>
@@ -97,6 +98,11 @@ header>div.header-actions{display:flex;flex-direction:column;align-items:stretch
 <button type="button" data-private="tw">Load TW</button>
 </div>
 <p id="private-status" class="muted" role="status">Tap the access key field to autofill from Dashlane, then load Inventory, GAC or TW.</p>
+<div id="tw-copy-controls" class="private-controls" hidden>
+<button id="copy-tw-snapshot" type="button">Copy TW snapshot</button>
+<span id="tw-copy-status" class="muted" role="status"></span>
+</div>
+<textarea id="tw-copy-text" class="private-output private-copy-text" aria-label="Territory War snapshot text" readonly hidden></textarea>
 <pre id="private-output" class="private-output" aria-label="Private API response">No private data loaded.</pre>
 </section>
 <section class="panel tab-panel" role="tabpanel" tabindex="0" id="roster" aria-labelledby="tab-roster" hidden><h2>Roster</h2><p class="muted">Your characters and ships. Search by name and sort by upgrade level.</p>
@@ -106,4 +112,4 @@ header>div.header-actions{display:flex;flex-direction:column;align-items:stretch
 </section><footer>Public roster snapshot · Updated daily. “Refresh from game” requests a public roster refresh without a password, subject to anti-abuse limits, and checks for new roster data. If the Worker has not been configured yet, use the <a href="https://github.com/mrfaberzen-crypto/Swgoh-data/actions/workflows/refresh-player.yml">manual GitHub fallback</a>.</footer>
 </main>
 <script src="squads.js" defer></script>
-<script src="app.js?v=20261117-roster" defer></script></body></html>
+<script src="app.js?v=20261118-tw-copy" defer></script></body></html>
