@@ -19513,42 +19513,33 @@
         },
         {
           "id": "uniqueskill_B1MERCDROID02",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "uniqueskill_B1MERCDROID01",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "basicskill_B1MERCDROID",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "specialskill_B1MERCDROID01",
-          "tier": 3
+          "tier": 5
         }
       ],
-      "equipment": [
-        {
-          "equipmentId": "109",
-          "slot": 0
-        },
-        {
-          "equipmentId": "108",
-          "slot": 1
-        }
-      ],
+      "equipment": [],
       "equippedStatModOld": [],
       "equippedStatMod": [],
       "purchasedAbilityId": [],
       "id": "8jv2KNbwRIe5_6n4LdHhkQ",
       "definitionId": "B1MERCDROID:FIVE_STAR",
       "currentRarity": 5,
-      "currentLevel": 57,
-      "currentXp": 119025,
+      "currentLevel": 85,
+      "currentXp": 883025,
       "promotionRecipeReference": "",
       "unitStat": null,
-      "currentTier": 8,
+      "currentTier": 13,
       "relic": {
         "currentTier": 1
       }
@@ -78207,6 +78198,41 @@
       }
     },
     {
+      "skill": [],
+      "equipment": [
+        {
+          "equipmentId": "009",
+          "slot": 0
+        },
+        {
+          "equipmentId": "002",
+          "slot": 1
+        },
+        {
+          "equipmentId": "003",
+          "slot": 2
+        },
+        {
+          "equipmentId": "004",
+          "slot": 3
+        }
+      ],
+      "equippedStatModOld": [],
+      "equippedStatMod": [],
+      "purchasedAbilityId": [],
+      "id": "OxIiiAo6QJSH8kjwS710-A",
+      "definitionId": "EDRIOTWOTUBES:FOUR_STAR",
+      "currentRarity": 4,
+      "currentLevel": 5,
+      "currentXp": 145,
+      "promotionRecipeReference": "",
+      "unitStat": null,
+      "currentTier": 1,
+      "relic": {
+        "currentTier": 1
+      }
+    },
+    {
       "skill": [
         {
           "id": "specialskill_REMNANTSNOWCOMMANDER02",
@@ -87248,42 +87274,33 @@
       "skill": [
         {
           "id": "specialskill_ADELPHIRANGER02",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "specialskill_ADELPHIRANGER01",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "basicskill_ADELPHIRANGER",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "uniqueskill_ADELPHIRANGER01",
-          "tier": 3
+          "tier": 4
         }
       ],
-      "equipment": [
-        {
-          "equipmentId": "075",
-          "slot": 0
-        },
-        {
-          "equipmentId": "114",
-          "slot": 1
-        }
-      ],
+      "equipment": [],
       "equippedStatModOld": [],
       "equippedStatMod": [],
       "purchasedAbilityId": [],
       "id": "ls8Ovo4ZTAWxuuaxZfpYng",
       "definitionId": "ADELPHIRANGER:FIVE_STAR",
       "currentRarity": 5,
-      "currentLevel": 57,
-      "currentXp": 119025,
+      "currentLevel": 85,
+      "currentXp": 883025,
       "promotionRecipeReference": "",
       "unitStat": null,
-      "currentTier": 8,
+      "currentTier": 13,
       "relic": {
         "currentTier": 1
       }
@@ -119481,88 +119498,10 @@
   ],
   "profileStat": [
     {
-      "nameKey": "STAT_SEASON_UNDERSIZED_SQUAD_WINS_NAME",
-      "versionKey": "NULL",
-      "value": "2",
-      "index": 18
-    },
-    {
-      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
+      "nameKey": "STAT_SEASON_PROMOTIONS_EARNED_NAME",
       "versionKey": "NULL",
       "value": "0",
-      "index": 20
-    },
-    {
-      "nameKey": "STAT_TOTAL_GUILD_EXCHANGE_DONATIONS_TU07_2",
-      "versionKey": "NULL",
-      "value": "9",
-      "index": 12
-    },
-    {
-      "nameKey": "STAT_PVE_HARD_BATTLES_WIN_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "6465",
-      "index": 8
-    },
-    {
-      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
-      "versionKey": "NULL",
-      "value": "17864",
-      "index": 16
-    },
-    {
-      "nameKey": "STAT_GUILD_RAID_WON_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "12",
-      "index": 10
-    },
-    {
-      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "1388",
-      "index": 9
-    },
-    {
-      "nameKey": "STAT_PVP_SHIP_BATTLES_WIN_NAME",
-      "versionKey": "NULL",
-      "value": "61",
-      "index": 5
-    },
-    {
-      "nameKey": "STAT_SEASON_OFFENSIVE_BATTLES_WON_NAME",
-      "versionKey": "NULL",
-      "value": "80",
-      "index": 14
-    },
-    {
-      "nameKey": "STAT_SEASON_SUCCESSFUL_DEFENDS_NAME",
-      "versionKey": "NULL",
-      "value": "29",
-      "index": 15
-    },
-    {
-      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "2278811",
-      "index": 3
-    },
-    {
-      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
-      "versionKey": "NULL",
-      "value": "80",
-      "index": 19
-    },
-    {
-      "nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "3302094",
-      "index": 2
-    },
-    {
-      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
-      "versionKey": "NULL",
-      "value": "12267",
-      "index": 7
+      "index": 13
     },
     {
       "nameKey": "STAT_SEASON_BEST_RANK_NAME",
@@ -119571,16 +119510,22 @@
       "index": 21
     },
     {
-      "nameKey": "STAT_TOTAL_GUILD_CONTRIBUTION_NAME_TU07_2",
+      "nameKey": "STAT_SEASON_UNDERSIZED_SQUAD_WINS_NAME",
       "versionKey": "NULL",
-      "value": "38704",
-      "index": 11
+      "value": "2",
+      "index": 18
     },
     {
-      "nameKey": "STAT_SEASON_FULL_CLEAR_ROUND_WINS_NAME",
+      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
       "versionKey": "NULL",
-      "value": "11",
-      "index": 17
+      "value": "5607441",
+      "index": 1
+    },
+    {
+      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "1400",
+      "index": 9
     },
     {
       "nameKey": "STAT_PVP_BATTLES_WIN_LEGACY_NAME",
@@ -119589,21 +119534,93 @@
       "index": 106
     },
     {
-      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
+      "nameKey": "STAT_PVP_SHIP_BATTLES_WIN_NAME",
       "versionKey": "NULL",
-      "value": "5580905",
-      "index": 1
+      "value": "62",
+      "index": 5
     },
     {
-      "nameKey": "STAT_SEASON_PROMOTIONS_EARNED_NAME",
+      "nameKey": "STAT_TOTAL_GUILD_CONTRIBUTION_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "38704",
+      "index": 11
+    },
+    {
+      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "2278811",
+      "index": 3
+    },
+    {
+      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
       "versionKey": "NULL",
       "value": "0",
-      "index": 13
+      "index": 20
+    },
+    {
+      "nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "3328630",
+      "index": 2
+    },
+    {
+      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
+      "versionKey": "NULL",
+      "value": "82",
+      "index": 19
+    },
+    {
+      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
+      "versionKey": "NULL",
+      "value": "12329",
+      "index": 7
+    },
+    {
+      "nameKey": "STAT_TOTAL_GUILD_EXCHANGE_DONATIONS_TU07_2",
+      "versionKey": "NULL",
+      "value": "9",
+      "index": 12
+    },
+    {
+      "nameKey": "STAT_SEASON_FULL_CLEAR_ROUND_WINS_NAME",
+      "versionKey": "NULL",
+      "value": "11",
+      "index": 17
+    },
+    {
+      "nameKey": "STAT_GUILD_RAID_WON_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "12",
+      "index": 10
+    },
+    {
+      "nameKey": "STAT_PVE_HARD_BATTLES_WIN_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "6488",
+      "index": 8
+    },
+    {
+      "nameKey": "STAT_SEASON_SUCCESSFUL_DEFENDS_NAME",
+      "versionKey": "NULL",
+      "value": "29",
+      "index": 15
+    },
+    {
+      "nameKey": "STAT_SEASON_OFFENSIVE_BATTLES_WON_NAME",
+      "versionKey": "NULL",
+      "value": "82",
+      "index": 14
+    },
+    {
+      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
+      "versionKey": "NULL",
+      "value": "18300",
+      "index": 16
     },
     {
       "nameKey": "STAT_ERA_ARENA_BATTLES_WIN_NAME",
       "versionKey": "NULL",
-      "value": "0",
+      "value": "2",
       "index": 4
     }
   ],
@@ -119779,8 +119796,8 @@
         "cell": [
           {
             "crewBattleStat": [],
-            "unitId": "E3NXkQooQ0OTD8QYllSIZg",
-            "unitDefId": "CAPITALFINALIZER:SEVEN_STAR",
+            "unitId": "v2Ts19MXS32c4cc8zsEj6g",
+            "unitDefId": "CAPITALNEGOTIATOR:SEVEN_STAR",
             "cellIndex": 0,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -119794,9 +119811,24 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "JnAhD7utTAaBtebBHSvfvA",
-            "unitDefId": "TIESILENCER:SEVEN_STAR",
+            "unitId": "AYwGq5KbTLaLtCfnOC9LsQ",
+            "unitDefId": "JEDISTARFIGHTERAHSOKATANO:SEVEN_STAR",
             "cellIndex": 1,
+            "unitBattleStat": null,
+            "messageReticle": "",
+            "progressItem": true,
+            "squadUnitType": 1,
+            "unitState": null,
+            "selectable": true,
+            "overkillItem": false,
+            "inheritFromDefinitionId": "",
+            "forcedUnitEraLevel": 0
+          },
+          {
+            "crewBattleStat": [],
+            "unitId": "8uM-CAF1RXWsMsUIqiF2Eg",
+            "unitDefId": "JEDISTARFIGHTERANAKIN:SEVEN_STAR",
+            "cellIndex": 2,
             "unitBattleStat": null,
             "messageReticle": "",
             "progressItem": true,
@@ -119811,21 +119843,6 @@
             "crewBattleStat": [],
             "unitId": "BWUU_Gm-R62okqTT_tI_Dw",
             "unitDefId": "HOUNDSTOOTH:SEVEN_STAR",
-            "cellIndex": 2,
-            "unitBattleStat": null,
-            "messageReticle": "",
-            "progressItem": true,
-            "squadUnitType": 1,
-            "unitState": null,
-            "selectable": true,
-            "overkillItem": false,
-            "inheritFromDefinitionId": "",
-            "forcedUnitEraLevel": 0
-          },
-          {
-            "crewBattleStat": [],
-            "unitId": "Ss_kn0tVStmbSFOn-PVbIQ",
-            "unitDefId": "COMMANDSHUTTLE:SEVEN_STAR",
             "cellIndex": 3,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -119839,8 +119856,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "4lrI_NwkRy2EXiFu4IkdCw",
-            "unitDefId": "TIEADVANCED:SEVEN_STAR",
+            "unitId": "Ap39DFF2RmeHiGXd87RVyQ",
+            "unitDefId": "UMBARANSTARFIGHTER:SEVEN_STAR",
             "cellIndex": 4,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -119854,8 +119871,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "GDvW1vkBQhKXmLo1DHbWdQ",
-            "unitDefId": "SLAVE1:SEVEN_STAR",
+            "unitId": "Tjec9uTuTQKGOT-VO-KXPw",
+            "unitDefId": "BLADEOFDORIN:SEVEN_STAR",
             "cellIndex": 5,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -119869,8 +119886,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "JA5Q4sPlTXi70wq1ZUK0UA",
-            "unitDefId": "XANADUBLOOD:SEVEN_STAR",
+            "unitId": "i8VinTjkSVq_XfN3TNBRwA",
+            "unitDefId": "ARC170CLONESERGEANT:SEVEN_STAR",
             "cellIndex": 6,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -119884,8 +119901,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "acRPNS41TouGesyBO_r3yQ",
-            "unitDefId": "TIEFIGHTERFIRSTORDER:SEVEN_STAR",
+            "unitId": "D9L74gFqQ0usqHLBCgVmbA",
+            "unitDefId": "YWINGREBEL:FIVE_STAR",
             "cellIndex": 7,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -119902,7 +119919,98 @@
         "squadType": 5,
         "targetingSetId": "",
         "expireTime": "0",
-        "lastSaveTime": "1792914265000",
+        "lastSaveTime": "1794954056000",
+        "supportInheritFromDefinitionId": "",
+        "datacron": null
+      },
+      "eventId": ""
+    },
+    {
+      "tab": 4,
+      "rank": 51,
+      "squad": {
+        "cell": [
+          {
+            "crewBattleStat": [],
+            "unitId": "SAWGERRERA:LOANED",
+            "unitDefId": "",
+            "cellIndex": 0,
+            "unitBattleStat": null,
+            "messageReticle": "",
+            "progressItem": true,
+            "squadUnitType": 2,
+            "unitState": null,
+            "selectable": true,
+            "overkillItem": false,
+            "inheritFromDefinitionId": "",
+            "forcedUnitEraLevel": 0
+          },
+          {
+            "crewBattleStat": [],
+            "unitId": "JYNERSO:LOANED",
+            "unitDefId": "",
+            "cellIndex": 1,
+            "unitBattleStat": null,
+            "messageReticle": "",
+            "progressItem": true,
+            "squadUnitType": 1,
+            "unitState": null,
+            "selectable": true,
+            "overkillItem": false,
+            "inheritFromDefinitionId": "",
+            "forcedUnitEraLevel": 0
+          },
+          {
+            "crewBattleStat": [],
+            "unitId": "CHIRRUTIMWE:LOANED",
+            "unitDefId": "",
+            "cellIndex": 2,
+            "unitBattleStat": null,
+            "messageReticle": "",
+            "progressItem": true,
+            "squadUnitType": 1,
+            "unitState": null,
+            "selectable": true,
+            "overkillItem": false,
+            "inheritFromDefinitionId": "",
+            "forcedUnitEraLevel": 0
+          },
+          {
+            "crewBattleStat": [],
+            "unitId": "OxIiiAo6QJSH8kjwS710-A",
+            "unitDefId": "EDRIOTWOTUBES:FOUR_STAR",
+            "cellIndex": 3,
+            "unitBattleStat": null,
+            "messageReticle": "",
+            "progressItem": true,
+            "squadUnitType": 1,
+            "unitState": null,
+            "selectable": true,
+            "overkillItem": false,
+            "inheritFromDefinitionId": "",
+            "forcedUnitEraLevel": 0
+          },
+          {
+            "crewBattleStat": [],
+            "unitId": "BAZEMALBUS:LOANED",
+            "unitDefId": "",
+            "cellIndex": 4,
+            "unitBattleStat": null,
+            "messageReticle": "",
+            "progressItem": true,
+            "squadUnitType": 1,
+            "unitState": null,
+            "selectable": true,
+            "overkillItem": false,
+            "inheritFromDefinitionId": "",
+            "forcedUnitEraLevel": 0
+          }
+        ],
+        "targetingTactic": 1,
+        "squadType": 60,
+        "targetingSetId": "",
+        "expireTime": "0",
+        "lastSaveTime": "1794951060000",
         "supportInheritFromDefinitionId": "",
         "datacron": null
       },
@@ -120159,12 +120267,12 @@
       "league": "CARBONITE",
       "wins": 0,
       "losses": 0,
-      "seasonPoints": 2499,
+      "seasonPoints": 2935,
       "division": 25,
       "joinTime": "1793756547000",
       "endTime": "1796076000000",
       "remove": false,
-      "rank": 6070
+      "rank": 6079
     }
   ],
   "datacron": [
@@ -120351,12 +120459,8 @@
   ],
   "eraUnitStatus": [
     {
-      "unitBaseId": "ADELPHIRANGER",
-      "eraLevel": 65
-    },
-    {
-      "unitBaseId": "B1MERCDROID",
-      "eraLevel": 65
+      "unitBaseId": "EDRIOTWOTUBES",
+      "eraLevel": 6
     }
   ],
   "name": "Faberzen",
@@ -120373,14 +120477,14 @@
   },
   "guildTypeId": "NORMAL",
   "localTimeZoneOffsetMinutes": 600,
-  "lastActivityTime": "1794908000000",
+  "lastActivityTime": "1794954230000",
   "selectedPlayerPortrait": {
     "id": "PLAYERPORTRAIT_CANTINAKEEPER"
   },
   "lifetimeSeasonScore": "0",
   "playerRating": {
     "playerSkillRating": {
-      "skillRating": 2118
+      "skillRating": 2082
     },
     "playerRankStatus": {
       "leagueId": "CARBONITE",
@@ -120388,5 +120492,5 @@
     }
   },
   "nucleusId": "1000703366225",
-  "loanedUnitEraLevel": 61
+  "loanedUnitEraLevel": 9
 }

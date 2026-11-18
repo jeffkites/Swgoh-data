@@ -1,7 +1,7 @@
 {
   "versions": {
-    "latestGamedataVersion": "0.41.0:52JZqNt_T52XAT7eQ3wTuw",
-    "latestLocalizationBundleVersion": "rHS7fDNvQ-iKOTEpFHf_xQ"
+    "latestGamedataVersion": "0.41.0:ze9fHZUyQ5--Kwq-5J6KGA",
+    "latestLocalizationBundleVersion": "tThHSCWbTsS_VnGxMp32_g"
   },
   "units": {
     "BADBATCHECHO": {
@@ -546,10 +546,6 @@
     },
     "REYJEDITRAINING_GLEVENT": {
       "name": "Rey",
-      "combatType": 1
-    },
-    "CHOPPERS3": {
-      "name": "Chopper",
       "combatType": 1
     },
     "ZUCKUSS": {
@@ -1290,6 +1286,10 @@
     },
     "DEDRAMEERO": {
       "name": "Dedra Meero",
+      "combatType": 1
+    },
+    "CHOPPERS3": {
+      "name": "Chopper",
       "combatType": 1
     },
     "K2SO": {
