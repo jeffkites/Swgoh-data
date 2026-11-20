@@ -117,6 +117,42 @@ try {
   assert.equal(await page.locator('#rows tr').first().locator('td').nth(4).innerText(), '—');
   await page.locator('#filter').selectOption('all');
   await page.locator('#sort').selectOption('name');
+  // GAC scouting tab: authenticated summary, clear observed-vs-predicted labels,
+  // opponent link generation and private notes stored per opponent on the device.
+  await page.route('https://swgoh-data.mrfaberzen.workers.dev/api/private/gac-summary', route => {
+    const cors = {
+      'Access-Control-Allow-Origin': 'http://127.0.0.1:8000',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Authorization'
+    };
+    if (route.request().method() === 'OPTIONS') return route.fulfill({status:204, headers:cors});
+    assert.equal(route.request().headers().authorization, 'Bearer local-test-token');
+    return route.fulfill({status:200, headers:cors, json:{
+      kind:'gac', allyCode:'843153117', sourceFetchedAt:'2026-11-20T22:40:33Z',
+      round:3, phase:2, matchEndsAt:1795384800000,
+      opponent:{name:'Test Opponent',guild:'Training Guild'},
+      home:{zones:[{id:'4zone_phase01_conflict01_duel01',score:0,squads:[]}]},
+      away:{zones:[{id:'4zone_phase01_conflict01_duel01',score:0,squads:[
+        {status:1,units:[{id:'DARTHTRAYA',gear:13,relic:5},{id:'SAVAGEOPRESS',gear:13,relic:5}]}
+      ]}]}
+    }});
+  });
+  await page.locator('[data-tab="private-data"]').click();
+  await page.locator('#access-token').fill('local-test-token');
+  await page.locator('[data-tab="gac-scout"]').click();
+  await page.locator('#gac-load').click();
+  await page.waitForFunction(() => document.querySelector('#gac-opponent-name').textContent === 'Test Opponent');
+  assert.ok((await page.locator('#gac-enemy-zones').innerText()).includes('Darth Traya'));
+  assert.ok((await page.locator('#gac-round').innerText()).includes('Attack'));
+  await page.locator('#gac-opp-code').fill('681756884');
+  await page.locator('#gac-save-code').click();
+  assert.ok((await page.locator('#gac-link-planner').getAttribute('href')).endsWith('/843153117/681756884'));
+  await page.locator('.gac-notes summary').click();
+  await page.locator('#gac-scout-notes').fill('Hera appears frequently in recent 3v3 defences');
+  await page.locator('#gac-save-notes').click();
+  assert.ok((await page.locator('#gac-notes-status').innerText()).includes('saved on this device'));
+  assert.deepEqual(errors, []);
+  console.log('PASS: GAC scouting summary, opponent links, predicted/observed separation and notes.');
   await page.screenshot({path:'dashboard-desktop.png',fullPage:true});
   await page.setViewportSize({width:390,height:844});
   await page.locator('[data-tab="squads-5v5"]').click();
