@@ -16,7 +16,7 @@ function json(body, status, origin) {
   if (origin === ALLOWED_ORIGIN) {
     headers.set("Access-Control-Allow-Origin", ALLOWED_ORIGIN);
     headers.set("Vary", "Origin");
-    headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+    headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     headers.set("Access-Control-Allow-Headers", "Authorization, Content-Type");
     headers.set("Access-Control-Expose-Headers", "X-Snapshot-Saved, X-Snapshot-Error");
   }
@@ -181,6 +181,54 @@ export default {
       } catch (error) {
         console.error("Roster status lookup failed", error?.name || "Error");
         return json({ error: "Could not load GitHub workflow status" }, 502, origin);
+      }
+    }
+
+    // Compact private GAC summary for the dashboard's scouting tab.
+    // Never expose the stored private repository directly to GitHub Pages.
+    if (url.pathname === "/api/private/gac-summary") {
+      if (origin !== ALLOWED_ORIGIN) return json({ error: "Origin not allowed" }, 403, origin);
+      if (request.method === "OPTIONS") {
+        return new Response(null, { status: 204, headers: {
+          "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+          "Access-Control-Allow-Methods": "GET, OPTIONS",
+          "Access-Control-Allow-Headers": "Authorization",
+          "Access-Control-Max-Age": "600", "Vary": "Origin"
+        }});
+      }
+      if (request.method !== "GET") return json({ error: "Method not allowed" }, 405, origin);
+      if (!env.DASHBOARD_ACCESS_TOKEN) return json({ error: "Dashboard access token is not configured" }, 503, origin);
+      const authorization = request.headers.get("Authorization") || "";
+      const token = authorization.startsWith("Bearer ") ? authorization.slice(7) : "";
+      if (!matchesToken(token, env.DASHBOARD_ACCESS_TOKEN)) return json({ error: "Unauthorized" }, 401, origin);
+      if (!env.PRIVATE_DATA_GITHUB_TOKEN) return json({ error: "Private snapshot access is not configured" }, 503, origin);
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/mrfaberzen-crypto/swgoh-private-data/contents/data/gac-summary.json?ref=main", {
+            headers: {
+              "Authorization": "Bearer " + env.PRIVATE_DATA_GITHUB_TOKEN,
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "User-Agent": "swgoh-command-centre"
+            },
+            redirect: "manual", cache: "no-store"
+          }
+        );
+        if (!response.ok) return json({ error: "Private GAC summary unavailable", githubStatus: response.status }, 502, origin);
+        const file = await response.json();
+        if (file.encoding !== "base64" || typeof file.content !== "string") {
+          return json({ error: "Private GAC summary has an unexpected encoding" }, 502, origin);
+        }
+        const raw = atob(file.content.replace(/\s/g, ""));
+        const bytes = Uint8Array.from(raw, character => character.charCodeAt(0));
+        const summary = JSON.parse(new TextDecoder().decode(bytes));
+        if (summary.kind !== "gac" || summary.allyCode !== ALLY_CODE) {
+          return json({ error: "Private GAC summary was not valid" }, 502, origin);
+        }
+        return json(summary, 200, origin);
+      } catch (error) {
+        console.error("GAC summary retrieval failed", error?.name || "Error");
+        return json({ error: "Could not load private GAC summary" }, 502, origin);
       }
     }
 
