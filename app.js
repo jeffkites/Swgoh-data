@@ -528,6 +528,7 @@ async function loadPrivateData(resource, button) {
     const loadedAt = new Date();
     const copyText = resource === 'tw' ? formatTwSnapshot(data, loadedAt, await catalog) : '';
     output.textContent = JSON.stringify(data, null, 2);
+    if (resource === 'gac' && window.GacScout?.renderLive) window.GacScout.renderLive(data);
     showTwCopy(copyText);
     status.textContent = resource.toUpperCase() + ' data loaded at ' + loadedAt.toLocaleTimeString() +
       (response.headers.get('X-Snapshot-Saved') === 'true'
