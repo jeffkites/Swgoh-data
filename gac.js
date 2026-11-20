@@ -90,8 +90,10 @@
     if (opponent.name !== currentOpponentName) {
       currentOpponentName = opponent.name || '';
       const storedCode = currentOpponentName && localStorage.getItem(savedCodeKey(currentOpponentName));
-      // Avoid keeping the previous opponent's code when the matchup changes.
-      $('gac-opp-code').value = storedCode || (currentOpponentName === 'Arcane SubZer0' ? '681756884' : '');
+      const fromGame = normalizeCode(opponent.allyCode);
+      // Prefer an ally code supplied by the live game; avoid using the previous opponent's code.
+      $('gac-opp-code').value = codeIsValid(fromGame) ? fromGame :
+        (storedCode || (currentOpponentName === 'Arcane SubZer0' ? '681756884' : ''));
       setLinks();
       loadNotes();
     }
@@ -121,7 +123,7 @@
     return {
       sourceFetchedAt: new Date().toISOString(), phase: match.matchState,
       round: match.currentRound, matchEndsAt: Number(root.currentMatchEndTime),
-      opponent: { name: match.opponent?.name, guild: match.opponent?.guildName },
+      opponent: { name: match.opponent?.name, guild: match.opponent?.guildName, allyCode: match.opponent?.allyCode },
       home: {zones: teams(match.homeStatus)}, away: {zones: teams(match.awayStatus)}
     };
   }
