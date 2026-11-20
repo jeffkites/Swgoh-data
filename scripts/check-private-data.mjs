@@ -75,6 +75,29 @@ try {
   assert.equal((await worker.fetch(blocked,env)).status,403);
   assert.equal(calls.length,0);
 
+  // The fast GAC dashboard route reads the compact private GitHub file,
+  // and must never return it without the dashboard access token.
+  const summary = {kind:'gac', allyCode:'843153117', round:3, phase:2, away:{zones:[]}};
+  const summaryRequest = token => new Request(
+    'https://swgoh-data.mrfaberzen.workers.dev/api/private/gac-summary', {
+      method:'GET', headers:{Origin:origin, Authorization:'Bearer ' + token}
+    }
+  );
+  queue([{body:{encoding:'base64',content:Buffer.from(JSON.stringify(summary)).toString('base64')}}]);
+  const latestGac = await worker.fetch(summaryRequest('test-dashboard'), env);
+  assert.equal(latestGac.status, 200);
+  assert.deepEqual(await latestGac.json(), summary);
+  assert.equal(latestGac.headers.get('Cache-Control'),'no-store, private');
+  assert.equal(calls.length,1);
+  assert.ok(calls[0].url.includes('/swgoh-private-data/contents/data/gac-summary.json'));
+  queue([]);
+  assert.equal((await worker.fetch(summaryRequest('wrong'),env)).status,401);
+  assert.equal(calls.length,0);
+  assert.equal((await worker.fetch(new Request(summaryRequest('test-dashboard'),{
+    method:'OPTIONS',headers:{Origin:origin,'Access-Control-Request-Headers':'Authorization'}
+  }),env)).status,204);
+  assert.equal(calls.length,0);
+
   // Exercise the actual page handler against both persistence outcomes.
   const app = readFileSync('app.js','utf8');
   const handler = app.slice(app.indexOf('async function readTwUnitCatalog('),app.indexOf("document.querySelectorAll('[data-private]')"));
