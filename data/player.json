@@ -33969,7 +33969,7 @@
       "unitStat": null,
       "currentTier": 13,
       "relic": {
-        "currentTier": 7
+        "currentTier": 8
       }
     },
     {
@@ -37040,7 +37040,7 @@
       "skill": [
         {
           "id": "uniqueskill_FULCRUMAHSOKA01",
-          "tier": 6
+          "tier": 7
         },
         {
           "id": "specialskill_FULCRUMAHSOKA01",
@@ -37361,31 +37361,33 @@
             {
               "roll": [
                 "0.18380",
-                "0.10039"
+                "0.10039",
+                "0.11941"
               ],
               "unscaledRollValue": [
                 "4190640",
-                "2288892"
+                "2288892",
+                "2722548"
               ],
               "stat": {
                 "unitStatId": 41,
-                "statValueDecimal": "650000",
-                "unscaledDecimalValue": "6500000000",
+                "statValueDecimal": "930000",
+                "unscaledDecimalValue": "9300000000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 2,
+              "statRolls": 3,
               "statRollerBoundsMin": "2280000",
               "statRollerBoundsMax": "4560000"
             }
           ],
           "id": "X1VahyoHQjy8qA2vruOWcA",
           "definitionId": "153",
-          "level": 9,
+          "level": 15,
           "tier": 4,
           "sellValue": {
             "currency": 1,
-            "quantity": "14900",
+            "quantity": "97200",
             "bonusQuantity": 0
           },
           "removeCost": {
@@ -37399,8 +37401,8 @@
             "unscaledRollValue": [],
             "stat": {
               "unitStatId": 49,
-              "statValueDecimal": "725",
-              "unscaledDecimalValue": "7250000",
+              "statValueDecimal": "1175",
+              "unscaledDecimalValue": "11750000",
               "uiDisplayOverrideValue": "-1",
               "scalar": "0"
             },
@@ -37408,10 +37410,10 @@
             "statRollerBoundsMin": "0",
             "statRollerBoundsMax": "0"
           },
-          "xp": 74250,
+          "xp": 486000,
           "levelCost": {
             "currency": 1,
-            "quantity": "1150",
+            "quantity": "0",
             "bonusQuantity": 0
           },
           "bonusQuantity": 0,
@@ -37422,55 +37424,63 @@
           "secondaryStat": [
             {
               "roll": [
-                "0.18572"
+                "0.18572",
+                "0.18386"
               ],
               "unscaledRollValue": [
-                "2089"
+                "2089",
+                "2068"
               ],
               "stat": {
                 "unitStatId": 17,
-                "statValueDecimal": "208",
-                "unscaledDecimalValue": "2089000",
+                "statValueDecimal": "415",
+                "unscaledDecimalValue": "4158000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 1,
+              "statRolls": 2,
               "statRollerBoundsMin": "1125",
               "statRollerBoundsMax": "2250"
             },
             {
               "roll": [
-                "0.13658"
+                "0.13658",
+                "0.19065",
+                "0.14445"
               ],
               "unscaledRollValue": [
-                "409740"
+                "409740",
+                "571950",
+                "433350"
               ],
               "stat": {
                 "unitStatId": 5,
-                "statValueDecimal": "40000",
-                "unscaledDecimalValue": "400000000",
+                "statValueDecimal": "140000",
+                "unscaledDecimalValue": "1400000000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 1,
+              "statRolls": 3,
               "statRollerBoundsMin": "300000",
               "statRollerBoundsMax": "600000"
             },
             {
               "roll": [
-                "0.17911"
+                "0.17911",
+                "0.13430"
               ],
               "unscaledRollValue": [
-                "1007"
+                "1007",
+                "755"
               ],
               "stat": {
                 "unitStatId": 55,
-                "statValueDecimal": "100",
-                "unscaledDecimalValue": "1007000",
+                "statValueDecimal": "176",
+                "unscaledDecimalValue": "1763000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 1,
+              "statRolls": 2,
               "statRollerBoundsMin": "563",
               "statRollerBoundsMax": "1125"
             },
@@ -37496,7 +37506,7 @@
           "id": "4N97Z__QRzuzKfuG599vtA",
           "definitionId": "454",
           "level": 15,
-          "tier": 1,
+          "tier": 5,
           "sellValue": {
             "currency": 1,
             "quantity": "97200",
@@ -37536,19 +37546,23 @@
           "secondaryStat": [
             {
               "roll": [
-                "0.16889"
+                "0.16889",
+                "0.16751",
+                "0.11531"
               ],
               "unscaledRollValue": [
-                "475"
+                "475",
+                "471",
+                "324"
               ],
               "stat": {
                 "unitStatId": 48,
-                "statValueDecimal": "47",
-                "unscaledDecimalValue": "475000",
+                "statValueDecimal": "127",
+                "unscaledDecimalValue": "1270000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 1,
+              "statRolls": 3,
               "statRollerBoundsMin": "281",
               "statRollerBoundsMax": "563"
             },
@@ -37590,19 +37604,21 @@
             },
             {
               "roll": [
-                "0.15426"
+                "0.15426",
+                "0.16215"
               ],
               "unscaledRollValue": [
-                "1311"
+                "1311",
+                "1378"
               ],
               "stat": {
                 "unitStatId": 49,
-                "statValueDecimal": "131",
-                "unscaledDecimalValue": "1311000",
+                "statValueDecimal": "268",
+                "unscaledDecimalValue": "2689000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 1,
+              "statRolls": 2,
               "statRollerBoundsMin": "850",
               "statRollerBoundsMax": "1700"
             }
@@ -37610,7 +37626,7 @@
           "id": "QqbtTxRbQ0-8uHkL7v-N1w",
           "definitionId": "455",
           "level": 15,
-          "tier": 1,
+          "tier": 4,
           "sellValue": {
             "currency": 1,
             "quantity": "97200",
@@ -37650,37 +37666,43 @@
           "secondaryStat": [
             {
               "roll": [
-                "0.14998"
+                "0.14998",
+                "0.15377",
+                "0.10324"
               ],
               "unscaledRollValue": [
-                "1275"
+                "1275",
+                "1307",
+                "878"
               ],
               "stat": {
                 "unitStatId": 49,
-                "statValueDecimal": "127",
-                "unscaledDecimalValue": "1275000",
+                "statValueDecimal": "345",
+                "unscaledDecimalValue": "3459000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 1,
+              "statRolls": 3,
               "statRollerBoundsMin": "850",
               "statRollerBoundsMax": "1700"
             },
             {
               "roll": [
-                "0.12927"
+                "0.12927",
+                "0.15106"
               ],
               "unscaledRollValue": [
-                "1454"
+                "1454",
+                "1699"
               ],
               "stat": {
                 "unitStatId": 18,
-                "statValueDecimal": "145",
-                "unscaledDecimalValue": "1454000",
+                "statValueDecimal": "315",
+                "unscaledDecimalValue": "3154000",
                 "uiDisplayOverrideValue": "-1",
                 "scalar": "0"
               },
-              "statRolls": 1,
+              "statRolls": 2,
               "statRollerBoundsMin": "1125",
               "statRollerBoundsMax": "2250"
             },
@@ -37723,11 +37745,11 @@
           ],
           "id": "OeH31JTsQLGfadm6VYyMpQ",
           "definitionId": "156",
-          "level": 12,
-          "tier": 1,
+          "level": 15,
+          "tier": 4,
           "sellValue": {
             "currency": 1,
-            "quantity": "33800",
+            "quantity": "97200",
             "bonusQuantity": 0
           },
           "removeCost": {
@@ -37741,8 +37763,8 @@
             "unscaledRollValue": [],
             "stat": {
               "unitStatId": 48,
-              "statValueDecimal": "475",
-              "unscaledDecimalValue": "4750000",
+              "statValueDecimal": "588",
+              "unscaledDecimalValue": "5880000",
               "uiDisplayOverrideValue": "-1",
               "scalar": "0"
             },
@@ -37750,10 +37772,10 @@
             "statRollerBoundsMin": "0",
             "statRollerBoundsMax": "0"
           },
-          "xp": 168750,
+          "xp": 486000,
           "levelCost": {
             "currency": 1,
-            "quantity": "1150",
+            "quantity": "0",
             "bonusQuantity": 0
           },
           "bonusQuantity": 0,
@@ -53611,15 +53633,15 @@
       "skill": [
         {
           "id": "specialskill_JAXXON02",
-          "tier": 5
+          "tier": 6
         },
         {
           "id": "specialskill_JAXXON01",
-          "tier": 5
+          "tier": 6
         },
         {
           "id": "basicskill_JAXXON",
-          "tier": 5
+          "tier": 6
         },
         {
           "id": "uniqueskill_JAXXON01",
@@ -78408,24 +78430,20 @@
         {
           "id": "specialskill_EDRIOTWOTUBES02",
           "tier": 0
+        },
+        {
+          "id": "uniqueskill_EDRIOTWOTUBES01",
+          "tier": 0
         }
       ],
       "equipment": [
         {
-          "equipmentId": "032",
+          "equipmentId": "030",
           "slot": 0
         },
         {
-          "equipmentId": "021",
+          "equipmentId": "047",
           "slot": 1
-        },
-        {
-          "equipmentId": "025",
-          "slot": 2
-        },
-        {
-          "equipmentId": "028",
-          "slot": 3
         }
       ],
       "equippedStatModOld": [],
@@ -78434,11 +78452,11 @@
       "id": "OxIiiAo6QJSH8kjwS710-A",
       "definitionId": "EDRIOTWOTUBES:FOUR_STAR",
       "currentRarity": 4,
-      "currentLevel": 10,
-      "currentXp": 655,
+      "currentLevel": 11,
+      "currentXp": 835,
       "promotionRecipeReference": "",
       "unitStat": null,
-      "currentTier": 2,
+      "currentTier": 3,
       "relic": {
         "currentTier": 1
       }
@@ -78459,7 +78477,7 @@
         },
         {
           "id": "basicskill_REMNANTSNOWCOMMANDER",
-          "tier": 5
+          "tier": 6
         },
         {
           "id": "uniqueskill_REMNANTSNOWCOMMANDER01",
@@ -87489,7 +87507,7 @@
       "skill": [
         {
           "id": "specialskill_ADELPHIRANGER02",
-          "tier": 5
+          "tier": 6
         },
         {
           "id": "specialskill_ADELPHIRANGER01",
@@ -87497,7 +87515,7 @@
         },
         {
           "id": "basicskill_ADELPHIRANGER",
-          "tier": 5
+          "tier": 6
         },
         {
           "id": "uniqueskill_ADELPHIRANGER01",
@@ -87524,7 +87542,7 @@
       "skill": [
         {
           "id": "basicskill_STORMTROOPERCONCEPT",
-          "tier": 5
+          "tier": 6
         },
         {
           "id": "uniqueskill_STORMTROOPERCONCEPT01",
@@ -87532,7 +87550,7 @@
         },
         {
           "id": "specialskill_STORMTROOPERCONCEPT01",
-          "tier": 5
+          "tier": 6
         }
       ],
       "equipment": [
@@ -119745,111 +119763,15 @@
   ],
   "profileStat": [
     {
-      "nameKey": "STAT_ERA_ARENA_BATTLES_WIN_NAME",
+      "nameKey": "STAT_SEASON_BEST_RANK_NAME",
       "versionKey": "NULL",
-      "value": "4",
-      "index": 4
-    },
-    {
-      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "2287347",
-      "index": 3
-    },
-    {
-      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
-      "versionKey": "NULL",
-      "value": "12534",
-      "index": 7
-    },
-    {
-      "nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "3359080",
-      "index": 2
-    },
-    {
-      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "1424",
-      "index": 9
-    },
-    {
-      "nameKey": "STAT_PVP_SHIP_BATTLES_WIN_NAME",
-      "versionKey": "NULL",
-      "value": "65",
-      "index": 5
-    },
-    {
-      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
-      "versionKey": "NULL",
-      "value": "82",
-      "index": 19
-    },
-    {
-      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
-      "versionKey": "NULL",
-      "value": "0",
-      "index": 20
-    },
-    {
-      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
-      "versionKey": "NULL",
-      "value": "18300",
-      "index": 16
-    },
-    {
-      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "5646427",
-      "index": 1
-    },
-    {
-      "nameKey": "STAT_SEASON_FULL_CLEAR_ROUND_WINS_NAME",
-      "versionKey": "NULL",
-      "value": "11",
-      "index": 17
-    },
-    {
-      "nameKey": "STAT_GUILD_RAID_WON_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "12",
-      "index": 10
-    },
-    {
-      "nameKey": "STAT_TOTAL_GUILD_EXCHANGE_DONATIONS_TU07_2",
-      "versionKey": "NULL",
-      "value": "9",
-      "index": 12
-    },
-    {
-      "nameKey": "STAT_PVE_HARD_BATTLES_WIN_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "6611",
-      "index": 8
-    },
-    {
-      "nameKey": "STAT_SEASON_UNDERSIZED_SQUAD_WINS_NAME",
-      "versionKey": "NULL",
-      "value": "2",
-      "index": 18
-    },
-    {
-      "nameKey": "STAT_SEASON_PROMOTIONS_EARNED_NAME",
-      "versionKey": "NULL",
-      "value": "0",
-      "index": 13
-    },
-    {
-      "nameKey": "STAT_PVP_BATTLES_WIN_LEGACY_NAME",
-      "versionKey": "NULL",
-      "value": "94",
-      "index": 106
+      "value": "22076131902883",
+      "index": 21
     },
     {
       "nameKey": "STAT_TOTAL_GUILD_CONTRIBUTION_NAME_TU07_2",
       "versionKey": "NULL",
-      "value": "40669",
+      "value": "40852",
       "index": 11
     },
     {
@@ -119859,16 +119781,112 @@
       "index": 15
     },
     {
+      "nameKey": "STAT_SEASON_FULL_CLEAR_ROUND_WINS_NAME",
+      "versionKey": "NULL",
+      "value": "12",
+      "index": 17
+    },
+    {
+      "nameKey": "STAT_ERA_ARENA_BATTLES_WIN_NAME",
+      "versionKey": "NULL",
+      "value": "4",
+      "index": 4
+    },
+    {
+      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "5650150",
+      "index": 1
+    },
+    {
+      "nameKey": "STAT_GUILD_RAID_WON_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "12",
+      "index": 10
+    },
+    {
+      "nameKey": "STAT_PVP_SHIP_BATTLES_WIN_NAME",
+      "versionKey": "NULL",
+      "value": "65",
+      "index": 5
+    },
+    {
       "nameKey": "STAT_SEASON_OFFENSIVE_BATTLES_WON_NAME",
       "versionKey": "NULL",
-      "value": "82",
+      "value": "86",
       "index": 14
     },
     {
-      "nameKey": "STAT_SEASON_BEST_RANK_NAME",
+      "nameKey": "STAT_SEASON_UNDERSIZED_SQUAD_WINS_NAME",
       "versionKey": "NULL",
-      "value": "22076131902883",
-      "index": 21
+      "value": "3",
+      "index": 18
+    },
+    {
+      "nameKey": "STAT_PVE_HARD_BATTLES_WIN_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "6643",
+      "index": 8
+    },
+    {
+      "nameKey": "STAT_PVP_BATTLES_WIN_LEGACY_NAME",
+      "versionKey": "NULL",
+      "value": "94",
+      "index": 106
+    },
+    {
+      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
+      "versionKey": "NULL",
+      "value": "0",
+      "index": 20
+    },
+    {
+      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
+      "versionKey": "NULL",
+      "value": "12593",
+      "index": 7
+    },
+    {
+      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "1436",
+      "index": 9
+    },
+    {
+      "nameKey": "STAT_SEASON_PROMOTIONS_EARNED_NAME",
+      "versionKey": "NULL",
+      "value": "0",
+      "index": 13
+    },
+    {
+      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
+      "versionKey": "NULL",
+      "value": "19144",
+      "index": 16
+    },
+    {
+      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
+      "versionKey": "NULL",
+      "value": "86",
+      "index": 19
+    },
+    {
+      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "2287401",
+      "index": 3
+    },
+    {
+      "nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "3362749",
+      "index": 2
+    },
+    {
+      "nameKey": "STAT_TOTAL_GUILD_EXCHANGE_DONATIONS_TU07_2",
+      "versionKey": "NULL",
+      "value": "9",
+      "index": 12
     }
   ],
   "pvpProfile": [
@@ -120038,7 +120056,7 @@
     },
     {
       "tab": 2,
-      "rank": 27,
+      "rank": 35,
       "squad": {
         "cell": [
           {
@@ -120174,7 +120192,7 @@
     },
     {
       "tab": 4,
-      "rank": 103,
+      "rank": 237,
       "squad": {
         "cell": [
           {
@@ -120520,12 +120538,12 @@
       "league": "CARBONITE",
       "wins": 0,
       "losses": 0,
-      "seasonPoints": 2935,
+      "seasonPoints": 3779,
       "division": 25,
       "joinTime": "1793756547000",
       "endTime": "1796076000000",
       "remove": false,
-      "rank": 9700
+      "rank": 6290
     }
   ],
   "datacron": [
@@ -120712,8 +120730,237 @@
   ],
   "eraUnitStatus": [
     {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 5
+        },
+        {
+          "id": "crit_damage_percent_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
       "unitBaseId": "EDRIOTWOTUBES",
-      "eraLevel": 14
+      "eraLevel": 18,
+      "appliedOverchargePoints": 0
+    }
+  ],
+  "loanedEraUnitStatus": [
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 0
+        },
+        {
+          "id": "tenacity_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 5
+        },
+        {
+          "id": "crit_damage_negate_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "K2SO",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "tenacity_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "crit_damage_negate_percent_speed_stat_group_01",
+          "level": 3
+        }
+      ],
+      "unitBaseId": "BAZEMALBUS",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "crit_damage_percent_speed_stat_group_01",
+          "level": 3
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "ASAJJDARKDISCIPLE",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "tenacity_speed_stat_group_01",
+          "level": 0
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 11
+        },
+        {
+          "id": "potency_speed_stat_group_01",
+          "level": 0
+        }
+      ],
+      "unitBaseId": "SAWGERRERA",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 0
+        },
+        {
+          "id": "crit_damage_percent_speed_stat_group_01",
+          "level": 0
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 11
+        }
+      ],
+      "unitBaseId": "CHIRRUTIMWE",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 7
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "THIRDSISTER",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 5
+        },
+        {
+          "id": "crit_damage_percent_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "FULCRUMAHSOKA",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "crit_damage_percent_speed_stat_group_01",
+          "level": 3
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "SHINHATI",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 11
+        }
+      ],
+      "unitBaseId": "ADMIRALRADDUS",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 0
+        },
+        {
+          "id": "tenacity_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 5
+        },
+        {
+          "id": "crit_damage_negate_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "MONMOTHMA",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "tenacity_speed_stat_group_01",
+          "level": 3
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "crit_damage_negate_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "BAYLANSKOLL",
+      "appliedOverchargePoints": 0
+    },
+    {
+      "statGroupStatus": [
+        {
+          "id": "offense_percent_speed_stat_group_01",
+          "level": 4
+        },
+        {
+          "id": "crit_damage_percent_speed_stat_group_01",
+          "level": 5
+        },
+        {
+          "id": "max_health_percent_speed_stat_group_01",
+          "level": 4
+        }
+      ],
+      "unitBaseId": "PAO",
+      "appliedOverchargePoints": 0
     }
   ],
   "name": "Faberzen",
@@ -120730,14 +120977,14 @@
   },
   "guildTypeId": "NORMAL",
   "localTimeZoneOffsetMinutes": 600,
-  "lastActivityTime": "1795143313000",
+  "lastActivityTime": "1795214465000",
   "selectedPlayerPortrait": {
     "id": "PLAYERPORTRAIT_CANTINAKEEPER"
   },
   "lifetimeSeasonScore": "0",
   "playerRating": {
     "playerSkillRating": {
-      "skillRating": 2082
+      "skillRating": 2117
     },
     "playerRankStatus": {
       "leagueId": "CARBONITE",
@@ -120745,5 +120992,645 @@
     }
   },
   "nucleusId": "1000703366225",
-  "loanedUnitEraLevel": 15
+  "loanedUnitEraLevel": 18,
+  "eraArenaProfile": {
+    "previousDayRank": 164,
+    "previousDaySquad": {
+      "cell": [
+        {
+          "crewBattleStat": [],
+          "unitId": "x_YxlrofR46sw07NceM6VQ",
+          "unitDefId": "SAWGERRERA:LOANED",
+          "cellIndex": 0,
+          "unitBattleStat": {
+            "equipment": [
+              {
+                "equipmentId": "021",
+                "slot": 0
+              },
+              {
+                "equipmentId": "025",
+                "slot": 1
+              },
+              {
+                "equipmentId": "025",
+                "slot": 2
+              },
+              {
+                "equipmentId": "012",
+                "slot": 3
+              }
+            ],
+            "skill": [
+              {
+                "id": "specialskill_SAWGERRERA01",
+                "tier": 0
+              },
+              {
+                "id": "basicskill_SAWGERRERA",
+                "tier": 0
+              }
+            ],
+            "statMod": [],
+            "purchasedAbilityId": [],
+            "overrideStatMultiplier": [],
+            "statGroupStatus": [
+              {
+                "id": "tenacity_speed_stat_group_01",
+                "level": 0
+              },
+              {
+                "id": "max_health_percent_speed_stat_group_01",
+                "level": 11
+              },
+              {
+                "id": "potency_speed_stat_group_01",
+                "level": 0
+              }
+            ],
+            "actionCountMin": 1,
+            "actionCountMax": 1,
+            "battleStat": {
+              "stat": [
+                {
+                  "unitStatId": 2,
+                  "statValueDecimal": "320000",
+                  "unscaledDecimalValue": "3200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 3,
+                  "statValueDecimal": "210000",
+                  "unscaledDecimalValue": "2100000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 4,
+                  "statValueDecimal": "160000",
+                  "unscaledDecimalValue": "1600000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 5,
+                  "statValueDecimal": "1040000",
+                  "unscaledDecimalValue": "10400000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 1,
+                  "statValueDecimal": "2400000",
+                  "unscaledDecimalValue": "24000000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 6,
+                  "statValueDecimal": "100000",
+                  "unscaledDecimalValue": "1000000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 8,
+                  "statValueDecimal": "20000",
+                  "unscaledDecimalValue": "200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                }
+              ]
+            },
+            "level": 8,
+            "tier": 2,
+            "unitDefId": "SAWGERRERA:LOANED",
+            "unitId": "x_YxlrofR46sw07NceM6VQ",
+            "unitRelicTier": 1,
+            "overrideAllStatsMultiplier": 0,
+            "skipStatsOverwrite": false,
+            "enableLeaderAbility": false,
+            "threatLevelOverride": 4,
+            "overrideAllStatsTable": "",
+            "eraLevel": 12
+          },
+          "messageReticle": "",
+          "progressItem": true,
+          "squadUnitType": 2,
+          "unitState": null,
+          "selectable": true,
+          "overkillItem": false,
+          "inheritFromDefinitionId": "",
+          "forcedUnitEraLevel": 0
+        },
+        {
+          "crewBattleStat": [],
+          "unitId": "1BRT8TtzQsOOiT4N4nLumQ",
+          "unitDefId": "JYNERSO:LOANED",
+          "cellIndex": 1,
+          "unitBattleStat": {
+            "equipment": [
+              {
+                "equipmentId": "015",
+                "slot": 0
+              },
+              {
+                "equipmentId": "015",
+                "slot": 1
+              },
+              {
+                "equipmentId": "017",
+                "slot": 2
+              },
+              {
+                "equipmentId": "012",
+                "slot": 3
+              }
+            ],
+            "skill": [
+              {
+                "id": "specialskill_JYNERSO02",
+                "tier": 0
+              },
+              {
+                "id": "specialskill_JYNERSO01",
+                "tier": 0
+              },
+              {
+                "id": "basicskill_JYNERSO",
+                "tier": 0
+              }
+            ],
+            "statMod": [],
+            "purchasedAbilityId": [],
+            "overrideStatMultiplier": [],
+            "statGroupStatus": [],
+            "actionCountMin": 1,
+            "actionCountMax": 1,
+            "battleStat": {
+              "stat": [
+                {
+                  "unitStatId": 2,
+                  "statValueDecimal": "230000",
+                  "unscaledDecimalValue": "2300000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 3,
+                  "statValueDecimal": "300000",
+                  "unscaledDecimalValue": "3000000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 4,
+                  "statValueDecimal": "190000",
+                  "unscaledDecimalValue": "1900000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 5,
+                  "statValueDecimal": "1040000",
+                  "unscaledDecimalValue": "10400000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 1,
+                  "statValueDecimal": "1720000",
+                  "unscaledDecimalValue": "17200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 6,
+                  "statValueDecimal": "220000",
+                  "unscaledDecimalValue": "2200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                }
+              ]
+            },
+            "level": 8,
+            "tier": 2,
+            "unitDefId": "JYNERSO:LOANED",
+            "unitId": "1BRT8TtzQsOOiT4N4nLumQ",
+            "unitRelicTier": 1,
+            "overrideAllStatsMultiplier": 0,
+            "skipStatsOverwrite": false,
+            "enableLeaderAbility": false,
+            "threatLevelOverride": 4,
+            "overrideAllStatsTable": "",
+            "eraLevel": 12
+          },
+          "messageReticle": "",
+          "progressItem": true,
+          "squadUnitType": 1,
+          "unitState": null,
+          "selectable": true,
+          "overkillItem": false,
+          "inheritFromDefinitionId": "",
+          "forcedUnitEraLevel": 0
+        },
+        {
+          "crewBattleStat": [],
+          "unitId": "gDscUbdjT8W_HmEXnPcABg",
+          "unitDefId": "CHIRRUTIMWE:LOANED",
+          "cellIndex": 2,
+          "unitBattleStat": {
+            "equipment": [
+              {
+                "equipmentId": "034",
+                "slot": 0
+              },
+              {
+                "equipmentId": "025",
+                "slot": 1
+              },
+              {
+                "equipmentId": "017",
+                "slot": 2
+              },
+              {
+                "equipmentId": "029",
+                "slot": 3
+              }
+            ],
+            "skill": [
+              {
+                "id": "specialskill_CHIRRUTIMWE01",
+                "tier": 0
+              },
+              {
+                "id": "basicskill_CHIRRUTIMWE",
+                "tier": 0
+              },
+              {
+                "id": "specialskill_CHIRRUTIMWE02",
+                "tier": 0
+              }
+            ],
+            "statMod": [],
+            "purchasedAbilityId": [],
+            "overrideStatMultiplier": [],
+            "statGroupStatus": [
+              {
+                "id": "offense_percent_speed_stat_group_01",
+                "level": 0
+              },
+              {
+                "id": "crit_damage_percent_speed_stat_group_01",
+                "level": 0
+              },
+              {
+                "id": "max_health_percent_speed_stat_group_01",
+                "level": 11
+              }
+            ],
+            "actionCountMin": 1,
+            "actionCountMax": 1,
+            "battleStat": {
+              "stat": [
+                {
+                  "unitStatId": 2,
+                  "statValueDecimal": "240000",
+                  "unscaledDecimalValue": "2400000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 3,
+                  "statValueDecimal": "280000",
+                  "unscaledDecimalValue": "2800000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 4,
+                  "statValueDecimal": "180000",
+                  "unscaledDecimalValue": "1800000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 5,
+                  "statValueDecimal": "1070000",
+                  "unscaledDecimalValue": "10700000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 1,
+                  "statValueDecimal": "1660000",
+                  "unscaledDecimalValue": "16600000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 6,
+                  "statValueDecimal": "210000",
+                  "unscaledDecimalValue": "2100000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 17,
+                  "statValueDecimal": "100",
+                  "unscaledDecimalValue": "1000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                }
+              ]
+            },
+            "level": 8,
+            "tier": 2,
+            "unitDefId": "CHIRRUTIMWE:LOANED",
+            "unitId": "gDscUbdjT8W_HmEXnPcABg",
+            "unitRelicTier": 1,
+            "overrideAllStatsMultiplier": 0,
+            "skipStatsOverwrite": false,
+            "enableLeaderAbility": false,
+            "threatLevelOverride": 4,
+            "overrideAllStatsTable": "",
+            "eraLevel": 12
+          },
+          "messageReticle": "",
+          "progressItem": true,
+          "squadUnitType": 1,
+          "unitState": null,
+          "selectable": true,
+          "overkillItem": false,
+          "inheritFromDefinitionId": "",
+          "forcedUnitEraLevel": 0
+        },
+        {
+          "crewBattleStat": [],
+          "unitId": "OxIiiAo6QJSH8kjwS710-A",
+          "unitDefId": "EDRIOTWOTUBES:FOUR_STAR",
+          "cellIndex": 3,
+          "unitBattleStat": {
+            "equipment": [
+              {
+                "equipmentId": "032",
+                "slot": 0
+              },
+              {
+                "equipmentId": "021",
+                "slot": 1
+              }
+            ],
+            "skill": [],
+            "statMod": [],
+            "purchasedAbilityId": [],
+            "overrideStatMultiplier": [],
+            "statGroupStatus": [
+              {
+                "id": "offense_percent_speed_stat_group_01",
+                "level": 0
+              },
+              {
+                "id": "crit_damage_percent_speed_stat_group_01",
+                "level": 0
+              },
+              {
+                "id": "max_health_percent_speed_stat_group_01",
+                "level": 11
+              }
+            ],
+            "actionCountMin": 1,
+            "actionCountMax": 1,
+            "battleStat": {
+              "stat": [
+                {
+                  "unitStatId": 2,
+                  "statValueDecimal": "210000",
+                  "unscaledDecimalValue": "2100000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 3,
+                  "statValueDecimal": "180000",
+                  "unscaledDecimalValue": "1800000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 4,
+                  "statValueDecimal": "340000",
+                  "unscaledDecimalValue": "3400000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 5,
+                  "statValueDecimal": "1070000",
+                  "unscaledDecimalValue": "10700000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 1,
+                  "statValueDecimal": "1550000",
+                  "unscaledDecimalValue": "15500000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 6,
+                  "statValueDecimal": "180000",
+                  "unscaledDecimalValue": "1800000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 28,
+                  "statValueDecimal": "0",
+                  "unscaledDecimalValue": "0",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                }
+              ]
+            },
+            "level": 7,
+            "tier": 2,
+            "unitDefId": "EDRIOTWOTUBES:FOUR_STAR",
+            "unitId": "OxIiiAo6QJSH8kjwS710-A",
+            "unitRelicTier": 1,
+            "overrideAllStatsMultiplier": 0,
+            "skipStatsOverwrite": false,
+            "enableLeaderAbility": false,
+            "threatLevelOverride": 4,
+            "overrideAllStatsTable": "",
+            "eraLevel": 9
+          },
+          "messageReticle": "",
+          "progressItem": true,
+          "squadUnitType": 1,
+          "unitState": null,
+          "selectable": true,
+          "overkillItem": false,
+          "inheritFromDefinitionId": "",
+          "forcedUnitEraLevel": 0
+        },
+        {
+          "crewBattleStat": [],
+          "unitId": "Ujln4QIaQdep2R01H9rIkQ",
+          "unitDefId": "BAZEMALBUS:LOANED",
+          "cellIndex": 4,
+          "unitBattleStat": {
+            "equipment": [
+              {
+                "equipmentId": "034",
+                "slot": 0
+              },
+              {
+                "equipmentId": "026",
+                "slot": 1
+              },
+              {
+                "equipmentId": "021",
+                "slot": 2
+              },
+              {
+                "equipmentId": "018",
+                "slot": 3
+              }
+            ],
+            "skill": [
+              {
+                "id": "basicskill_BAZEMALBUS",
+                "tier": 0
+              },
+              {
+                "id": "specialskill_BAZEMALBUS02",
+                "tier": 0
+              },
+              {
+                "id": "specialskill_BAZEMALBUS01",
+                "tier": 0
+              }
+            ],
+            "statMod": [],
+            "purchasedAbilityId": [],
+            "overrideStatMultiplier": [],
+            "statGroupStatus": [
+              {
+                "id": "tenacity_speed_stat_group_01",
+                "level": 4
+              },
+              {
+                "id": "max_health_percent_speed_stat_group_01",
+                "level": 4
+              },
+              {
+                "id": "crit_damage_negate_percent_speed_stat_group_01",
+                "level": 3
+              }
+            ],
+            "actionCountMin": 1,
+            "actionCountMax": 1,
+            "battleStat": {
+              "stat": [
+                {
+                  "unitStatId": 2,
+                  "statValueDecimal": "340000",
+                  "unscaledDecimalValue": "3400000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 3,
+                  "statValueDecimal": "210000",
+                  "unscaledDecimalValue": "2100000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 4,
+                  "statValueDecimal": "220000",
+                  "unscaledDecimalValue": "2200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 5,
+                  "statValueDecimal": "900000",
+                  "unscaledDecimalValue": "9000000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 1,
+                  "statValueDecimal": "2530000",
+                  "unscaledDecimalValue": "25300000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 6,
+                  "statValueDecimal": "160000",
+                  "unscaledDecimalValue": "1600000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 8,
+                  "statValueDecimal": "20000",
+                  "unscaledDecimalValue": "200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 9,
+                  "statValueDecimal": "20000",
+                  "unscaledDecimalValue": "200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 17,
+                  "statValueDecimal": "100",
+                  "unscaledDecimalValue": "1000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                }
+              ]
+            },
+            "level": 8,
+            "tier": 2,
+            "unitDefId": "BAZEMALBUS:LOANED",
+            "unitId": "Ujln4QIaQdep2R01H9rIkQ",
+            "unitRelicTier": 1,
+            "overrideAllStatsMultiplier": 0,
+            "skipStatsOverwrite": false,
+            "enableLeaderAbility": false,
+            "threatLevelOverride": 4,
+            "overrideAllStatsTable": "",
+            "eraLevel": 12
+          },
+          "messageReticle": "",
+          "progressItem": true,
+          "squadUnitType": 1,
+          "unitState": null,
+          "selectable": true,
+          "overkillItem": false,
+          "inheritFromDefinitionId": "",
+          "forcedUnitEraLevel": 0
+        }
+      ],
+      "targetingTactic": 1,
+      "squadType": 1,
+      "targetingSetId": "",
+      "expireTime": "0",
+      "lastSaveTime": "1795217676330",
+      "supportInheritFromDefinitionId": "",
+      "datacron": null
+    }
+  },
+  "overchargePoints": 130,
+  "eraStatusId": "ERA11_ROGUEONE"
 }

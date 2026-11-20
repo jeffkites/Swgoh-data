@@ -2,12 +2,12 @@
   "name": "Faberzen",
   "allyCode": "843153117",
   "guild": "The Secondhand Scoundrels",
-  "refreshedAt": "2026-11-20T02:56:32Z",
+  "refreshedAt": "2026-11-20T23:34:36Z",
   "source": "SWGoH Comlink",
   "arena": {
     "1": 281,
-    "2": 27,
-    "4": 103
+    "2": 35,
+    "4": 237
   },
   "units": [
     {
@@ -1095,7 +1095,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 6,
       "mods": 6,
       "modLevels": [
         15,
@@ -1212,10 +1212,10 @@
       "modLevels": [
         15,
         15,
-        9,
         15,
         15,
-        12
+        15,
+        15
       ]
     },
     {
@@ -2657,8 +2657,8 @@
       "name": "Edrio Two Tubes",
       "type": "Character",
       "stars": 4,
-      "level": 10,
-      "gear": 2,
+      "level": 11,
+      "gear": 3,
       "relic": null,
       "mods": 0,
       "modLevels": []
