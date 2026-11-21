@@ -2,7 +2,12 @@
 
 Map and wind histories for Lake Macquarie, Newcastle and Nelson Bay.
 
-Page: https://jeffkites.github.io/Swgoh-data/wind/
+Page: https://jeffkites.github.io/wind/
+
+The same export remains available at https://jeffkites.github.io/Swgoh-data/wind/.
+The shorter address is served by `jeffkites/jeffkites.github.io`, using the four
+static assets generated here. Keep both copies in sync when changing the map;
+live readings refresh directly from the same existing Cloudflare service.
 
 ## Hosting and live data
 

@@ -2,6 +2,12 @@
 
 A read-only roster dashboard for ally code **843153117**.
 
+## Hunter Wind
+
+Open [Hunter Wind](https://jeffkites.github.io/wind/) for live wind stations,
+charts and credited kiting spot guides. Its source and export instructions are
+in [wind/README.md](wind/README.md). The SWGOH dashboard keeps its existing URL.
+
 ## What works
 
 - Mobile-friendly tabs for Goals, 5v5 squads, 3v3 squads, GAC Scout, Roster and Private data.
