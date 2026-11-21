@@ -33,4 +33,7 @@ const broken=timedWindHistory([at(120,8),at(110,10),at(100,null),at(90,12),at(0,
 assert.deepEqual(windHistorySegments(broken,'speed').map(s=>s.length),[2,1,1],'Neither missing values nor long gaps may be joined');
 const sampled=sampleWindArrows(Array.from({length:1000},(_,i)=>({speed:i%35,stamp:i})),25);
 assert.equal(sampled.length,25);assert.equal(sampled[0].stamp,0);assert.equal(sampled.at(-1).stamp,999,'The last reading must always be represented');
+const partial=[{speed:null,gust:20},{speed:5,gust:null},{speed:0,gust:0}];
+assert.deepEqual(sampleWindArrows(partial,10,'gust').map(p=>p.gust),[20,0],'Gust-only readings and zero gusts must be retained');
+assert.deepEqual(sampleWindArrows(partial,10).map(p=>p.speed),[5,0],'Missing averages must not be invented from gusts');
 console.log('Passed: exact speed changeovers, unknown readings, average-wind trends, station cadences, stale/untimed suppression, history gaps and arrow sampling.');

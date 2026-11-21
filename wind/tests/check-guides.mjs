@@ -13,7 +13,7 @@ for(const guide of SPOT_GUIDES){
 assert.equal(SPOT_GUIDES.find(g=>g.id==='salts-bay').stationIds[0],'swansea');
 assert.equal(SPOT_GUIDES.filter(g=>g.id==='salts-bay').length,1);
 const html=await(await worker.fetch(new Request('https://example.test/?spot=salts-bay'))).text();
-assert.ok(html.includes('id="spot-dialog"'));assert.ok(html.includes('id="related-guides"'));assert.ok(html.includes('aria-labelledby="spot-title"'));
+assert.ok(html.includes('id="spot-dialog"'));assert.ok(html.includes('id="station-panel"'));assert.ok(!html.includes('id="history"'));assert.ok(html.includes('aria-labelledby="spot-title"'));
 const originals=SPOT_GUIDES.filter(g=>g.externalReview);
 assert.equal(originals.length,5);
 for(const guide of originals){

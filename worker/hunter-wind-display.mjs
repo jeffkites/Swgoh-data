@@ -47,8 +47,8 @@ export function windHistorySegments(points,key,maxGap=50*60000){
  if(segment.length)segments.push(segment);
  return segments;
 }
-export function sampleWindArrows(points,limit){
- const valid=points.filter(p=>Number.isFinite(p.speed));
+export function sampleWindArrows(points,limit,key='speed'){
+ const valid=points.filter(p=>Number.isFinite(p[key]));
  const count=Math.max(2,Math.floor(limit));
  if(valid.length<=count)return valid;
  return Array.from({length:count},(_,i)=>valid[Math.round(i*(valid.length-1)/(count-1))]);
@@ -56,7 +56,9 @@ export function sampleWindArrows(points,limit){
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const WIND_LEGEND_HTML='<div class="scale wind-scale" aria-label="Wind speed colours in knots">'+WIND_BANDS.map(b=>'<span title="'+escapeHtml(b.description)+'"><i style="background:'+b.color+'"></i>'+escapeHtml(b.label)+'</span>').join('')+'<span class="wind-scale-unit">kt</span></div>';
 export const WIND_DISPLAY_CSS=String.raw`
-.metric{border-top:3px solid var(--wind-color,var(--line))}.metric .small-arrow{color:var(--wind-color,var(--muted))}.wind-trend{display:inline-flex;align-items:baseline;gap:5px;color:var(--ink);font-size:12px;font-weight:600;line-height:1.5}.wind-trend small{color:var(--muted);font-weight:400;font-size:11px}.wind-trend.unknown{color:var(--muted);font-weight:400}.metric>.wind-trend{margin-top:7px}.station-meta>.wind-trend{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}.chart-stats>.wind-trend{align-self:center}.chart-key{display:flex;flex-direction:column;gap:7px;margin:12px 24px 0}.chart-caption{margin:0;font-size:12px;line-height:1.6;color:var(--muted)}.wind-scale{gap:12px;font-size:12px}.wind-scale i{width:10px;height:10px;border:1px solid #15353d25;flex-shrink:0}.wind-scale-unit{color:var(--muted)}.legend .average svg{width:17px;height:21px;color:#26cf42}.legend .gust i{height:2px;background:repeating-linear-gradient(to right,#849498 0 5px,transparent 5px 8px)}.chart svg:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:5px}.chart .wind-history-glyph{pointer-events:none}.chart .tooltip{font-size:12px;max-width:240px;white-space:normal}.chart-note{line-height:1.6}@media(max-width:760px){.chart-key{margin:12px 17px 0}.chart-caption,.wind-scale{font-size:11px}.chart{min-height:280px}.chart-stats>.wind-trend{flex-basis:100%}.wind-scale{gap:8px}.wind-trend{font-size:12px}}
+.metric{border-top:3px solid var(--wind-color,var(--line))}.metric .small-arrow{color:var(--wind-color,var(--muted))}.wind-trend{display:inline-flex;align-items:center;gap:4px;color:var(--ink);font-size:12px;font-weight:600;line-height:1.5}.wind-trend small{color:var(--muted);font-weight:400;font-size:11px}.wind-trend.unknown{color:var(--muted);font-weight:400}.metric>.wind-trend{margin-top:7px}.wind-scale{gap:12px;font-size:12px}.wind-scale i{width:10px;height:10px;border:1px solid #15353d25;flex-shrink:0}.wind-scale-unit{color:var(--muted)}
+#wind-map-card{display:flex;flex-direction:column}#wind-map-card .map-shell{display:flex;flex:1;min-height:454px}#wind-map-card #map{height:auto;min-height:454px;flex:1}.station-list{max-height:none;overflow:visible}.station-strip{padding:5px 12px;border-bottom:1px solid #edf1f0;position:relative}.station-strip:last-child{border-bottom:0}.station-strip.selected{background:#f1f8f5;box-shadow:inset 3px 0 var(--teal)}.station-strip-head{display:flex;align-items:center;gap:7px;min-width:0;min-height:24px}.station-select{border:0;padding:2px 0;background:none;text-align:left;color:var(--ink);font-size:13px;font-weight:600;min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:24px}.station-source{font-size:10px;color:var(--muted);padding:4px 2px;min-height:24px;text-decoration:none}.station-source:hover{text-decoration:underline}.station-strip-head .wind-trend,.strip-status{font-size:10px;white-space:nowrap}.station-strip-head .wind-trend svg{width:11px;height:11px}.strip-status{color:#8a621e}.station-strip-chart{height:40px;width:100%;position:relative}.station-strip-chart>svg{display:block;width:100%;height:40px;overflow:visible}.station-strip-chart>svg:focus-visible{outline:2px solid var(--teal);outline-offset:1px;border-radius:3px}.wind-history-glyph,.wind-gust-glyph{pointer-events:none}.strip-empty{height:40px;display:flex;align-items:center;margin:0;font-size:11px;color:var(--muted)}.station-strip-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}.station-series-key{display:flex;gap:10px;font-size:10px;color:var(--muted)}.station-series-key span{display:inline-flex;align-items:center;gap:3px}.station-series-key svg{width:11px;height:14px}.station-strip-toolbar .range button{padding:3px 7px;font-size:11px}.station-time-axis{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);padding:4px 20px 0 33px}.station-chart-help{font-size:10px;color:var(--muted);line-height:1.5;margin:6px 12px 10px}.station-tooltip{position:fixed;z-index:1200;max-width:240px;white-space:normal;line-height:1.5}
+@media(max-width:760px){#wind-map-card .map-shell{display:block;flex:initial;min-height:390px}#wind-map-card #map{height:390px;min-height:390px}.station-strip{padding:5px 15px}.station-strip-toolbar{padding:9px 15px}.station-select{font-size:14px}.station-source,.station-series-key,.station-chart-help,.station-time-axis{font-size:11px}.station-strip-head .wind-trend,.strip-status{font-size:11px}.wind-scale{gap:8px}}
 `;
 export const WIND_DISPLAY_SCRIPT=[
  'const WIND_BANDS='+JSON.stringify(WIND_BANDS)+';',
@@ -65,66 +67,49 @@ export const WIND_DISPLAY_SCRIPT=[
  windBand.toString(),timedWindHistory.toString(),windTrend.toString(),windHistorySegments.toString(),sampleWindArrows.toString()
 ].join('\n')+String.raw`
 function color(speed){return windBand(speed).color;}
-function trendBadge(d){
+function trendBadge(d,compact=false){
  const t=windTrend(d),change=t.state==='unknown'?'':(t.delta>0?'+':'')+value(t.delta)+' kt';
  const path=t.state==='rising'?'M5 19 19 5M6 5H19V18':t.state==='falling'?'M5 5 19 19M6 19H19V6':t.state==='steady'?'M4 12H20M14 6 20 12 14 18':'M5 12H19';
- return '<span class="wind-trend '+t.state+'" title="'+esc(t.reason)+'"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink:0;align-self:center"><path d="'+path+'" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>'+t.label+(change?' '+change:'')+'</span>'+(t.minutes?'<small>over '+t.minutes+' min</small>':'')+'</span>';
+ return '<span class="wind-trend '+t.state+'" title="'+esc(t.reason)+'"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink:0;align-self:center"><path d="'+path+'" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>'+(compact&&t.state==='unknown'?'No trend':t.label)+(!compact&&change?' '+change:'')+'</span>'+(!compact&&t.minutes?'<small>over '+t.minutes+' min</small>':'')+'</span>';
 }
-function renderChart(s,d){
- const now=Date.now(),start=now-hours*3600000,points=timedWindHistory(d.history,start,now);
- document.querySelectorAll('[data-hours]').forEach(b=>{const active=Number(b.dataset.hours)===hours;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
- const latest=d.latest||points.at(-1)||{},gusts=points.map(p=>p.gust).filter(Number.isFinite);
- $('chart-stats').innerHTML='<span>Latest<strong>'+value(latest.speed)+' kt</strong></span><span>From<strong>'+esc(latest.direction||'—')+'</strong></span><span>Peak gust<strong>'+value(gusts.length?Math.max(...gusts):null)+' kt</strong></span>'+trendBadge(d);
+function renderStationStrip(station,d,now=Date.now()){
+ const host=$('station-strip-'+station.id),start=now-hours*3600000,points=timedWindHistory(d.history,start,now);
  if(!points.some(p=>p.speed!==null||p.gust!==null)){
-  $('chart').innerHTML='<div style="padding:50px 15px;text-align:center;color:var(--muted)">No observations in this time window.<br><small>Last observation: '+esc(fullTime(latest.time))+'</small></div>';return;
+  host.innerHTML='<p class="strip-empty">'+(d.history?.length?'No readings in the last '+hours+'h':'Timed history unavailable')+'</p>';return;
  }
- const width=$('chart').getBoundingClientRect().width,w=Math.max(320,Math.round(width)||1100),h=300,left=39,right=20,top=26,bottom=47,plotW=w-left-right,plotH=h-top-bottom;
+ const w=Math.max(220,Math.round(host.getBoundingClientRect().width)||290),h=40,left=21,right=9,top=6,bottom=6,plotW=w-left-right,plotH=h-top-bottom;
  const vals=points.flatMap(p=>[p.speed,p.gust]).filter(Number.isFinite),max=Math.max(20,Math.ceil((Math.max(...vals,0)+2)/5)*5);
- const x=p=>left+(p.stamp-start)/(now-start)*plotW,y=v=>top+plotH-(v/max)*plotH;
- let svg='<svg viewBox="0 0 '+w+' '+h+'" role="img" tabindex="0" aria-describedby="chart-caption" aria-label="'+esc(s.name)+' wind speed, direction and gusts over the last '+hours+' hours. Use left and right arrow keys to inspect readings."><title>'+esc(s.name)+' wind history</title><desc>Coloured arrows sit at the measured average wind speed. Their direction shows where the wind is going. The dashed line shows gusts. Data gaps are left blank.</desc>';
- const tickStep=Math.max(5,Math.ceil(max/6/5)*5);
- for(let v=0;v<=max;v+=tickStep)svg+='<line x1="'+left+'" y1="'+y(v)+'" x2="'+(w-right)+'" y2="'+y(v)+'" stroke="#dde6e4" stroke-dasharray="2 4"/><text x="'+(left-8)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="11" fill="#60767b">'+v+'</text>';
- svg+='<text x="'+left+'" y="14" fill="#60767b" font-size="11">kt</text>';
- for(const segment of windHistorySegments(points,'gust'))svg+='<path class="wind-gust-line" d="'+segment.map((p,i)=>(i?'L':'M')+x(p).toFixed(1)+','+y(p.gust).toFixed(1)).join(' ')+'" fill="none" stroke="#849498" stroke-width="1.6" stroke-dasharray="5 4" stroke-linecap="round"/>';
- for(const segment of windHistorySegments(points,'speed')){
-  for(let i=1;i<segment.length;i++){
-   const a=segment[i-1],b=segment[i],c=windBand(b.speed);
-   svg+='<line class="wind-speed-line" x1="'+x(a).toFixed(1)+'" y1="'+y(a.speed).toFixed(1)+'" x2="'+x(b).toFixed(1)+'" y2="'+y(b.speed).toFixed(1)+'" stroke="'+c.color+'" stroke-width="2" stroke-opacity=".65"/>';
-  }
+ const x=p=>left+(p.stamp-start)/(now-start)*plotW,y=v=>top+plotH-v/max*plotH;
+ const chartLabel=station.name+', average wind and gust arrow history, last '+hours+' hours. Use left and right arrow keys to inspect readings.';
+ let svg='<svg viewBox="0 0 '+w+' '+h+'" height="40" role="img" tabindex="0" aria-describedby="station-chart-help" aria-label="'+esc(chartLabel)+'"><title>'+esc(station.name)+' · last '+hours+'h</title><desc>Coloured arrows show average wind, translucent grey arrows show gusts. Both use the recorded wind direction. Missing data is not joined.</desc>';
+ svg+='<line x1="'+left+'" y1="'+y(0)+'" x2="'+(w-right)+'" y2="'+y(0)+'" stroke="#e3eae8"/><text x="1" y="10" font-size="8" fill="#7b8c90">'+max+'</text><text x="1" y="37" font-size="8" fill="#7b8c90">0</text>';
+ for(const segment of windHistorySegments(points,'gust'))svg+='<path class="wind-gust-line" d="'+segment.map((p,i)=>(i?'L':'M')+x(p).toFixed(1)+','+y(p.gust).toFixed(1)).join(' ')+'" fill="none" stroke="#7c888e" stroke-width="1" stroke-opacity=".22"/>';
+ for(const segment of windHistorySegments(points,'speed'))for(let i=1;i<segment.length;i++){const a=segment[i-1],b=segment[i];svg+='<line class="wind-speed-line" x1="'+x(a).toFixed(1)+'" y1="'+y(a.speed).toFixed(1)+'" x2="'+x(b).toFixed(1)+'" y2="'+y(b.speed).toFixed(1)+'" stroke="'+color(b.speed)+'" stroke-width="1.2" stroke-opacity=".55"/>';}
+ const count=Math.max(10,Math.floor(plotW/12));
+ for(const key of ['gust','speed'])for(const point of sampleWindArrows(points,count,key)){
+  const speed=point[key],gust=key==='gust',band=windBand(speed),directional=speed>0&&Number.isFinite(point.degrees);
+  const cls=gust?'wind-gust-glyph':'wind-history-glyph wind-average-glyph',fill=gust?'#7c888e':band.color,stroke=gust?'#63747b':band.edge;
+  svg+='<g class="'+cls+'" data-series="'+(gust?'gust':'average')+'" data-speed="'+speed+'"'+(gust?' opacity=".35"':' data-band="'+band.id+'"')+' transform="translate('+x(point).toFixed(1)+' '+y(speed).toFixed(1)+')'+(directional?' rotate('+(point.degrees+180)+')':'')+'"><title>'+esc(time(point.time)+', '+(gust?'gust ':'average ')+value(speed)+' kt')+'</title>'+(directional?'<path d="'+WIND_ARROW_PATH+'" transform="scale(.48) translate(-12 -12)" fill="'+fill+'" stroke="'+stroke+'" stroke-width="1.5" stroke-linejoin="round"/>':'<circle r="2" fill="'+fill+'" stroke="'+stroke+'" stroke-width=".6"/>')+'</g>';
  }
- const ticks=w<600?3:6;
- for(let i=0;i<=ticks;i++){
-  const stamp=start+(now-start)*i/ticks;
-  svg+='<text x="'+(left+plotW*i/ticks)+'" y="'+(top+plotH+24)+'" text-anchor="'+(i===0?'start':i===ticks?'end':'middle')+'" font-size="11" fill="#60767b">'+esc(tf.format(new Date(stamp)))+'</text>';
- }
- const arrows=sampleWindArrows(points,Math.max(12,Math.floor(plotW/19)));
- for(const p of arrows){
-  const band=windBand(p.speed),directional=p.speed>0&&Number.isFinite(p.degrees);
-  const label=time(p.time)+': '+value(p.speed)+' kt'+(directional?', from '+(p.direction||p.degrees+'°'):p.speed===0?', calm':', direction unavailable');
-  svg+='<g class="wind-history-glyph" data-speed="'+p.speed+'" data-band="'+band.id+'" transform="translate('+x(p).toFixed(1)+' '+y(p.speed).toFixed(1)+')'+(directional?' rotate('+(p.degrees+180)+')':'')+'"><title>'+esc(label)+'</title>'+(directional?'<path d="'+WIND_ARROW_PATH+'" transform="translate(-12 -12)" fill="'+band.color+'" stroke="'+band.edge+'" stroke-width="1.15" stroke-linejoin="round"/>':'<circle r="4" fill="'+band.color+'" stroke="'+band.edge+'" stroke-width="1.2"/>')+'</g>';
- }
- svg+='</svg><div class="tooltip" id="chart-tooltip" role="tooltip"></div>';$('chart').innerHTML=svg;
- const svgEl=$('chart').querySelector('svg'),tip=$('chart-tooltip');let active=points.length-1;
+ host.innerHTML=svg+'</svg>';
+ const svgEl=host.querySelector('svg'),tip=$('station-tooltip');let active=points.length-1;
  const show=(point,pixel)=>{
-  const r=svgEl.getBoundingClientRect();
-  tip.innerHTML=esc(fullTime(point.time))+'<br>Average '+value(point.speed)+' kt · gust '+value(point.gust)+' kt<br>From '+esc(point.direction||(point.speed===0?'Calm':'unavailable'));
-  tip.style.display='block';tip.style.left=Math.max(4,Math.min(pixel+12,r.width-220))+'px';tip.style.top='12px';
+  const rect=svgEl.getBoundingClientRect(),viewportW=window.innerWidth||1100,viewportH=window.innerHeight||800;
+  tip.innerHTML='<strong>'+esc(station.name)+'</strong><br>'+esc(fullTime(point.time))+'<br>Average '+value(point.speed)+' kt · gust '+value(point.gust)+' kt<br>From '+esc(point.direction||(point.speed===0?'Calm':'unavailable'));
+  tip.style.display='block';tip.style.left=Math.max(8,Math.min(rect.left+pixel-100,viewportW-248))+'px';tip.style.top=Math.max(8,Math.min(rect.top-104,viewportH-120))+'px';
  };
  const inspect=event=>{
-  const r=svgEl.getBoundingClientRect(),cursor=(event.clientX-r.left)/r.width*w,stamp=start+(cursor-left)/plotW*(now-start);
-  active=points.reduce((best,p,i)=>Math.abs(p.stamp-stamp)<Math.abs(points[best].stamp-stamp)?i:best,0);
-  show(points[active],event.clientX-r.left);
+  const rect=svgEl.getBoundingClientRect(),pixel=event.clientX-rect.left,stamp=start+((pixel/rect.width*w)-left)/plotW*(now-start);
+  active=points.reduce((best,p,i)=>Math.abs(p.stamp-stamp)<Math.abs(points[best].stamp-stamp)?i:best,0);show(points[active],pixel);
  };
- svgEl.onpointermove=inspect;svgEl.onpointerdown=inspect;
- svgEl.onpointerleave=event=>{if(event.pointerType!=='touch')tip.style.display='none';};
- svgEl.onfocus=()=>show(points[active],x(points[active])/w*svgEl.getBoundingClientRect().width);
- svgEl.onblur=()=>tip.style.display='none';
+ svgEl.onpointermove=inspect;svgEl.onpointerdown=inspect;svgEl.onpointerleave=event=>{if(event.pointerType!=='touch')tip.style.display='none';};
+ svgEl.onfocus=()=>show(points[active],x(points[active])/w*svgEl.getBoundingClientRect().width);svgEl.onblur=()=>tip.style.display='none';
  svgEl.onkeydown=event=>{
   if(!['ArrowLeft','ArrowRight','Home','End','Escape'].includes(event.key))return;
   event.preventDefault();if(event.key==='Escape'){tip.style.display='none';return;}
   active=event.key==='Home'?0:event.key==='End'?points.length-1:Math.max(0,Math.min(points.length-1,active+(event.key==='ArrowLeft'?-1:1)));
-  show(points[active],x(points[active])/w*svgEl.getBoundingClientRect().width);
-  svgEl.setAttribute('aria-label',s.name+', '+fullTime(points[active].time)+', average '+value(points[active].speed)+' knots, gust '+value(points[active].gust)+' knots, from '+(points[active].direction||'unavailable')+'. Use left and right arrows to inspect readings.');
+  const point=points[active];show(point,x(point)/w*svgEl.getBoundingClientRect().width);
+  svgEl.setAttribute('aria-label',station.name+', '+fullTime(point.time)+', average '+value(point.speed)+' knots, gust '+value(point.gust)+' knots, from '+(point.direction||'unavailable')+'. Use left and right arrows to inspect readings.');
  };
 }
 `;

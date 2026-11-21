@@ -1,6 +1,6 @@
 # Hunter Wind
 
-Map and wind histories for Lake Macquarie, Newcastle and Nelson Bay.
+Map and compact station wind histories for Lake Macquarie, Newcastle and Nelson Bay.
 
 Page: https://jeffkites.github.io/wind/
 
@@ -57,15 +57,24 @@ average-wind speed scale: red below 12 knots, yellow from 12 to below 16, green
 from 16 to below 30, and brown from 30 knots upwards. Missing/invalid wind
 readings are grey. The map retains all seven gauges together.
 
+Each station row has a 40-pixel-high history plot, replacing the separate
+large history panel and repeated current-reading blocks in the station list.
+The default range is six hours, with shared 1h/3h/6h/24h controls for all gauges.
+Current readings remain on the full-coast map. Old #history bookmarks redirect
+to #stations.
+
 History plots place coloured direction arrows at the measured average speed,
 so their height shows whether wind is building or easing. Arrows point where
-the wind goes. Calm readings and missing direction use dots. Gusts have a
-separate dashed line; no waves or forecast data are inferred. Timed readings
+the wind goes. Calm readings and missing direction use dots. Gusts appear as translucent grey arrows behind the coloured averages. Both
+series use the published wind bearing because these feeds do not expose a
+separate gust direction. No waves or forecast data are inferred. Timed readings
 are sorted and deduplicated, and gaps longer than 50 minutes or missing
 measurements are not joined. Dense series are sampled for readable arrows,
 while the lines and hover/tap/keyboard inspection retain the actual readings.
-The chart fits phone widths; keyboard focus supports Left/Right, Home/End and
-Escape to inspect or dismiss readings.
+Each compact chart fits phone widths. Hover, tap or keyboard focus supports
+Left/Right, Home/End and Escape to inspect or dismiss exact readings. A station
+without timed history displays an unavailable message and retains its source
+link. Its history is never fabricated.
 
 Rising/Falling/Steady compares average wind with a reading about 20 minutes
 earlier, allowing a real 5–45 minute source cadence. Changes of at least one

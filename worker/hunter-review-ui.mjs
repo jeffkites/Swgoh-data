@@ -114,7 +114,7 @@ function applyPublishedReviews(reviews){
   if(!place){place={guideId:r.id};spotLocations.push(place);}
   Object.assign(place,{name:r.name,region:r.region,lat:r.lat,lon:r.lon});
  }
- renderSpotCards();renderSpotMap(false);renderRelatedGuides();
+ renderSpotCards();renderSpotMap(false);
 }
 async function loadPublishedReviews(){
  const request=++publishedLoad;
