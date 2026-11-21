@@ -63,7 +63,7 @@ readings are grey. The map retains all seven gauges together.
 Each station row has a 40-pixel-high history plot, replacing the separate
 large history panel and repeated current-reading blocks in the station list.
 The default range is six hours, with shared 1h/3h/6h/24h controls for all gauges.
-Current readings remain on the full-coast map. Old #history bookmarks redirect
+Current readings remain on the full-coast map; the four duplicate summary\ngauges above it have been removed. Old #history bookmarks redirect
 to #stations.
 
 History plots place coloured direction arrows at the measured average speed,
@@ -98,7 +98,7 @@ old. A wind direction arrow is separate from the recent speed trend.
 - LMYC / Marks Point Meteo: published current reading. Its measurement time
   is not supplied in this view, so it stays marked time unverified. A
   historical series is not invented.
-- Spot information: Jordan Jensen / Escape Eco Adventures, and Source quoted
+- Spot information: Jordan Jensen / Escape Eco Adventures, and Sourse quoted
   by JulesK on Seabreeze in August 2011. Original links and dates are retained.
 - Nelson Bay source reviews: Jordan Jensen, [Kitesurfing in Nelson Bay](https://www.escapeecoadventures.com.au/post/kitesurfing-in-nelson-bay),
   23 July 2021. Map links cover Jimmy's, Bennett's/Waynderrabah, Bagnall's,
@@ -111,7 +111,7 @@ if a later refresh fails. The map does not interpolate between gauges.
 
 ## Editing and approving site notes
 
-Open https://jeffkites.github.io/wind/#review-desk and unlock with the existing
+The owner editor is hidden on a normal page visit. Use Edit site reviews, an\nindividual site’s Edit & review this site button, or the direct link below to\nopen it. Hide editor restores the compact page while retaining unsaved form\ntext; Lock clears owner access and form contents. Public site reviews remain\navailable.\n\nOpen https://jeffkites.github.io/wind/#review-desk and unlock with the existing
 SWGOH dashboard owner key. No new credentials are created. The key is used only
 in the Authorization header and kept in memory until Lock or a page reload.
 Search accepts site aliases across all regions; Squids / Squid’s Ink also has a
@@ -139,7 +139,7 @@ not automatically approved as Jeff.
 
 Save private draft stores changes without changing the public map. Approve &
 publish explicitly copies the edited draft into the public projection. Your
-approved notes appear separately from Jordan Jensen’s guide and Source’s
+approved notes appear separately from Jordan Jensen’s guide and Sourse’s
 historical post. Removing published notes preserves the original source guide
 and private draft. New sites require a valid map position before publishing;
 use Pick position on site map or enter coordinates. Existing source notes and
