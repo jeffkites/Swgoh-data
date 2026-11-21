@@ -18,7 +18,8 @@ reviews now have separate maps with Lake Mac/Newcastle, Nelson Bay and Central
 Coast views. Selecting a region updates both maps, station lists and review
 cards; selecting a gauge switches to its region. Refresh preserves that view.
 
-The site map has 18 numbered review links: the original 13 credited guides and
+The site map has 19 numbered site links: the original 13 credited guides,
+a Mawsons Wall / Spoons nomination awaiting local review, and
 five links to Jordan Jensen's original Nelson Bay reviews. Nelson Bay directions
 and launch instructions are not copied or inferred. Each original review is
 linked from its credited panel.
@@ -26,7 +27,7 @@ linked from its credited panel.
 worker/hunter-map.mjs contains the regional grouping and approximate place
 references, distinct from weather-station coordinates. Positions were checked
 against OpenStreetMap via Nominatim on 21 November 2026. Each reference records
-its OSM feature URL. These identify review areas, not verified launch sites;
+its source feature URL. Spoon Rocks uses GeoNames (CC BY 4.0). These identify review areas, not verified launch sites;
 some use a nearby named access feature or a beach's southern boundary. Map data
 is credited to OpenStreetMap contributors (ODbL 1.0). Closely spaced pin labels
 are offset for readability. No geocoder is called by visitors or on refresh.
@@ -70,6 +71,40 @@ or format changes can prevent a gauge updating. Saved readings retain their
 measurement time and are labelled; an open page retains its previous reading
 if a later refresh fails. The map does not interpolate between gauges.
 
+## Editing and approving site notes
+
+Open https://jeffkites.github.io/wind/#review-desk and unlock with the existing
+SWGOH dashboard owner key. No new credentials are created. The key is used only
+in the Authorization header and kept in memory until Lock or a page reload.
+Search accepts site aliases across all regions; Squids / Squid’s Ink also has a
+shortcut. Site panels have an Edit & review this site button.
+
+The initial queue has 16 researched private drafts, including five Nelson Bay
+sites and mixed-sport candidates for local assessment. Sources and dates are
+retained. A windsurfing description does not establish a kite launch; Spoon
+Rocks has location evidence but no verified kite-specific review. Research is
+not automatically approved as Jeff.
+
+Save private draft stores changes without changing the public map. Approve &
+publish explicitly copies the edited draft into the public projection. Your
+approved notes appear separately from Jordan Jensen’s guide and Source’s
+historical post. Removing published notes preserves the original source guide
+and private draft. New sites require a valid map position before publishing;
+use Pick position on site map or enter coordinates. Existing source notes and
+source-author credits are retained separately from your edits.
+
+The Worker routes are /api/wind/reviews (public approved projection only) and
+/api/wind/reviews/manage (owner GET/POST with the same dashboard key and exact
+Pages origin). Both read/write only the dedicated private repository file
+jeffkites/swgoh-private-data/data/wind-reviews.json using the existing Worker
+PRIVATE_DATA_GITHUB_TOKEN. No game snapshot or caller-supplied storage path is
+accessible through these routes. Private drafts are never embedded in the
+static export or returned by the public endpoint. GitHub file SHA checks reject
+stale edits rather than overwriting another device’s work. On a conflict, copy
+your unsaved text before reloading the queue. Source outages leave saved forms
+and the original static guide set available. Public approved notes reload when
+the page opens, on manual refresh and with the normal five-minute checks.
+
 ## Source and maintenance
 
 Migrated from the Hunter Wind publication, version 5, source commit
@@ -85,6 +120,7 @@ node wind/tests/check-behaviour.mjs
 node wind/tests/check-guides.mjs
 node wind/tests/check-pages.mjs
 node wind/tests/check-maps.mjs
+node wind/tests/check-reviews.mjs
 node scripts/check-private-data.mjs
 ```
 

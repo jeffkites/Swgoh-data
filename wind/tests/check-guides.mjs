@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import worker,{SPOT_GUIDES,GUIDE_SOURCES,STATIONS} from '../../worker/hunter-wind.mjs';
-assert.equal(SPOT_GUIDES.length,18);
-assert.equal(new Set(SPOT_GUIDES.map(g=>g.id)).size,18,'Each spot must have one stable identity');
+assert.equal(SPOT_GUIDES.length,19);
+assert.equal(new Set(SPOT_GUIDES.map(g=>g.id)).size,19,'Each spot must have one stable identity');
 const source=GUIDE_SOURCES.find(s=>s.id==='source-2011');assert.equal(source.author,'Source');assert.equal(source.via,'Quoted by JulesK');assert.equal(source.date,'28 August 2011');
 assert.equal(GUIDE_SOURCES.find(s=>s.id==='eco-jordan').author,'Jordan Jensen');
 for(const guide of SPOT_GUIDES){
@@ -23,5 +23,5 @@ for(const guide of originals){
 }
 const nelson=GUIDE_SOURCES.find(s=>s.id==='eco-jordan-nelson');
 assert.equal(nelson.author,'Jordan Jensen');assert.ok(nelson.url.endsWith('/kitesurfing-in-nelson-bay'));
-const bootstrap=JSON.parse(html.match(/const BOOT = (.*);/)[1]);assert.equal(bootstrap.spotGuides.length,18);assert.equal(bootstrap.guideSources.length,3);
+const bootstrap=JSON.parse(html.match(/const BOOT = (.*);/)[1]);assert.equal(bootstrap.spotGuides.length,19);assert.equal(bootstrap.guideSources.length,4);
 console.log('Passed: author attribution, original-source chain, historical labels, no invented launch details, valid gauge links and guide-page structure.');

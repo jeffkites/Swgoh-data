@@ -110,6 +110,11 @@ export default {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin");
 
+    if (url.pathname === "/api/wind/reviews" || url.pathname === "/api/wind/reviews/manage") {
+      const { handleWindReviews } = await import("./wind-reviews.mjs");
+      return handleWindReviews(request, env, { allowedOrigin: ALLOWED_ORIGIN, matchesToken });
+    }
+
     // Hunter Wind is a public, read-only weather feed. It uses no dashboard
     // token, private repository credential or SWGOH refresh operation.
     if (url.pathname === "/api/wind") {

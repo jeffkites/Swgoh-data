@@ -14,6 +14,20 @@ export const NELSON_SOURCE = {
   url:'https://www.escapeecoadventures.com.au/post/kitesurfing-in-nelson-bay'
 };
 
+export const LOCAL_NOMINATION_SOURCE = {
+  id:'jeff-nomination',author:'Jeff',publisher:'Hunter Wind',title:'Local site nomination',
+  date:'21 November 2026',kind:'Location awaiting local review',
+  url:'https://jeffkites.github.io/wind/?spot=mawsons-wall-spoons'
+};
+export const LOCAL_NOMINATIONS = [{
+  id:'mawsons-wall-spoons',name:'Mawsons Wall / Spoons · Spoon Rocks',
+  aliases:['Mawson’s Wall','Mawsons breakwall','Spoons','Spoon Rocks','Spoon Bay'],
+  sourceId:LOCAL_NOMINATION_SOURCE.id,nomination:true,wind:null,water:null,level:null,
+  summary:'Jeff nominated this area south of Caves Beach. Wind directions, kite access and launch details are awaiting local review.',
+  access:null,hazards:[],stationIds:['swansea'],mapsQuery:'Spoon Rocks Caves Beach NSW',
+  references:[{title:'Caves Beach Ocean Swim · 2022 event',author:'Surf Life Saving NSW',date:'24 April 2022',kind:'Location reference, not a kite launch guide',url:'https://www.surflifesaving.com.au/event/caves-beach-ocean-swim/'}]
+}];
+
 // Link to the original reviews; do not invent or copy new launch instructions.
 export const NELSON_REVIEWS = [
   {id:'jimmys-beach',name:"Jimmy's Beach",mapsQuery:'Jimmys Beach Hawks Nest NSW'},
@@ -64,7 +78,7 @@ export const SPOT_LOCATIONS = [
   },
   {
     "guideId": "belmont-south-squids",
-    "name": "Belmont South · Squids",
+    "name": "Squids / Squid’s Ink · Belmont South",
     "region": "lake",
     "lat": -33.0494,
     "lon": 151.6491,
@@ -187,5 +201,11 @@ export const SPOT_LOCATIONS = [
     "lon": 152.1803,
     "sourceUrl": "https://www.openstreetmap.org/node/3020492143",
     "positionNote": "Approximate place reference; not a verified launch location"
+  },
+  {
+    "guideId":"mawsons-wall-spoons","name":"Mawsons Wall / Spoons · Spoon Rocks","region":"lake",
+    "lat":-33.1207,"lon":151.6540,
+    "sourceUrl":"https://www.geonames.org/2148784/spoon-rocks.html",
+    "positionNote":"Spoon Rocks feature reference from GeoNames, CC BY 4.0. Approximate area only; kite launch unverified."
   }
 ];

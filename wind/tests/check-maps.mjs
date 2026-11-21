@@ -8,15 +8,15 @@ assert.deepEqual(MAP_REGIONS.flatMap(r=>r.stationIds).sort(),STATIONS.map(s=>s.i
 assert.ok(!MAP_REGIONS[0].stationIds.includes('nelson'));
 assert.ok(!MAP_REGIONS[0].stationIds.includes('norah'));
 assert.ok(MAP_REGIONS[0].bounds[1][0]-MAP_REGIONS[0].bounds[0][0]<0.3,'The lake map must stay close in');
-assert.equal(SPOT_LOCATIONS.length,18);
+assert.equal(SPOT_LOCATIONS.length,19);
 for(const place of SPOT_LOCATIONS){
  assert.ok(SPOT_GUIDES.some(g=>g.id===place.guideId));
  assert.ok(MAP_REGIONS.some(r=>r.id===place.region));
  assert.ok(Number.isFinite(place.lat)&&place.lat<-32.5&&place.lat>-33.5);
  assert.ok(Number.isFinite(place.lon)&&place.lon>151.3&&place.lon<152.4);
- assert.match(place.sourceUrl,/^https:\/\/www\.openstreetmap\.org\/(way|node|relation)\//);
+ if(place.guideId==='mawsons-wall-spoons')assert.equal(place.sourceUrl,'https://www.geonames.org/2148784/spoon-rocks.html');else assert.match(place.sourceUrl,/^https:\/\/www\.openstreetmap\.org\/(way|node|relation)\//);
 }
-assert.equal(new Set(SPOT_LOCATIONS.map(p=>p.guideId)).size,18,'All reviews must be reachable from a map pin');
+assert.equal(new Set(SPOT_LOCATIONS.map(p=>p.guideId)).size,19,'All reviews must be reachable from a map pin');
 const salts=SPOT_LOCATIONS.find(p=>p.guideId==='salts-bay');
 assert.notEqual(salts.lat,STATIONS.find(s=>s.id==='swansea').lat,'A kiting area must not reuse the Marine Rescue gauge position');
 
@@ -24,14 +24,14 @@ const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const nodes=new Map(),maps=new Map(),createdMarkers=[];
 const node=id=>{
- if(!nodes.has(id))nodes.set(id,{id,innerHTML:'',textContent:'',value:'',style:{},dataset:{},isConnected:true,
+ if(!nodes.has(id))nodes.set(id,{id,innerHTML:'',textContent:'',_value:'',get value(){return this._value;},set value(v){this._value=String(v);},style:{},dataset:{},isConnected:true,
   classList:{add(){},remove(){},toggle(){}},addEventListener(){},querySelectorAll:()=>[],querySelector:()=>node(id+'-child'),
   setAttribute(name,value){this[name]=value;},focus(){this.focused=true;},scrollIntoView(){},
   showModal(){this.open=true;},close(){this.open=false;},getBoundingClientRect(){return {left:0,top:0,right:100,bottom:100};}});
  return nodes.get(id);
 };
 const L={
- map(id){const map={id,layers:new Set(),fits:[],fitBounds(bounds){this.fits.push(bounds);return this;},addLayer(layer){this.layers.add(layer);return this;},removeLayer(layer){this.layers.delete(layer);return this;},hasLayer(layer){return this.layers.has(layer);},panTo(position){this.pan=position;return this;}};maps.set(id,map);return map;},
+ map(id){const map={id,layers:new Set(),fits:[],events:{},on(name,fn){this.events[name]=fn;return this;},fitBounds(bounds){this.fits.push(bounds);return this;},addLayer(layer){this.layers.add(layer);return this;},removeLayer(layer){this.layers.delete(layer);return this;},hasLayer(layer){return this.layers.has(layer);},panTo(position){this.pan=position;return this;}};maps.set(id,map);return map;},
  tileLayer:()=>({addTo(){return this;}}),control:{zoom:()=>({addTo(){}})},divIcon:options=>({options}),
  latLngBounds:positions=>positions,
  layerGroup(){return {layers:[],addTo(map){map.addLayer(this);return this;},addLayer(layer){this.layers.push(layer);},clearLayers(){this.layers=[];}};},
@@ -47,11 +47,11 @@ const context=vm.createContext({console,Intl,Date,Set,Map,URLSearchParams,AbortS
 });
 const cut=script.lastIndexOf("$('refresh').onclick=refresh;");
 assert.ok(cut>0);
-vm.runInContext(script.slice(0,cut)+';globalThis.actions={setRegion,selectStation,render,renderSpotCards,initMap,refresh,state:()=>({region,selected,siteLayer,guideFilter}),filter:value=>{guideFilter=value;renderSpotCards();renderSpotMap(true);}};',context);
+vm.runInContext(script.slice(0,cut)+';globalThis.actions={setRegion,selectStation,render,renderSpotCards,initMap,refresh,setupReviewDesk,applyPublishedReviews,loadOwnerQueue,saveOwnerReview,state:()=>({region,selected,siteLayer,guideFilter}),reviews:()=>({ownerStore,ownerKey,ownerRevision,spotGuides,guideSources,spotLocations}),filter:value=>{guideFilter=value;renderSpotCards();renderSpotMap(true);}};',context);
 const app=context.actions;
 app.render();app.renderSpotCards();app.initMap();
 assert.equal(maps.size,2,'Wind and site maps must be separate');
-assert.equal(app.state().siteLayer.layers.length,12);
+assert.equal(app.state().siteLayer.layers.length,13);
 assert.equal(node('station-count').textContent,'4 stations');
 app.setRegion('nelson');
 assert.equal(app.state().selected,'nelson');
@@ -74,4 +74,32 @@ assert.equal(maps.get('map').fits.length,windFits,'Live refresh must not reset a
 app.setRegion('lake');app.filter('historical');
 assert.equal(app.state().siteLayer.layers.length,6);
 assert.ok(node('spot-grid').innerHTML.includes('Source · via JulesK'));
-console.log('Passed: regional coverage, all 18 review pins, separate maps, map-to-review attribution, gauge navigation, filtering and live refresh without map resets.');
+app.setupReviewDesk();app.setRegion('nelson');
+node('spot-search').value="Squid's Ink";node('spot-search').oninput();
+assert.equal(app.state().siteLayer.layers.length,1,'Global search must find Squids even with Nelson Bay selected');
+assert.ok(node('spot-grid').innerHTML.includes('belmont-south-squids'));
+app.state().siteLayer.layers[0].events.click();
+assert.equal(app.state().region,'lake');assert.ok(node('spot-content').innerHTML.includes('Jordan Jensen'));
+node('spot-edit-review').onclick();assert.equal(node('review-desk-details').open,true);assert.equal(node('review-key').focused,true);
+node('spot-search').value='Spoons';node('spot-search').oninput();
+app.state().siteLayer.layers[0].events.click();
+assert.ok(node('spot-content').innerHTML.includes('Awaiting local review'));assert.ok(node('spot-content').innerHTML.includes('Surf Life Saving NSW'));assert.ok(!node('spot-content').innerHTML.includes('Directions in'));
+node('spot-search-clear').onclick();
+const local={id:'belmont-south-squids',name:'Squids updated',aliases:['Cane Point'],region:'lake',lat:-33.0494,lon:151.6491,wind:'Checked locally',hazards:'<img src=x onerror=alert(1)>',notes:'Owner approved note',publishedAt:'2026-11-21T11:00:00Z',sources:[{title:'Squids',author:'WindHounds',url:'https://wind-hounds.com/sailing-spots/new-south-wales/squids/'}]};
+app.applyPublishedReviews([local]);
+assert.equal(app.reviews().spotGuides.find(g=>g.id===local.id).sourceId,'eco-jordan');
+app.state().siteLayer.layers.find(m=>m.options.title.startsWith('Squids updated')).events.click();
+assert.ok(node('spot-content').innerHTML.includes('Jeff’s reviewed site notes'));assert.ok(node('spot-content').innerHTML.includes('Jordan Jensen'));assert.ok(node('spot-content').innerHTML.includes('WindHounds'));assert.ok(node('spot-content').innerHTML.includes('&lt;img'));assert.ok(!node('spot-content').innerHTML.includes('<img src=x'));
+app.applyPublishedReviews([{...local,id:'new-local-area',name:'New checked site'}]);
+assert.equal(app.reviews().spotGuides.filter(g=>g.id==='new-local-area').length,1);
+app.applyPublishedReviews([]);assert.ok(!app.reviews().spotGuides.some(g=>g.id==='new-local-area'),'Unpublishing restores the source guide set');
+const queue={revision:'review-rev-1',version:1,records:[{id:local.id,draft:{...local,aliases:['Squids'],water:'',level:'',access:'',hazards:'',notes:'PRIVATE DRAFT'},published:null,researchNotes:'PRIVATE RESEARCH',sourceRefs:local.sources,savedAt:'2026-11-21T11:00:00Z'}]};
+const ownerCalls=[];context.fetch=async(url,options)=>{ownerCalls.push({url,options});return Response.json(url.endsWith('/manage')?queue:{reviews:[]});};
+node('review-key').value='owner-ui-test';node('review-unlock').onsubmit({preventDefault(){}});await new Promise(resolve=>setImmediate(resolve));
+assert.equal(node('review-workspace').hidden,false);assert.ok(node('review-research').innerHTML.includes('PRIVATE RESEARCH'));
+node('review-notes').value='My unsaved edit';await app.saveOwnerReview('save-draft');
+const sent=JSON.parse(ownerCalls.find(c=>c.options.method==='POST').options.body);assert.equal(sent.action,'save-draft');assert.equal(sent.review.notes,'My unsaved edit');assert.equal(sent.revision,'review-rev-1');assert.equal(ownerCalls.filter(c=>c.options.method==='POST').length,1);
+assert.equal(app.reviews().spotGuides.find(g=>g.id===local.id).ownerReview,undefined,'Draft saves cannot enter the public map');
+node('review-lock').onclick();assert.equal(app.reviews().ownerKey,'');assert.equal(app.reviews().ownerStore,null);assert.equal(node('review-workspace').hidden,true);assert.equal(node('review-research').innerHTML,'');assert.equal(node('review-notes').value,'');
+assert.ok(html.includes("const REVIEW_API='https://swgoh-data.mrfaberzen.workers.dev/api/wind/reviews'"));
+console.log('Passed: regional maps, 19 site pins, global alias search, Squids and Spoons panels, original author credits, safe approved-note merging, private draft editing, locking and live refresh without map resets.');

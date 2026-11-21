@@ -12,6 +12,7 @@ export async function buildWind() {
   const route="fetch('/api/wind',";
   if(html.split(route).length!==2)throw new Error('Expected exactly one wind refresh route');
   html=html.replace(route,"fetch('"+DATA_URL+"',")
+    .replace("const REVIEW_API='/api/wind/reviews';","const REVIEW_API='"+DATA_URL+"/reviews';")
     .replaceAll('href="/"','href="./"')
     .replaceAll('href="/leaflet.css"','href="./leaflet.css"')
     .replaceAll('src="/leaflet.js"','src="./leaflet.js"')

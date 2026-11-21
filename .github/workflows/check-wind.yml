@@ -1,0 +1,26 @@
+name: Check Hunter Wind
+on:
+  push:
+    branches: [main]
+    paths: ['wind/**', 'worker/hunter-*.mjs', 'worker/wind-reviews.mjs', 'worker/index.js', '.github/workflows/check-wind.yml']
+  pull_request:
+    paths: ['wind/**', 'worker/hunter-*.mjs', 'worker/wind-reviews.mjs', 'worker/index.js', '.github/workflows/check-wind.yml']
+permissions:
+  contents: read
+jobs:
+  wind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify maps, live refresh, review privacy and publication
+        run: |
+          node wind/build.mjs
+          node wind/tests/check-behaviour.mjs
+          node wind/tests/check-guides.mjs
+          node wind/tests/check-pages.mjs
+          node wind/tests/check-maps.mjs
+          node wind/tests/check-reviews.mjs
+          git diff --exit-code -- wind/index.html wind/leaflet.js wind/leaflet.css wind/favicon.svg
