@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import worker,{SPOT_GUIDES,GUIDE_SOURCES,STATIONS} from '../../worker/hunter-wind.mjs';
+assert.equal(SPOT_GUIDES.length,13);
+assert.equal(new Set(SPOT_GUIDES.map(g=>g.id)).size,13,'Each spot must have one stable identity');
+const source=GUIDE_SOURCES.find(s=>s.id==='source-2011');assert.equal(source.author,'Source');assert.equal(source.via,'Quoted by JulesK');assert.equal(source.date,'28 August 2011');
+assert.equal(GUIDE_SOURCES.find(s=>s.id==='eco-jordan').author,'Jordan Jensen');
+for(const guide of SPOT_GUIDES){
+ assert.ok(GUIDE_SOURCES.some(source=>source.id===guide.sourceId),'Every guide must credit a known author');
+ assert.ok(guide.stationIds.length>0);
+ for(const id of guide.stationIds)assert.ok(STATIONS.some(s=>s.id===id),'Wind references must point to real gauges');
+ if(guide.sourceId==='source-2011'){assert.equal(guide.access,null,'A direction-only forum post must not acquire invented launch instructions');assert.equal(guide.level,null);assert.deepEqual(guide.hazards,[]);}
+}
+assert.equal(SPOT_GUIDES.find(g=>g.id==='salts-bay').stationIds[0],'swansea');
+assert.equal(SPOT_GUIDES.filter(g=>g.id==='salts-bay').length,1);
+const html=await(await worker.fetch(new Request('https://example.test/?spot=salts-bay'))).text();
+assert.ok(html.includes('id="spot-dialog"'));assert.ok(html.includes('id="related-guides"'));assert.ok(html.includes('aria-labelledby="spot-title"'));
+const bootstrap=JSON.parse(html.match(/const BOOT = (.*);/)[1]);assert.equal(bootstrap.spotGuides.length,13);assert.equal(bootstrap.guideSources.length,2);
+console.log('Passed: author attribution, original-source chain, historical labels, no invented launch details, valid gauge links and guide-page structure.');

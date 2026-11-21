@@ -1,0 +1,72 @@
+{
+  "source": "Marine Rescue Port Stephens, via WillyWeather",
+  "sourceUrl": "https://www.willyweather.com.au/climate/weather-stations/nsw/hunter/nelson-bay-marine-rescue.html",
+  "timestamp": 1795227956000,
+  "data": {
+    "location": {
+      "id": 3139,
+      "latitude": -32.71,
+      "longitude": 152.16,
+      "timezone": "Australia/Sydney"
+    },
+    "climateGraphs": {
+      "wind-speed": {
+        "units": {
+          "speed": "km/h"
+        },
+        "dataConfig": {
+          "series": {
+            "groups": [
+              {
+                "points": [
+                  {
+                    "x": 1795265589,
+                    "y": 14.5,
+                    "direction": 89
+                  },
+                  {
+                    "x": 1795266189,
+                    "y": 11.4,
+                    "direction": 93
+                  },
+                  {
+                    "x": 1795266789,
+                    "y": 11.3,
+                    "direction": 93
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "wind-gust": {
+        "units": {
+          "speed": "km/h"
+        },
+        "dataConfig": {
+          "series": {
+            "groups": [
+              {
+                "points": [
+                  {
+                    "x": 1795265589,
+                    "y": 20.3
+                  },
+                  {
+                    "x": 1795266189,
+                    "y": 19.9
+                  },
+                  {
+                    "x": 1795266789,
+                    "y": 18.9
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

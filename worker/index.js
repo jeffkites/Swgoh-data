@@ -110,6 +110,30 @@ export default {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin");
 
+    // Hunter Wind is a public, read-only weather feed. It uses no dashboard
+    // token, private repository credential or SWGOH refresh operation.
+    if (url.pathname === "/api/wind") {
+      const cors = {
+        "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+        "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+        "Access-Control-Allow-Headers": "Cache-Control",
+        "Vary": "Origin",
+        "Cache-Control": "no-store, max-age=0"
+      };
+      if (origin && origin !== ALLOWED_ORIGIN) {
+        return Response.json({error:"Origin not allowed"}, {status:403});
+      }
+      if (request.method === "OPTIONS") return new Response(null, {status:204, headers:cors});
+      if (!["GET", "HEAD"].includes(request.method)) {
+        return Response.json({error:"Method not allowed"}, {status:405, headers:{...cors, Allow:"GET, HEAD, OPTIONS"}});
+      }
+      const {getWind} = await import("./hunter-wind.mjs");
+      const response = await getWind();
+      const headers = new Headers(response.headers);
+      for (const [name, value] of Object.entries(cors)) headers.set(name, value);
+      return new Response(request.method === "HEAD" ? null : response.body, {status:response.status, headers});
+    }
+
     if (url.pathname === "/health" && request.method === "GET") {
       return json({ ok: true, service: "swgoh-private-api", privateSnapshotVersion: 2 }, 200, origin);
     }
