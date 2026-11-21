@@ -12,8 +12,24 @@ live readings refresh directly from the same existing Cloudflare service.
 ## Hosting and live data
 
 GitHub Pages serves this directory alongside the existing SWGOH dashboard at
-the repository root. All wind assets use relative paths. The map, seven
-stations, history periods, spot guides and author/source credits are retained.
+the repository root. All wind assets use relative paths. Seven gauges, history
+periods and author/source credits are retained. Wind stations and kiting site
+reviews now have separate maps with Lake Mac/Newcastle, Nelson Bay and Central
+Coast views. Selecting a region updates both maps, station lists and review
+cards; selecting a gauge switches to its region. Refresh preserves that view.
+
+The site map has 18 numbered review links: the original 13 credited guides and
+five links to Jordan Jensen's original Nelson Bay reviews. Nelson Bay directions
+and launch instructions are not copied or inferred. Each original review is
+linked from its credited panel.
+
+worker/hunter-map.mjs contains the regional grouping and approximate place
+references, distinct from weather-station coordinates. Positions were checked
+against OpenStreetMap via Nominatim on 21 November 2026. Each reference records
+its OSM feature URL. These identify review areas, not verified launch sites;
+some use a nearby named access feature or a beach's southern boundary. Map data
+is credited to OpenStreetMap contributors (ODbL 1.0). Closely spaced pin labels
+are offset for readability. No geocoder is called by visitors or on refresh.
 
 GitHub Pages cannot execute the original server-side station fetches. The
 existing Cloudflare Worker now also serves the read-only `/api/wind` route:
@@ -45,6 +61,9 @@ GitHub Pages retains its existing `main / (root)` publishing configuration.
   historical series is not invented.
 - Spot information: Jordan Jensen / Escape Eco Adventures, and Source quoted
   by JulesK on Seabreeze in August 2011. Original links and dates are retained.
+- Nelson Bay source reviews: Jordan Jensen, [Kitesurfing in Nelson Bay](https://www.escapeecoadventures.com.au/post/kitesurfing-in-nelson-bay),
+  23 July 2021. Map links cover Jimmy's, Bennett's/Waynderrabah, Bagnall's,
+  Birubi and Fingal Bay/Spit; the full reviews remain on the author's site.
 
 Five-minute checks do not make a provider publish more often. Source outages
 or format changes can prevent a gauge updating. Saved readings retain their
@@ -65,6 +84,7 @@ node wind/build.mjs
 node wind/tests/check-behaviour.mjs
 node wind/tests/check-guides.mjs
 node wind/tests/check-pages.mjs
+node wind/tests/check-maps.mjs
 node scripts/check-private-data.mjs
 ```
 

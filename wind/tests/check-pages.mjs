@@ -13,7 +13,7 @@ assert.ok(html.includes("cache:'no-store'"));
 const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
 assert.equal(scripts.length,1);new vm.Script(scripts[0][1]);
 const boot=JSON.parse(html.match(/const BOOT = (.*);/)[1]);
-assert.equal(boot.metadata.length,7);assert.equal(boot.spotGuides.length,13);assert.equal(boot.guideSources.length,2);
+assert.equal(boot.metadata.length,7);assert.equal(boot.spotGuides.length,18);assert.equal(boot.guideSources.length,3);
 for(const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
   assert.ok(!/^\/(?!\/)/.test(match[1]),'A root-relative asset would escape /Swgoh-data/wind/: '+match[1]);
   if(match[1].startsWith('./'))assert.ok(statSync(new URL('../'+match[1].slice(2),import.meta.url)));

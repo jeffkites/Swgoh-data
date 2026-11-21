@@ -20,7 +20,7 @@ export async function buildWind() {
   for(const path of ['leaflet.js','leaflet.css','favicon.svg']) {
     const asset=await hunterWind.fetch(new Request('https://static-export.example/'+path));
     if(!asset.ok)throw new Error('Could not export '+path);
-    await writeFile(new URL('./'+path,import.meta.url),await asset.text());
+    await writeFile(new URL('./'+path,import.meta.url),(await asset.text()).replace(/\r\n/g,'\n'));
   }
   console.log('Built Hunter Wind at /Swgoh-data/wind/ with live data from '+DATA_URL);
 }
