@@ -20,7 +20,7 @@ for(const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
 }
 assert.ok(readFileSync(new URL('../leaflet.js',import.meta.url),'utf8').includes('Leaflet'));
 
-const origin='https://mrfaberzen-crypto.github.io',endpoint='https://swgoh-data.mrfaberzen.workers.dev/api/wind';
+const origin='https://jeffkites.github.io',endpoint='https://swgoh-data.mrfaberzen.workers.dev/api/wind';
 const nativeFetch=globalThis.fetch,nativeWarn=console.warn;let calls=0;
 globalThis.fetch=async()=>{calls++;throw new Error('Test source unavailable');};console.warn=()=>{};
 try {

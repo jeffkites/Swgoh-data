@@ -2,7 +2,7 @@
 
 Map and wind histories for Lake Macquarie, Newcastle and Nelson Bay.
 
-Page: https://mrfaberzen-crypto.github.io/Swgoh-data/wind/
+Page: https://jeffkites.github.io/Swgoh-data/wind/
 
 ## Hosting and live data
 

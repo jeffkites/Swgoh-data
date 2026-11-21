@@ -1,6 +1,6 @@
 import { createHash, createHmac } from "node:crypto";
 
-const ALLOWED_ORIGIN = "https://mrfaberzen-crypto.github.io";
+const ALLOWED_ORIGIN = "https://jeffkites.github.io";
 const ALLY_CODE = "843153117";
 const API_ENDPOINTS = {
   inventory: "/api/inventory",
@@ -44,7 +44,7 @@ function toBase64Utf8(value) {
 async function savePrivateSnapshot(resource, data, token) {
   if (!token) throw new Error("Private GitHub save token is not configured in Cloudflare.");
   const path = "data/" + resource + ".json";
-  const url = "https://api.github.com/repos/mrfaberzen-crypto/swgoh-private-data/contents/" + path;
+  const url = "https://api.github.com/repos/jeffkites/swgoh-private-data/contents/" + path;
   const headers = {
     "Authorization": "Bearer " + token,
     "Accept": "application/vnd.github+json",
@@ -153,7 +153,7 @@ export default {
       };
       try {
         const runsResponse = await fetch(
-          "https://api.github.com/repos/mrfaberzen-crypto/Swgoh-data/actions/workflows/refresh-player.yml/runs?per_page=20",
+          "https://api.github.com/repos/jeffkites/Swgoh-data/actions/workflows/refresh-player.yml/runs?per_page=20",
           { headers, redirect: "manual", cache: "no-store" }
         );
         if (!runsResponse.ok) {
@@ -181,7 +181,7 @@ export default {
         const diagnose = active || manual || latest;
         if (diagnose?.conclusion === "failure" && Number.isSafeInteger(diagnose.id)) {
           const jobsResponse = await fetch(
-            "https://api.github.com/repos/mrfaberzen-crypto/Swgoh-data/actions/runs/" +
+            "https://api.github.com/repos/jeffkites/Swgoh-data/actions/runs/" +
               diagnose.id + "/jobs?per_page=20",
             { headers, redirect: "manual", cache: "no-store" }
           );
@@ -228,7 +228,7 @@ export default {
       if (!env.PRIVATE_DATA_GITHUB_TOKEN) return json({ error: "Private snapshot access is not configured" }, 503, origin);
       try {
         const response = await fetch(
-          "https://api.github.com/repos/mrfaberzen-crypto/swgoh-private-data/contents/data/gac-summary.json?ref=main", {
+          "https://api.github.com/repos/jeffkites/swgoh-private-data/contents/data/gac-summary.json?ref=main", {
             headers: {
               "Authorization": "Bearer " + env.PRIVATE_DATA_GITHUB_TOKEN,
               "Accept": "application/vnd.github+json",
@@ -324,7 +324,7 @@ export default {
       let runHistory;
       try {
         const runsResponse = await fetch(
-          "https://api.github.com/repos/mrfaberzen-crypto/Swgoh-data/actions/workflows/refresh-player.yml/runs?per_page=100",
+          "https://api.github.com/repos/jeffkites/Swgoh-data/actions/workflows/refresh-player.yml/runs?per_page=100",
           { headers: githubHeaders, redirect: "manual", cache: "no-store" }
         );
         if (!runsResponse.ok) {
@@ -370,7 +370,7 @@ export default {
       let response;
       try {
         response = await fetch(
-          "https://api.github.com/repos/mrfaberzen-crypto/Swgoh-data/actions/workflows/refresh-player.yml/dispatches",
+          "https://api.github.com/repos/jeffkites/Swgoh-data/actions/workflows/refresh-player.yml/dispatches",
           {
             method: "POST",
             headers: { ...githubHeaders, "Content-Type": "application/json" },

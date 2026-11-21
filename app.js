@@ -1,7 +1,7 @@
 const $ = id => document.getElementById(id);
-const rosterRepository = 'mrfaberzen-crypto/Swgoh-data';
+const rosterRepository = 'jeffkites/Swgoh-data';
 const rosterPath = 'data/dashboard.json';
-const onGitHubPages = location.hostname === 'mrfaberzen-crypto.github.io';
+const onGitHubPages = location.hostname === 'jeffkites.github.io';
 const githubContentsUrl = `https://api.github.com/repos/${rosterRepository}/contents/${rosterPath}?ref=main`;
 const rawSnapshotUrl = `https://raw.githubusercontent.com/${rosterRepository}/main/${rosterPath}`;
 let snapshot;

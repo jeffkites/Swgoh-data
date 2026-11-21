@@ -19,7 +19,7 @@ The dashboard reads a saved snapshot. Reloading it does **not** make a new game 
 
 ## GAC Scout tab (21 November 2026)
 
-Open [GAC Scout](https://mrfaberzen-crypto.github.io/Swgoh-data/#gac-scout) for a secure, mobile-friendly view of the current matchup.
+Open [GAC Scout](https://jeffkites.github.io/Swgoh-data/#gac-scout) for a secure, mobile-friendly view of the current matchup.
 
 1. On the **Private data** tab, autofill your existing dashboard access key.
 2. On **GAC Scout**, tap **Load saved GAC**. The site reads the compact private GAC summary via an authenticated Cloudflare Worker endpoint. This is much smaller than the live GAC snapshot.
@@ -35,7 +35,7 @@ The tab distinguishes **confirmed GAC defenders** from third-party predictions. 
 2. The Cloudflare Worker checks GitHub workflow run history. Automatic scheduled/code-push refreshes do not count against the 30-minute manual-refresh cooldown. An active refresh, of any origin, prevents duplicate dispatches.
 3. The button reports whether the request was accepted and monitors the saved roster for an updated snapshot. Use **Check workflow status** to read the latest GitHub Actions run, including any failing step, without leaving the dashboard. Use **Reload saved roster** to re-read the saved data.
 
-Private inventory, GAC and TW requests **still require** the private dashboard access token. The form uses standard password-manager autofill (`autocomplete="current-password"`) for Dashlane and other Android managers. The previous in-page Chrome credential save button was removed because it cannot reliably invoke Dashlane. Save the key in Dashlane for `mrfaberzen-crypto.github.io`, then tap the field to autofill. The website itself does not persist the key in browser storage or GitHub. If the key is unknown, Cloudflare's `DASHBOARD_ACCESS_TOKEN` cannot be read back; it must be rotated. This is distinct from `ROSTER_REFRESH_GITHUB_TOKEN`.
+Private inventory, GAC and TW requests **still require** the private dashboard access token. The form uses standard password-manager autofill (`autocomplete="current-password"`) for Dashlane and other Android managers. The previous in-page Chrome credential save button was removed because it cannot reliably invoke Dashlane. Save the key in Dashlane for `jeffkites.github.io`, then tap the field to autofill. The website itself does not persist the key in browser storage or GitHub. If the key is unknown, Cloudflare's `DASHBOARD_ACCESS_TOKEN` cannot be read back; it must be rotated. This is distinct from `ROSTER_REFRESH_GITHUB_TOKEN`.
 
 ### One-time secure setup for direct refresh
 
@@ -43,11 +43,11 @@ Private responses are displayed even if saving to GitHub fails. The page disting
 
 The Cloudflare Worker is connected to this GitHub repo through Cloudflare Builds with Root directory set to `worker`. Commits to that folder deploy the existing `swgoh-data` Worker. Preserve its current `MHANNDALORIAN_API_KEY`, `DASHBOARD_ACCESS_TOKEN` and `PRIVATE_DATA_GITHUB_TOKEN` secrets.
 
-Provide the Worker a GitHub credential capable of dispatching `.github/workflows/refresh-player.yml` in `mrfaberzen-crypto/Swgoh-data`: preferably add a Cloudflare Worker secret named `ROSTER_REFRESH_GITHUB_TOKEN`. Create a fine-grained GitHub personal access token scoped **only** to `Swgoh-data` with **Actions: Read and write** permission. The Worker tries the existing `PRIVATE_DATA_GITHUB_TOKEN` only when a dedicated token is absent; that fallback works only if it already has access to dispatch Actions for this public repository. Anonymous public roster refresh is limited by a 30-minute cooldown for successful or pending button-triggered workflow runs, plus protection against duplicate active jobs. When deployed, Cloudflare's `ROSTER_REFRESH_LIMITER` binding also throttles local bursts; the missing binding is nonfatal, because the mandatory GitHub cooldown remains active. Requests that cannot verify the global cooldown fail closed. Repeated workflow dispatches no longer cancel a running refresh. Never put the GitHub token in frontend JS, in a GitHub file, or in a chat message.
+Provide the Worker a GitHub credential capable of dispatching `.github/workflows/refresh-player.yml` in `jeffkites/Swgoh-data`: preferably add a Cloudflare Worker secret named `ROSTER_REFRESH_GITHUB_TOKEN`. Create a fine-grained GitHub personal access token scoped **only** to `Swgoh-data` with **Actions: Read and write** permission. The Worker tries the existing `PRIVATE_DATA_GITHUB_TOKEN` only when a dedicated token is absent; that fallback works only if it already has access to dispatch Actions for this public repository. Anonymous public roster refresh is limited by a 30-minute cooldown for successful or pending button-triggered workflow runs, plus protection against duplicate active jobs. When deployed, Cloudflare's `ROSTER_REFRESH_LIMITER` binding also throttles local bursts; the missing binding is nonfatal, because the mandatory GitHub cooldown remains active. Requests that cannot verify the global cooldown fail closed. Repeated workflow dispatches no longer cancel a running refresh. Never put the GitHub token in frontend JS, in a GitHub file, or in a chat message.
 
 If Cloudflare Workers Builds is connected to this repo, configure it to deploy `worker/index.js` with Node compatibility enabled. Otherwise deploy the updated code in Cloudflare Workers & Pages. After this one-time setup, everyday refreshes need no GitHub visit.
 
-If the Worker is not configured, the dashboard has a separate [manual GitHub fallback](https://github.com/mrfaberzen-crypto/Swgoh-data/actions/workflows/refresh-player.yml).
+If the Worker is not configured, the dashboard has a separate [manual GitHub fallback](https://github.com/jeffkites/Swgoh-data/actions/workflows/refresh-player.yml).
 
 A daily refresh also runs at 18:17 UTC (04:17 Sydney during AEST; 05:17 during AEDT). GitHub can delay scheduled runs.
 
@@ -57,7 +57,7 @@ The roster-refresh workflow starts Comlink temporarily inside GitHub Actions, va
 
 After GitHub Pages is enabled for **main / (root)**, the dashboard address is:
 
-https://mrfaberzen-crypto.github.io/Swgoh-data/
+https://jeffkites.github.io/Swgoh-data/
 
 GitHub Pages setup: **Settings → Pages → Deploy from a branch → main → / (root) → Save**.
 

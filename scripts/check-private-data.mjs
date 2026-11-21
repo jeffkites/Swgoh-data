@@ -5,7 +5,7 @@ import vm from 'node:vm';
 const source = readFileSync('worker/index.js', 'utf8');
 const worker = (await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'))).default;
 const realFetch = globalThis.fetch;
-const origin = 'https://mrfaberzen-crypto.github.io';
+const origin = 'https://jeffkites.github.io';
 const env = {DASHBOARD_ACCESS_TOKEN:'test-dashboard', MHANNDALORIAN_API_KEY:'test-api', PRIVATE_DATA_GITHUB_TOKEN:'test-github'};
 const inventory = {items:[{id:'test-item',quantity:7}]};
 let calls;
@@ -34,6 +34,8 @@ async function verifyLive(response, saved) {
 try {
   queue([{body:inventory},{body:{sha:'old'}},{status:201}]);
   await verifyLive(await worker.fetch(request(),env),true);
+  assert.equal(calls[1].url,'https://api.github.com/repos/jeffkites/swgoh-private-data/contents/data/inventory.json?ref=main');
+  assert.equal(calls[2].url,'https://api.github.com/repos/jeffkites/swgoh-private-data/contents/data/inventory.json');
   const write = JSON.parse(calls[2].options.body);
   assert.equal(write.sha,'old');
   assert.deepEqual(JSON.parse(Buffer.from(write.content,'base64').toString()).data,inventory);
@@ -89,7 +91,7 @@ try {
   assert.deepEqual(await latestGac.json(), summary);
   assert.equal(latestGac.headers.get('Cache-Control'),'no-store, private');
   assert.equal(calls.length,1);
-  assert.ok(calls[0].url.includes('/swgoh-private-data/contents/data/gac-summary.json'));
+  assert.equal(calls[0].url,'https://api.github.com/repos/jeffkites/swgoh-private-data/contents/data/gac-summary.json?ref=main');
   queue([]);
   assert.equal((await worker.fetch(summaryRequest('wrong'),env)).status,401);
   assert.equal(calls.length,0);

@@ -1,4 +1,4 @@
-# Cloudflare Workers Builds: select GitHub repo mrfaberzen-crypto/Swgoh-data
+# Cloudflare Workers Builds: select GitHub repo jeffkites/Swgoh-data
 # and set Root directory to "worker".
 # This deploys the existing Worker named swgoh-data instead of creating a new one.
 name = "swgoh-data"

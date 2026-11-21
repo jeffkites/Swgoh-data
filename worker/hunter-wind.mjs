@@ -63,7 +63,7 @@ export function normalizeCumulus(wind,directions,latest) {
  return [...new Map(points.map(p=>[p.time,p])).values()];
 }
 async function publicSource(url) {
- const response=await fetch(String(url),{signal:AbortSignal.timeout(6500),headers:{'Cache-Control':'no-cache','User-Agent':'HunterWind/1.0 (+https://mrfaberzen-crypto.github.io/Swgoh-data/wind/)','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}});
+ const response=await fetch(String(url),{signal:AbortSignal.timeout(6500),headers:{'Cache-Control':'no-cache','User-Agent':'HunterWind/1.0 (+https://jeffkites.github.io/Swgoh-data/wind/)','Accept':'application/json,text/html;q=0.9,*/*;q=0.8'}});
  if(!response.ok)throw new Error('Source returned HTTP '+response.status);
  return response;
 }
