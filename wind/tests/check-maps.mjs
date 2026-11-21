@@ -47,7 +47,7 @@ const context=vm.createContext({console,Intl,Date,Set,Map,URLSearchParams,AbortS
 });
 const cut=script.lastIndexOf("$('refresh').onclick=refresh;");
 assert.ok(cut>0);
-vm.runInContext(script.slice(0,cut)+';globalThis.actions={setRegion,selectStation,render,renderSpotCards,initMap,refresh,setupReviewDesk,applyPublishedReviews,loadOwnerQueue,saveOwnerReview,state:()=>({region,selected,siteLayer,guideFilter}),reviews:()=>({ownerStore,ownerKey,ownerRevision,spotGuides,guideSources,spotLocations}),filter:value=>{guideFilter=value;renderSpotCards();renderSpotMap(true);}};',context);
+vm.runInContext(script.slice(0,cut)+';globalThis.actions={setRegion,selectStation,render,renderSpotCards,initMap,refresh,renderChart,replaceReadings:items=>{data=items;render();},setupReviewDesk,applyPublishedReviews,loadOwnerQueue,saveOwnerReview,state:()=>({region,selected,siteLayer,guideFilter}),reviews:()=>({ownerStore,ownerKey,ownerRevision,spotGuides,guideSources,spotLocations}),filter:value=>{guideFilter=value;renderSpotCards();renderSpotMap(true);}};',context);
 const app=context.actions;
 app.render();app.renderSpotCards();app.initMap();
 assert.equal(maps.size,2,'Wind and site maps must be separate');
@@ -117,4 +117,23 @@ const sent=JSON.parse(ownerCalls.find(c=>c.options.method==='POST').options.body
 assert.equal(app.reviews().spotGuides.find(g=>g.id===local.id).ownerReview,undefined,'Draft saves cannot enter the public map');
 node('review-lock').onclick();assert.equal(app.reviews().ownerKey,'');assert.equal(app.reviews().ownerStore,null);assert.equal(node('review-workspace').hidden,true);assert.equal(node('review-research').innerHTML,'');assert.equal(node('review-notes').value,'');
 assert.ok(html.includes("const REVIEW_API='https://swgoh-data.mrfaberzen.workers.dev/api/wind/reviews'"));
-console.log('Passed: all seven coastal wind gauges, independent regional site maps, selection and viewport preservation, 19 site pins, alias search, source credits and private review editing.');
+const clock=Date.now(),observation=(minutes,speed,degrees)=>({time:new Date(clock-minutes*60000).toISOString(),speed,gust:speed+3,degrees,direction:speed===0?'Calm':degrees===null?null:'N'});
+const series=[observation(50,10,0),observation(40,12,90),observation(30,18,180),observation(20,34,270),observation(10,14,null),observation(0,0,null)];
+const speeds={nelson:11.9,williamtown:12,nobbys:16,marks:null,swansea:30,cooranbong:0,norah:0};
+const windColors={nelson:'#ed2029',williamtown:'#f0dc22',nobbys:'#26cf42',marks:'#81949a',swansea:'#98603c',cooranbong:'#ed2029',norah:'#ed2029'};
+const live=STATIONS.map(s=>({id:s.id,mode:'live',latest:speeds[s.id]===null?null:observation(0,speeds[s.id],0),history:s.id==='norah'?series:[]}));
+app.selectStation('norah',false);app.replaceReadings(live);
+for(const station of STATIONS){
+ const marker=createdMarkers.find(m=>m.options.title===station.name);
+ assert.ok(marker.options.icon.options.html.includes('--marker-color:'+windColors[station.id]),'Map speed band must match the chart scale for '+station.id);
+}
+for(const band of ['red','yellow','green','brown'])assert.ok(node('chart').innerHTML.includes('data-band="'+band+'"'),'Chart arrow series must render '+band+' speeds');
+for(const rotation of [180,270,360,450])assert.ok(node('chart').innerHTML.includes('rotate('+rotation+')'),'Direction arrows must show where wind goes');
+assert.equal((node('chart').innerHTML.match(/<circle /g)||[]).length,2,'Calm and unknown direction must use dots rather than invented arrows');
+assert.ok(!node('chart').innerHTML.includes('NaN'));assert.ok(node('chart-stats').innerHTML.includes('Falling -34 kt'));
+assert.ok(node('station-list').innerHTML.includes('Trend unavailable'),'Untimed or missing histories must not invent trends');
+node('chart-child').onkeydown({key:'Home',preventDefault(){}});
+assert.ok(node('chart-tooltip').innerHTML.includes('Average 10 kt'),'Keyboard inspection must reach the first reading');
+node('chart-child').onkeydown({key:'End',preventDefault(){}});
+assert.ok(node('chart-tooltip').innerHTML.includes('Average 0 kt'),'Keyboard inspection must retain calm readings');
+console.log('Passed: seven coastal gauges, independent site maps, refresh preservation, coloured directional history arrows, calm/missing handling, keyboard chart inspection, attribution and private review editing.');

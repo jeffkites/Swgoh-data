@@ -50,6 +50,30 @@ their authentication and origin checks.
 The Worker uses the existing Workers Builds connection for this repository.
 GitHub Pages retains its existing `main / (root)` publishing configuration.
 
+## Wind colours and recent trends
+
+The map's arrows and marker borders, gauge cards and history chart share one
+average-wind speed scale: red below 12 knots, yellow from 12 to below 16, green
+from 16 to below 30, and brown from 30 knots upwards. Missing/invalid wind
+readings are grey. The map retains all seven gauges together.
+
+History plots place coloured direction arrows at the measured average speed,
+so their height shows whether wind is building or easing. Arrows point where
+the wind goes. Calm readings and missing direction use dots. Gusts have a
+separate dashed line; no waves or forecast data are inferred. Timed readings
+are sorted and deduplicated, and gaps longer than 50 minutes or missing
+measurements are not joined. Dense series are sampled for readable arrows,
+while the lines and hover/tap/keyboard inspection retain the actual readings.
+The chart fits phone widths; keyboard focus supports Left/Right, Home/End and
+Escape to inspect or dismiss readings.
+
+Rising/Falling/Steady compares average wind with a reading about 20 minutes
+earlier, allowing a real 5–45 minute source cadence. Changes of at least one
+knot are rising/falling; smaller changes are steady. The comparison period is
+shown beside the change. Trend is unavailable without a valid recent timed
+pair, for saved fallbacks, or when the latest measurement is over 90 minutes
+old. A wind direction arrow is separate from the recent speed trend.
+
 ## Sources and limits
 
 - BOM: Williamtown, Nobbys, Cooranbong and Norah Head, with published histories.
@@ -122,6 +146,7 @@ node wind/tests/check-behaviour.mjs
 node wind/tests/check-guides.mjs
 node wind/tests/check-pages.mjs
 node wind/tests/check-maps.mjs
+node wind/tests/check-wind-display.mjs
 node wind/tests/check-reviews.mjs
 node scripts/check-private-data.mjs
 ```
