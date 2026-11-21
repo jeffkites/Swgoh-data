@@ -13,10 +13,12 @@ live readings refresh directly from the same existing Cloudflare service.
 
 GitHub Pages serves this directory alongside the existing SWGOH dashboard at
 the repository root. All wind assets use relative paths. Seven gauges, history
-periods and author/source credits are retained. Wind stations and kiting site
-reviews now have separate maps with Lake Mac/Newcastle, Nelson Bay and Central
-Coast views. Selecting a region updates both maps, station lists and review
-cards; selecting a gauge switches to its region. Refresh preserves that view.
+periods and author/source credits are retained. The original Along the coast
+wind map shows all seven gauges together, with all stations in its list.
+Fit region restores the full coastal view. Kiting site reviews have a separate
+map with Lake Mac/Newcastle, Nelson Bay and Central Coast views. Site region
+buttons only change that review map and its cards; they preserve the selected
+wind gauge, chart and wind-map position. Live refresh preserves both map views.
 
 The site map has 19 numbered site links: the original 13 credited guides,
 a Mawsons Wall / Spoons nomination awaiting local review, and
