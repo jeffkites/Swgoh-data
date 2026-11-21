@@ -15,7 +15,10 @@ GitHub Pages serves this directory alongside the existing SWGOH dashboard at
 the repository root. All wind assets use relative paths. Seven gauges, history
 periods and author/source credits are retained. The original Along the coast
 wind map shows all seven gauges together, with all stations in its list.
-Fit region restores the full coastal view. Kiting site reviews have a separate
+The wind map is fixed: dragging and map zoom are disabled, including automatic
+panning on gauge selection or focus. Phone swipes scroll the page over it;
+gauge pins remain clickable. The coast is fitted on load and viewport resize.
+Kiting site reviews have a separate
 map with Lake Mac/Newcastle, Nelson Bay and Central Coast views. Site region
 buttons only change that review map and its cards; they preserve the selected
 wind gauge, chart and wind-map position. Live refresh preserves both map views.
@@ -114,6 +117,20 @@ in the Authorization header and kept in memory until Lock or a page reload.
 Search accepts site aliases across all regions; Squids / Squid’s Ink also has a
 shortcut. Site panels have an Edit & review this site button.
 
+The Wind from selector filters both review cards and pins using the 16 compass
+points. Direction-only filtering uses the selected site region; a name search
+still searches all regions and combines with the selected direction. It uses
+Jeff’s published directions when present, otherwise the credited guide. Unknown
+directions are excluded while a direction is selected. Private drafts do not
+change public search.
+
+Write N–SE to include N, NNE, NE, ENE, E, ESE and SE automatically. Ranges follow
+the shorter arc (S–NE goes via E). Commas, slashes and middle dots are lists,
+not ranges. Opposite endpoints such as SW–NE match only the two endpoints until
+a middle point specifies the intended half: SW–S–NE or SW–W–NE. The owner editor
+previews the expanded directions. The filter reads listed guidance; it does
+not infer directions from a shoreline or the reference weather gauge.
+
 The initial queue has 16 researched private drafts, including five Nelson Bay
 sites and mixed-sport candidates for local assessment. Sources and dates are
 retained. A windsurfing description does not establish a kite launch; Spoon
@@ -155,6 +172,7 @@ node wind/tests/check-behaviour.mjs
 node wind/tests/check-guides.mjs
 node wind/tests/check-pages.mjs
 node wind/tests/check-maps.mjs
+node wind/tests/check-directions.mjs
 node wind/tests/check-wind-display.mjs
 node wind/tests/check-reviews.mjs
 node scripts/check-private-data.mjs

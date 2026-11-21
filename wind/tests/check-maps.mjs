@@ -31,8 +31,8 @@ const node=id=>{
  return nodes.get(id);
 };
 const L={
- map(id){const map={id,layers:new Set(),fits:[],events:{},on(name,fn){this.events[name]=fn;return this;},fitBounds(bounds){this.fits.push(bounds);return this;},addLayer(layer){this.layers.add(layer);return this;},removeLayer(layer){this.layers.delete(layer);return this;},hasLayer(layer){return this.layers.has(layer);},panTo(position){this.pan=position;return this;}};maps.set(id,map);return map;},
- tileLayer:()=>({addTo(){return this;}}),control:{zoom:()=>({addTo(){}})},divIcon:options=>({options}),
+ map(id,options){const map={id,options,layers:new Set(),fits:[],events:{},on(name,fn){this.events[name]=fn;return this;},fitBounds(bounds){this.fits.push(bounds);return this;},addLayer(layer){this.layers.add(layer);return this;},removeLayer(layer){this.layers.delete(layer);return this;},hasLayer(layer){return this.layers.has(layer);},panTo(position){this.pan=position;return this;}};maps.set(id,map);return map;},
+ tileLayer:()=>({addTo(){return this;}}),control:{zoom:()=>({addTo(map){map.zoomControlAdded=true;}})},divIcon:options=>({options}),
  latLngBounds:positions=>positions,
  layerGroup(){return {layers:[],addTo(map){map.addLayer(this);return this;},addLayer(layer){this.layers.push(layer);},clearLayers(){this.layers=[];}};},
  marker(position,options){const marker={position,options,events:{},element:node('marker-'+createdMarkers.length),
@@ -47,24 +47,30 @@ const context=vm.createContext({console,Intl,Date,Set,Map,URLSearchParams,AbortS
 });
 const cut=script.lastIndexOf("$('refresh').onclick=refresh;");
 assert.ok(cut>0);
-vm.runInContext(script.slice(0,cut)+';globalThis.actions={setRegion,selectStation,render,renderSpotCards,initMap,refresh,renderStationStrip,setHours:value=>{hours=value;renderStations();},replaceReadings:items=>{data=items;render();},setupReviewDesk,applyPublishedReviews,loadOwnerQueue,saveOwnerReview,state:()=>({region,selected,siteLayer,guideFilter,hours}),reviews:()=>({ownerStore,ownerKey,ownerRevision,spotGuides,guideSources,spotLocations}),filter:value=>{guideFilter=value;renderSpotCards();renderSpotMap(true);}};',context);
+vm.runInContext(script.slice(0,cut)+';globalThis.actions={setRegion,selectStation,render,renderSpotCards,initMap,refresh,fitWindCoast,visibleSpotGuides,renderStationStrip,setHours:value=>{hours=value;renderStations();},replaceReadings:items=>{data=items;render();},setupReviewDesk,applyPublishedReviews,loadOwnerQueue,saveOwnerReview,state:()=>({region,selected,siteLayer,guideFilter,hours,windDirection}),reviews:()=>({ownerStore,ownerKey,ownerRevision,spotGuides,guideSources,spotLocations}),filter:value=>{guideFilter=value;renderSpotCards();renderSpotMap(true);}};',context);
 const app=context.actions;
 app.render();app.renderSpotCards();app.initMap();
 assert.equal(maps.size,2,'Wind and site maps must be separate');
 assert.equal(app.state().siteLayer.layers.length,13);
 assert.equal(node('station-count').textContent,'7 stations');
 assert.equal(maps.get('map').layers.size,7,'The wind map must show every gauge together');
-assert.equal(maps.get('map').fits.at(-1).length,7,'Fit region must include the full coast');
+assert.equal(maps.get('map').fits.at(-1).length,7,'Fixed wind map must include the full coast');
+for(const handler of ['dragging','touchZoom','doubleClickZoom','boxZoom','keyboard','scrollWheelZoom','tapHold'])assert.equal(maps.get('map').options[handler],false,'Wind map must disable '+handler);
+assert.equal(maps.get('map').zoomControlAdded,undefined);
+assert.equal(maps.get('spot-map').zoomControlAdded,true,'Review map must retain its zoom controls');
+assert.notEqual(maps.get('spot-map').options.dragging,false,'Review map must retain dragging');
+for(const marker of createdMarkers.filter(m=>m.options.alt?.endsWith(' wind station')))assert.equal(marker.options.autoPanOnFocus,false);
+assert.ok(html.includes('touch-action:pan-y pinch-zoom!important'),'Touch scrolling must pass through the fixed map');
+assert.ok(!html.includes('id="fit"'),'The fixed wind map must not have a fit control');
 assert.ok(html.includes('id="wind-map-title">Along the coast</h2>'));
 assert.ok(!html.includes('aria-label="Wind map region"'),'Region tabs belong only to the site reviews');
 const initialWindFits=maps.get('map').fits.length;
-maps.get('map').panTo([-33,151.7]);
 app.setRegion('nelson');
 assert.equal(app.state().selected,'nobbys','Site-region changes must preserve the selected wind gauge');
 assert.equal(node('station-count').textContent,'7 stations');
 assert.equal(maps.get('map').layers.size,7,'Site regions must not hide wind gauges');
 assert.equal(maps.get('map').fits.length,initialWindFits,'Site regions must not reset the wind view');
-assert.deepEqual(maps.get('map').pan,[-33,151.7]);
+assert.equal(maps.get('map').pan,undefined);
 assert.equal(app.state().siteLayer.layers.length,5);
 const bagnalls=app.state().siteLayer.layers.find(m=>m.options.title.startsWith("Bagnall"));
 assert.ok(bagnalls);bagnalls.events.click();
@@ -74,6 +80,7 @@ assert.ok(node('spot-content').innerHTML.includes('/kitesurfing-in-nelson-bay'))
 assert.ok(!node('spot-content').innerHTML.includes('Directions in'),'Link-only reviews must not display fabricated direction details');
 node('spot-dialog').close();
 app.selectStation('norah',true);
+assert.equal(maps.get('map').pan,undefined,'Selecting a gauge must never pan the fixed map');
 assert.equal(app.state().region,'nelson','Selecting a wind gauge must preserve the site-review area');
 assert.equal(app.state().selected,'norah');
 assert.equal(app.state().siteLayer.layers.length,5);
@@ -82,14 +89,33 @@ const windFits=maps.get('map').fits.length;
 await app.refresh();
 assert.equal(app.state().region,'nelson','Live refresh must preserve the selected site region');
 assert.equal(app.state().selected,'norah','Live refresh must preserve the selected wind gauge');
-assert.equal(maps.get('map').fits.length,windFits,'Live refresh must not reset a panned map');
-node('fit').onclick();
-assert.equal(maps.get('map').fits.at(-1).length,7,'Fit region must restore all gauges after selecting Norah Head');
+assert.equal(maps.get('map').fits.length,windFits,'Live refresh must preserve the fixed wind view');
+app.fitWindCoast();
+assert.equal(maps.get('map').fits.at(-1).length,7,'Responsive fitting must retain all gauges after selecting Norah Head');
 assert.equal(app.state().region,'nelson','Fitting the wind coast must leave the review map alone');
 app.setRegion('lake');app.filter('historical');
 assert.equal(app.state().siteLayer.layers.length,6);
 assert.ok(node('spot-grid').innerHTML.includes('Source · via JulesK'));
-app.setupReviewDesk();app.setRegion('nelson');
+app.setupReviewDesk();app.filter('all');app.setRegion('nelson');
+const chooseWind=value=>{node('spot-wind').value=value;node('spot-wind').onchange();};
+chooseWind('NE');
+assert.equal(app.state().siteLayer.layers.length,0,'Unknown directions must not be guessed for link-only Nelson Bay reviews');
+assert.ok(node('spot-grid').innerHTML.includes('No matching sites'));
+app.setRegion('lake');
+assert.ok(app.visibleSpotGuides().some(g=>g.id==='salts-bay'));
+assert.ok(!app.visibleSpotGuides().some(g=>g.id==='belmont-south-squids'));
+assert.equal(app.state().siteLayer.layers.length,app.visibleSpotGuides().length,'Direction filter must affect both cards and pins');
+chooseWind('WNW');
+assert.ok(app.visibleSpotGuides().some(g=>g.id==='belmont-south-squids'),'W–NW must include WNW');
+assert.ok(!app.visibleSpotGuides().some(g=>g.id==='salts-bay'));
+node('spot-search').value='Salts';node('spot-search').oninput();
+assert.equal(app.state().siteLayer.layers.length,0,'Name and direction filters must combine');
+chooseWind('NE');
+assert.equal(app.state().siteLayer.layers.length,1);
+assert.ok(node('spot-search-status').textContent.includes('NE across all areas'));
+node('spot-search-clear').onclick();
+assert.equal(app.state().windDirection,'');assert.equal(node('spot-wind').value,'');
+app.setRegion('nelson');
 node('spot-search').value="Squid's Ink";node('spot-search').oninput();
 assert.equal(app.state().siteLayer.layers.length,1,'Global search must find Squids even with Nelson Bay selected');
 assert.ok(node('spot-grid').innerHTML.includes('belmont-south-squids'));
@@ -102,12 +128,20 @@ assert.ok(node('spot-content').innerHTML.includes('Awaiting local review'));asse
 node('spot-search-clear').onclick();
 const local={id:'belmont-south-squids',name:'Squids updated',aliases:['Cane Point'],region:'lake',lat:-33.0494,lon:151.6491,wind:'Checked locally',hazards:'<img src=x onerror=alert(1)>',notes:'Owner approved note',publishedAt:'2026-11-21T11:00:00Z',sources:[{title:'Squids',author:'WindHounds',url:'https://wind-hounds.com/sailing-spots/new-south-wales/squids/'}]};
 app.applyPublishedReviews([local]);
+chooseWind('WNW');assert.ok(!app.visibleSpotGuides().some(g=>g.id===local.id),'An unknown published direction must override the source range');
+app.applyPublishedReviews([{...local,wind:'N–SE'}]);chooseWind('ENE');
+assert.ok(app.visibleSpotGuides().some(g=>g.id===local.id),'Public review updates must immediately change range matching');
+node('spot-search-clear').onclick();
 assert.equal(app.reviews().spotGuides.find(g=>g.id===local.id).sourceId,'eco-jordan');
 app.state().siteLayer.layers.find(m=>m.options.title.startsWith('Squids updated')).events.click();
 assert.ok(node('spot-content').innerHTML.includes('Jeff’s reviewed site notes'));assert.ok(node('spot-content').innerHTML.includes('Jordan Jensen'));assert.ok(node('spot-content').innerHTML.includes('WindHounds'));assert.ok(node('spot-content').innerHTML.includes('&lt;img'));assert.ok(!node('spot-content').innerHTML.includes('<img src=x'));
 app.applyPublishedReviews([{...local,id:'new-local-area',name:'New checked site'}]);
 assert.equal(app.reviews().spotGuides.filter(g=>g.id==='new-local-area').length,1);
 app.applyPublishedReviews([]);assert.ok(!app.reviews().spotGuides.some(g=>g.id==='new-local-area'),'Unpublishing restores the source guide set');
+node('review-wind').value='N–SE';node('review-wind').oninput();
+assert.ok(node('review-wind-preview').textContent.includes('N, NNE, NE, ENE, E, ESE, SE'));
+node('review-wind').value='SW–NE';node('review-wind').oninput();
+assert.ok(node('review-wind-preview').textContent.includes('Add a middle point'));
 const queue={revision:'review-rev-1',version:1,records:[{id:local.id,draft:{...local,aliases:['Squids'],water:'',level:'',access:'',hazards:'',notes:'PRIVATE DRAFT'},published:null,researchNotes:'PRIVATE RESEARCH',sourceRefs:local.sources,savedAt:'2026-11-21T11:00:00Z'}]};
 const ownerCalls=[];context.fetch=async(url,options)=>{ownerCalls.push({url,options});return Response.json(url.endsWith('/manage')?queue:{reviews:[]});};
 node('review-key').value='owner-ui-test';node('review-unlock').onsubmit({preventDefault(){}});await new Promise(resolve=>setImmediate(resolve));
@@ -145,9 +179,10 @@ node('station-strip-norah-child').onkeydown({key:'Home',preventDefault(){}});
 assert.ok(node('station-tooltip').innerHTML.includes('Average 10 kt'),'Keyboard inspection must reach the first reading');
 node('station-strip-norah-child').onkeydown({key:'End',preventDefault(){}});
 assert.ok(node('station-tooltip').innerHTML.includes('Average 0 kt'),'Keyboard inspection must retain calm readings');
-app.setHours(24);assert.ok(node('station-time-axis').innerHTML.includes('Last 24h'));
+app.setHours(24);assert.ok(node('station-time-axis').innerHTML.includes('Last 24h'));chooseWind('NE');
 context.fetch=async url=>Response.json(url.endsWith('/reviews')?{reviews:[]}:{checkedAt:new Date().toISOString(),stations:live});
 const fitsBefore=maps.get('map').fits.length;await app.refresh();
 assert.equal(app.state().hours,24,'Live refresh must preserve the station chart range');
+assert.equal(app.state().windDirection,'NE','Live refresh must preserve the site direction filter');
 assert.equal(app.state().selected,'norah');assert.equal(maps.get('map').fits.length,fitsBefore);
 console.log('Passed: seven compact station histories, translucent gust arrows, average speed colours, keyboard inspection, range/selection preservation, site maps and private review editing.');
