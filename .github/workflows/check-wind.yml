@@ -23,6 +23,7 @@ jobs:
           node wind/tests/check-pages.mjs
           node wind/tests/check-maps.mjs
           node wind/tests/check-directions.mjs
+          node wind/tests/check-forecasts.mjs
           node wind/tests/check-wind-display.mjs
           node wind/tests/check-reviews.mjs
           git diff --exit-code -- wind/index.html wind/leaflet.js wind/leaflet.css wind/favicon.svg

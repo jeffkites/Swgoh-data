@@ -53,6 +53,31 @@ their authentication and origin checks.
 The Worker uses the existing Workers Builds connection for this repository.
 GitHub Pages retains its existing `main / (root)` publishing configuration.
 
+## Seabreeze forecast widgets
+
+The Forecasts panel embeds Seabreeze’s official Wind/Wave forecast graph for
+Newcastle (Coastal), location newc, and Norah Head, location nora. The compact
+three-day graph is the default; the seven-day graph is available in the same
+panel. These are predictions, separate from the seven measured wind gauges.
+
+Widget builder: https://www.seabreeze.com.au/Weather/Shared
+Published embedding guidance, checked 22 November 2026:
+https://www.seabreeze.com.au/Help/Weather/Can-I-put-your-weather-on-my-website
+
+Use only /weather/shared/panel?panel=graph with the supplied location, size and
+colour options. Provider branding and original source links stay visible. No
+forecast images, raw data or unpublished endpoints are scraped, downloaded,
+proxied or used to redraw graphs. This official widget route does not establish
+permission to reuse Seabreeze data elsewhere or replot it on the wind map.
+
+The panel starts collapsed and makes no Seabreeze requests until opened. The
+Forecasts navigation link or #forecasts bookmark opens it directly. One iframe
+switches between locations and three/seven days, with generous responsive
+height to keep the original credits visible. Refresh forecast reloads the
+supplied widget URL; Open forecast opens it separately. Measured-wind polling
+and live refresh continue independently. Seabreeze controls graph updates,
+availability and forecast colours. Blocked embeds retain the external link.
+
 ## Wind colours and recent trends
 
 The map's arrows and marker borders, gauge cards and history chart share one
@@ -175,6 +200,7 @@ node wind/tests/check-guides.mjs
 node wind/tests/check-pages.mjs
 node wind/tests/check-maps.mjs
 node wind/tests/check-directions.mjs
+node wind/tests/check-forecasts.mjs
 node wind/tests/check-wind-display.mjs
 node wind/tests/check-reviews.mjs
 node scripts/check-private-data.mjs
