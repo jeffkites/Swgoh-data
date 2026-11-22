@@ -32,8 +32,25 @@ assert.equal(timedWindHistory([{...at(0,0),degrees:370}],0,now)[0].degrees,10);
 const broken=timedWindHistory([at(120,8),at(110,10),at(100,null),at(90,12),at(0,18)],0,now);
 assert.deepEqual(windHistorySegments(broken,'speed').map(s=>s.length),[2,1,1],'Neither missing values nor long gaps may be joined');
 const sampled=sampleWindArrows(Array.from({length:1000},(_,i)=>({speed:i%35,stamp:i})),25);
-assert.equal(sampled.length,25);assert.equal(sampled[0].stamp,0);assert.equal(sampled.at(-1).stamp,999,'The last reading must always be represented');
-const partial=[{speed:null,gust:20},{speed:5,gust:null},{speed:0,gust:0}];
+assert.ok(sampled.length<=25);assert.equal(sampled[0].stamp,0);assert.equal(sampled.at(-1).stamp,999,'The last reading must always be represented');
+for(let i=1;i<sampled.length;i++)assert.ok(sampled[i].stamp-sampled[i-1].stamp>=999/24);
+const partial=[{stamp:0,speed:null,gust:20},{stamp:60000,speed:5,gust:null},{stamp:120000,speed:0,gust:0}];
 assert.deepEqual(sampleWindArrows(partial,10,'gust').map(p=>p.gust),[20,0],'Gust-only readings and zero gusts must be retained');
 assert.deepEqual(sampleWindArrows(partial,10).map(p=>p.speed),[5,0],'Missing averages must not be invented from gusts');
+// A coarse older series followed by a minute-by-minute recent burst must not
+// cram most glyphs into the final half-hour of a six-hour chart.
+const minute=60000,end=360*minute,limit=25;
+const mixed=[...Array.from({length:11},(_,i)=>i*30),...Array.from({length:30},(_,i)=>331+i)].map(m=>({stamp:m*minute,speed:m<331?8:14,gust:m<331?11:18}));
+for(const key of ['speed','gust']){
+ const chosen=sampleWindArrows(mixed,limit,key,0,end);
+ assert.equal(chosen[0],mixed[0]);assert.equal(chosen.at(-1),mixed.at(-1));
+ assert.ok(chosen.length<=limit);
+ assert.ok(chosen.filter(p=>p.stamp>=331*minute).length<=2,'A dense final half-hour must not dominate the arrow strip');
+ for(let i=1;i<chosen.length;i++)assert.ok(chosen[i].stamp-chosen[i-1].stamp>=end/(limit-1),'Arrows must have a minimum horizontal time gap');
+ assert.ok(chosen.every(point=>mixed.includes(point)),'Sampling must use real observations without averaging or moving timestamps');
+}
+const burst=mixed.slice(-10);
+assert.deepEqual(sampleWindArrows(burst,limit,'speed',0,end),[burst.at(-1)],'Even a short series below the arrow limit must respect the full visible time range');
+assert.equal(mixed.length,41,'Arrow thinning must not remove readings from the source series');
+assert.deepEqual(sampleWindArrows([],limit),[]);
 console.log('Passed: exact speed changeovers, unknown readings, average-wind trends, station cadences, stale/untimed suppression, history gaps and arrow sampling.');

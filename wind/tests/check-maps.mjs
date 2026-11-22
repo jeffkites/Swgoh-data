@@ -166,7 +166,7 @@ const series=[observation(50,10,0),observation(40,12,90),observation(30,18,180),
 const speeds={nelson:11.9,williamtown:12,nobbys:16,marks:null,swansea:30,cooranbong:0,norah:0};
 const windColors={nelson:'#ed2029',williamtown:'#f0dc22',nobbys:'#26cf42',marks:'#81949a',swansea:'#98603c',cooranbong:'#ed2029',norah:'#ed2029'};
 const live=STATIONS.map(s=>({id:s.id,mode:'live',latest:speeds[s.id]===null?null:observation(0,speeds[s.id],0),history:s.id==='norah'?series:[]}));
-app.selectStation('norah',false);app.replaceReadings(live);
+app.selectStation('norah',false);app.setHours(1);app.replaceReadings(live);
 for(const station of STATIONS){
  const marker=createdMarkers.find(m=>m.options.title===station.name);
  assert.ok(marker.options.icon.options.html.includes('--marker-color:'+windColors[station.id]),'Map speed band must match the chart scale for '+station.id);
@@ -189,6 +189,16 @@ node('station-strip-norah-child').onkeydown({key:'Home',preventDefault(){}});
 assert.ok(node('station-tooltip').innerHTML.includes('Average 10 kt'),'Keyboard inspection must reach the first reading');
 node('station-strip-norah-child').onkeydown({key:'End',preventDefault(){}});
 assert.ok(node('station-tooltip').innerHTML.includes('Average 0 kt'),'Keyboard inspection must retain calm readings');
+const mixedMinutes=[...Array.from({length:11},(_,i)=>i*30),...Array.from({length:30},(_,i)=>331+i)];
+const mixedHistory=mixedMinutes.map(m=>observation(1+(360-m)*.99,m<331?8:14,45));
+app.setHours(6);app.replaceReadings(live.map(d=>d.id==='swansea'?{...d,history:mixedHistory,latest:mixedHistory.at(-1)}:d));
+const mixedStrip=node('station-strip-swansea').innerHTML;
+assert.equal((mixedStrip.match(/class="wind-speed-line"/g)||[]).length,mixedHistory.length-1,'Arrow thinning must leave every reading in the history line');
+for(const cls of ['wind-history-glyph wind-average-glyph','wind-gust-glyph']){
+ const positions=[...mixedStrip.matchAll(new RegExp('<g class="'+cls+'"[^>]*?transform="translate\\(([-\\d.]+)','g'))].map(m=>Number(m[1]));
+ assert.ok(positions.length>2&&positions.length<mixedHistory.length);
+ for(let i=1;i<positions.length;i++)assert.ok(positions[i]-positions[i-1]>=12,'Rendered average and gust arrows must keep readable spacing across a dense recent burst');
+}
 app.setHours(24);assert.ok(node('station-time-axis').innerHTML.includes('Last 24h'));chooseWind('NE');
 context.fetch=async url=>Response.json(url.endsWith('/reviews')?{reviews:[]}:{checkedAt:new Date().toISOString(),stations:live});
 const fitsBefore=maps.get('map').fits.length;await app.refresh();

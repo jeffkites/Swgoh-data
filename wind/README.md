@@ -72,8 +72,10 @@ the wind goes. Calm readings and missing direction use dots. Gusts appear as tra
 series use the published wind bearing because these feeds do not expose a
 separate gust direction. No waves or forecast data are inferred. Timed readings
 are sorted and deduplicated, and gaps longer than 50 minutes or missing
-measurements are not joined. Dense series are sampled for readable arrows,
-while the lines and hover/tap/keyboard inspection retain the actual readings.
+measurements are not joined. Arrows are thinned by elapsed time across the visible chart, with a minimum
+horizontal gap even when a feed has denser recent observations. The newest
+available reading is retained. Both average and gust arrows use this spacing;
+lines and hover/tap/keyboard inspection retain every actual reading.
 Each compact chart fits phone widths. Hover, tap or keyboard focus supports
 Left/Right, Home/End and Escape to inspect or dismiss exact readings. A station
 without timed history displays an unavailable message and retains its source
