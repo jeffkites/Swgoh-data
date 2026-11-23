@@ -1,72 +1,59 @@
-# Current progression goals — reviewed 17 November 2026
+# SWGOH progression goals — reviewed 23 November 2026
 
-## Evidence and limits
+## Evidence and operating rules
 
-Latest saved public roster: `54c1561`, `data/dashboard.json` / `data/player.json`, **17 November 2026, 17:30:13 AEDT (Australia/Sydney)**, `2026-11-17T06:30:13Z`. It was about two hours old at review and is fresh. `data/unit-catalog.json` is present.
+Public roster: `data/dashboard.json` / `data/refresh.json` saved **23 November 2026, 10:37:57 am AEDT** (`2026-11-22T23:37:57Z`), **272 units**. These files refresh automatically; the strategy below is reviewed advice, not an automatic daily recommender. Compare the live counters with the latest saved roster after each refresh.
 
-Public data establishes equipped units, stars, gear/relics and equipped mods. It does **not** establish unequipped inventory, shards in hand, tickets, token balances, current shop stock, locked GAC roster, defence or battle availability. A later user statement says mods were moved after the current planning work; because the saved snapshot still shows zero mods on Commander Ahsoka, General Kenobi and Fulcrum Ahsoka, their exact current speeds/readiness require another roster refresh. No private GAC/TW or inventory data is published here.
+Public data supports stars, gear, relic level and *equipped mod levels*, not unequipped inventory, ability/ultimate purchases, event completion, token eligibility, shard balances, precise resource shortages, private GAC/TW battle outcomes or locked defence. In particular, the owner reported **SLKR finished** on 23 November; R7 and equipped mods are confirmed, but the ultimate and final ability purchases cannot be independently verified from this public snapshot.
 
-## 1. SLKR: finish two normal abilities and the ultimate
+**Resource rules:** Protect Cantina energy for Executor signal data (the owner considers additional 6★ Cantina shard farms low priority). Improve owned mods rather than blanket farming; use manual, selective mod upgrades, and keep automatic upgrade tools **off**. Keep important team speed engines—Mara Jade, Captain Rex, Piett and Hux—at the front of mod decisions. Do not consume premium GAC/TW attack teams merely to complete a defensive slot.
 
-SLKR remains **7★ / R7** with six level-15, 6-dot Speed + Health mods and +129 flat speed. From 393 base speed plus the completed Speed set, the saved build is approximately **561 sheet speed**. Relic and mod levelling goals are complete.
+## Ranked priorities
 
-Relative to 10 November, the public ability rows now show new upgrades on **Supreme Leader** and **Galactic Legend**. Both specials were already at the higher recorded tier; **Brutal Assault** and **Press the Advantage** remain at the lower tier. This supports four normal ability investments, but `purchasedAbilityId` remains empty, so verify the displayed ability screen before spending. If those two are indeed missing, prioritise **Press the Advantage**, then **Brutal Assault**. Press supplies anti-revive, Stagger immunity and the team’s bonus/removed-turn-meter health mechanic; the basic’s final tier adds its stunned-target third hit and Advantage.
+| Rank | Goal | Verified 23 November position | Next action / finish line |
+|---|---|---|---|
+| **1** | **Executor — main progression project** | Piett **R6**, Boba **R5**, Razor Crest **5★**, IG-2000 **6★**. Vader **R7** and Imperial TIE Bomber **7★** complete. | Continue Razor Crest store/event purchases and IG-2000 hard-node farm; plan Piett then Boba to **R8**, using only observed relic-material deficits. Track ships toward **7★** for complete event progression. |
+| **2** | **Finish Grand Inquisitor event** | All five original Inquisitors **7★/R5**; Grand Inquisitor absent from public roster. | Use existing requirements. Repair event mods/abilities and finish the event; do **not** buy extra Inquisitor relic levels. |
+| **3** | **General Skywalker journey** | Grievous **7★/R7** (new), B1/B2/Magna/Droideka **R7**; Snips **R9**, GK/Shaak/Asajj **R7**; Padmé **G12**, C-3PO **R1**. | Event attempts and targeted mod/ability corrections; no blanket relic push ahead of Executor. GAS remains unowned in public roster. |
+| **4** | **Immediate GAC/TW team readiness** | CAT **R9**, GK **R7**, Fulcrum **R9** now all have six equipped level-15 mods (previous missing-mod warnings resolved). Grievous is 7★/R7 with six level-15 mods. Captain Rex is **R5** with six level-15 mods. | Test Padmé/CAT/GK/JKA/Snips with checked speeds; improve weaker Grievous support mods and keep Great Mothers together. Do not claim teams are match-ready on mod *levels* alone. |
+| **5** | **Secondary farms and token efficiency** | Punishing One **6★**, TIE Echelon **2★**; Great Mothers and Morgan **6★/R5**. Threepio & Chewie **R5** already complete. | Punishing One/Echelon only as fleet energy permits; pause optional Cantina shard pushes when signal data binds Executor. Token candidates: Echo, Greef, regular Rex or Daka **only if live-eligible**; do **not** spend a token on already-R5 Threepio & Chewie. |
 
-The ultimate is still not present in the export. Continue the event from verified in-game tickets/materials; their quantities and completed-stage count are unknown. Do not treat this as a finished six-zeta/ultimate GL in counter planning.
+### Executor: practical allocation
 
-## 2. Energy, fleets and Executor
+- **Normal energy:** IG-2000 (currently 6★) toward 7★. Do not restart the completed Imperial TIE Bomber farm.
+- **Store/event rewards:** buy confirmed Razor Crest appearances (currently 5★); shard-in-inventory and appearance timing are unknown.
+- **Relic/signal data:** Piett R6→R8, then Boba R5→R8. Save expensive relic resources until measured deficits are clear; do not divert to unrelated Cantina characters by default.
+- **Fleet energy:** Punishing One 6★→7★ strengthens the future bounty-hunter fleet; Echelon remains 2★ for the user's familiar Finalizer fleet, but neither is an Executor unlock prerequisite. Do not sacrifice Executor progress to force both hard nodes daily.
+- **Prestige:** preserve the Executor budget. Negotiator at 7★ and its strong Galactic Republic pilots provide a usable fleet in the meantime.
+- **Stars nuance:** the journey guide lists 6★ for certain ship entry requirements; tracking **7★** is the full-journey/completion target, not a claim that every initial tier requires 7★. See [Executor journey requirements](https://swgoh.gg/journey-guides/CAPITALEXECUTOR/).
 
-| Resource | Current allocation | Exit condition |
-|---|---|---|
-| Fleet energy | TIE Echelon 2★ on Fleet 4-E Hard first; Punishing One 6★ on Fleet 5-F Hard second | Echelon is the immediate Finalizer weakness; run both five-attempt nodes only when energy allows. Stop each at 7★. |
-| Normal energy | IG-2000 6★ on Light Side 6-E Hard | Stop at 7★. Imperial TIE Bomber is already complete. |
-| Stores / eligible events | Razor Crest 5★; buy confirmed Fleet Arena Store appearances and claim eligible rewards | Stop at 7★. Shards in hand and appearance timing are unknown. |
-| Cantina | Great Mothers 6★→7★ on 8-E | Then Morgan 6★→7★ on 7-B, unless Executor ship readiness makes pilot signal data the binding gate. |
-| Signal data / relics | Piett R5→R8 and Boba R5→R8 | Vader R7 is complete. Farm only observed recipe deficits; inventory is unknown. |
-| Prestige | Preserve primarily for Executor | Negotiator is usable now; do not exhaust the Executor reserve on blanket upgrades. |
+### GAC/TW improvement queue
 
-**Executor remains the next major journey.** Remaining public gates are Razor Crest 5★→7★, IG-2000 6★→7★, Piett R5→R8 and Boba R5→R8. Vader R7 is complete.
+1. **Padmé/CAT project:** Old missing-mod alert is closed. CAT and GK now each have six level-15 equipped mods; Snips and JKA are also developed. Check **speed, primary stats and ability readiness** before promoting this squad to a routine counter or moving it to defence; Padmé is still G12.
+2. **Grievous droids:** Grievous is now **7★/R7 with six level-15 mods**; no longer a 6★ token/star project. B1 also has six level-15 mods. B2 has four equipped mods below 15, MagnaGuard four below 15, and Droideka one below 15—repair only useful pieces, with speed and durability requirements in mind.
+3. **Speed engines and Great Mothers:** Keep Mara Jade, Captain Rex, Piett and Hux turn order in working shape. Great Mothers / Morgan / Spirit / Night Trooper / Death Trooper (Peridea) stays together in 5v5; Spirit has a level-9 mod and Night Trooper a level-12 mod.
 
-The roster now also has a credible **Negotiator fleet**: 7★/level-85 Negotiator, Anakin’s Eta-2, Ahsoka’s fighter, Plo Koon’s fighter, Umbaran and Clone Sergeant’s ARC-170, backed by R7–R9 pilots. This should be the first fleet tested for arena/general use rather than continuing to force an under-starred Echelon Finalizer matchup. Recorded ship ability tiers exist, but their in-game max state should be checked before prestige or ability-material spending.
+**Ability investment:** the public snapshot does not verify purchased zetas or the SLKR ultimate. Before applying the next zeta, check the live ability screen; CAT's Force Leap and Snips' Shien were discussed as high-value candidates **if unpurchased**. Do not claim a zeta is missing from a mod/roster summary.
 
-## 3. Aurodium Lightspeed tokens
+### Token and Cantina choices
 
-All five original Inquisitors are now R5, so **no further Aurodium purchase is required for Grand Inquisitor**. The current role-token pages are listed through at least 17 November and grant 6★/R5 with level-6 non-zeta abilities; the live account list and balance remain decisive.
+Recent account priorities favour **immediate usable squad upgrades over speculative long Cantina farms**. Threepio & Chewie is already R5, so remove that formerly recommended Aurodium pick. Other possible token accelerations, **conditional on the actual shop whitelist, role, rarity and balance**, are 501st Echo (7★/G8), Greef Karga (7★/R1), regular Clone Rex (7★/R1) and Old Daka (7★/G9). These are choices, not purchases or assumed eligible units.
 
-| Role | Roster-specific choice if live-eligible | Tradeoff |
-|---|---|---|
-| Healer | **Old Daka** 7★/G9→R5 | Best immediate independent Nightsister development; does not dismantle Great Mothers. |
-| Support | **Mother Talzin** 5★/G8→6★/R5 | Builds toward a second Nightsister team, but still needs seventh-star shards and better supporting characters. |
-| Attacker | **Kyle Katarn** 5★/G1→6★/R5 | Saves a large Starkiller gear step but does not complete his seventh star; use only if he appears on this token’s live whitelist. |
-| Tank | **Royal Guard** 7★/G8→R5, or hold | Useful Empire/future SEE depth, but lower urgency because Shoretrooper is already R5. |
+Great Mothers and Morgan are still 6★/R5; their seventh-star Cantina farms can resume when they beat the marginal value of Executor signal data. Neither their missing shards nor token balances are present in the public export.
 
-Use the user-confirmed planning prices of **3,500 Aurodium** and **1,000 Carbonite** only after checking the live shop. Do not infer currency balances. Journey, Galactic Legend, Conquest, raid and TB reward units are excluded; tokens do not supply zetas or omicrons.
+### SLKR and completed projects
 
-## 4. Nightsisters and journey order
+SLKR is **7★/R7**, equipped with six level-15 mods, and the owner reports the build finished. Treat relic gearing as **complete**, not today's highest farm. Ultimate and the final ability tiers are **not evidenced in the public roster**, so verify them in game rather than creating a new automatic spending target. The earlier G13/R5/R7 milestones stay visible as completed history. General Grievous's earlier 7★ and R5 milestones are now complete, and Threepio & Chewie has already reached R5.
 
-Protected 5v5 allocation remains **Great Mothers / Morgan / Nightsister Spirit / Night Trooper / Death Trooper (Peridea)**. Mothers and Morgan are 6★/R5, Spirit R5, and both troopers R6. Current mod repairs: Spirit still has one level-9 mod and Night Trooper has two level-12 mods; do not strip the team. Splitting the troopers would exchange a proven premium five for an incomplete Enoch or traditional Nightsister squad. Evidence still favours keeping the five together.
+## Material changes since the 17 November review
 
-Old Daka/Talzin token choices would start a **separate** traditional Nightsister project around R7 Asajj. It is not yet a ranked main team: Talzin is 5★/G8, Daka G9, Merrin is not unlocked and the remaining fifth options are weak.
+- Piett advanced **R5 → R6**, reducing the remaining Executor relic gap.
+- Grievous advanced **6★/R5 → 7★/R7** and is now fully levelled in all six saved mod slots.
+- CAT, General Kenobi and Fulcrum moved from **zero saved mods → six level-15 mods each**; the earlier missing-mod warnings must not be repeated.
+- Captain Rex has six level-15 equipped mods; his gear is R5. C-3PO advanced **R0 → R1**.
+- Threepio & Chewie is **R5** now; stop recommending an Aurodium token on it.
+- Public roster now totals **272 units**, versus the previous 17 November snapshot. Recent named activity and fleet scores should still be checked from their own live/private sources; public data does not establish round results.
 
-**Immediate character journey:** finish the Grand Inquisitor event. All five prerequisites are now 7★/R5, but Grand Inquisitor is not yet in the public roster; mod levels and event execution, not more relics, are the remaining gate.
+## Source boundaries
 
-**Next character journey after GI: General Skywalker.** All required units and Anakin’s ship are 7★. The roster now has R9 Snips; R7 General Kenobi, Shaak Ti, Asajj and all four required Separatist droids; Padmé is G12 and C-3PO R0. The 7★ Negotiator and Galactic Republic ships cover the fleet tier. Repair event mods and abilities before attempting; the official guide recommends substantially more than bare entry power.
-
-Starkiller remains behind GAS because Kyle is still 5★/G1 and Dash/Talon are only 6★ despite being R5. Executor remains the larger account journey priority even while GI/GAS event attempts use existing units.
-
-## Material changes since 10 November
-
-- SLKR gained observed leadership and Galactic Legend ability investments; Press the Advantage and Brutal Assault appear to remain.
-- Second Sister reached R5: stop retaining an Inquisitor token target and finish the GI event.
-- Vader reached R7; Executor now needs Piett/Boba relics plus Razor Crest/IG-2000 stars.
-- R9 Commander Ahsoka, Fulcrum Ahsoka and Snips; R7 General Kenobi, Jedi Knight Anakin, Shaak Ti, Plo Koon, Fives, Clone Sergeant and Asajj materially expand the roster, but CAT/GK/Fulcrum have zero mods in this saved snapshot.
-- B1, B2, MagnaGuard and Droideka are now R7. Grievous droids move substantially higher in the coaching order.
-- Negotiator and the core Galactic Republic fleet are 7★/level 85; test this fleet before relying on the 2★ Echelon Finalizer.
-- GAS becomes the next character journey after GI. Great Mothers remains protected and first in the Cantina shard queue.
-
-## Sources checked 17 November 2026
-
-- [SLKR kit and current mod data](https://swgoh.gg/units/supreme-leader-kylo-ren/).
-- [Current Lightspeed Token rotation](https://swgoh.gg/lst/) and role pages for [Attacker](https://swgoh.gg/lst/LST_ERA10_TIER04_ATTACKER/), [Healer](https://swgoh.gg/lst/LST_ERA10_TIER04_HEALER/), [Support](https://swgoh.gg/lst/LST_ERA10_TIER04_SUPPORT/) and [Tank](https://swgoh.gg/lst/LST_ERA10_TIER04_TANK/).
-- [General Skywalker requirements and tier guidance](https://swgoh.gg/journey-guides/GENERALSKYWALKER/).
-- [Great Mothers, Cantina 8-E](https://swgoh.gg/units/great-mothers/), [Razor Crest sources](https://swgoh.gg/units/razor-crest/) and [IG-2000, Light Side 6-E](https://swgoh.gg/units/ig-2000/).
+Progression and unit levels: [saved public dashboard](data/dashboard.json), [refresh metadata](data/refresh.json), [unit catalogue](data/unit-catalog.json). Unlock reference: [Executor](https://swgoh.gg/journey-guides/CAPITALEXECUTOR/). Squad allocation is in [SQUADS.md](SQUADS.md); the interactive roster and goal progress are in [index.html](index.html). Do not publish private inventory, battle logs or access tokens in this repository.
