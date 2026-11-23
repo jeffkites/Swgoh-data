@@ -39,7 +39,7 @@ for (const id of ['COMMANDERAHSOKA','FULCRUMAHSOKA','AHSOKATANO'])
 const html=fs.readFileSync('index.html','utf8');
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length,'Duplicate HTML IDs');
-for(const [attribute,expected] of [['data-tab',['farm-plan','squads-5v5','squads-3v3','roster','gac-scout','private-data']],['data-goal-tab',['slkr','executor','energy','tokens','inquisitors','era']]]) {
+for(const [attribute,expected] of [['data-tab',['farm-plan','squads-5v5','squads-3v3','roster','gac-scout','private-data']],['data-goal-tab',['executor','inquisitors','energy','tokens','slkr','era']]]) {
   const found=[...html.matchAll(new RegExp(attribute+'="([^"]+)"','g'))].map(m=>m[1]);
   assert.deepEqual(found,expected,'Preserve tab order and destinations');
 }
