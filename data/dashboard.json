@@ -2,12 +2,12 @@
   "name": "Faberzen",
   "allyCode": "843153117",
   "guild": "The Secondhand Scoundrels",
-  "refreshedAt": "2026-11-22T23:37:57Z",
+  "refreshedAt": "2026-11-23T10:25:31Z",
   "source": "SWGoH Comlink",
   "arena": {
     "1": 281,
     "2": 41,
-    "4": 181
+    "4": 93
   },
   "units": [
     {
@@ -101,7 +101,7 @@
       "id": "FIRSTORDERTIEECHELON",
       "name": "TIE Echelon",
       "type": "Ship",
-      "stars": 2,
+      "stars": 3,
       "level": 85,
       "gear": null,
       "relic": null,
@@ -383,7 +383,7 @@
       "id": "SITHINFILTRATOR",
       "name": "Scimitar",
       "type": "Ship",
-      "stars": 3,
+      "stars": 4,
       "level": 1,
       "gear": null,
       "relic": null,
@@ -500,7 +500,7 @@
       "name": "Rex's ARC-170",
       "type": "Ship",
       "stars": 3,
-      "level": 1,
+      "level": 80,
       "gear": null,
       "relic": null,
       "mods": null,
