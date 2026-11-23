@@ -1,6 +1,6 @@
-# Ranked squads — reviewed 17 November 2026
+# Ranked squads — reviewed 23 November 2026
 
-These are roster-specific coaching judgments, not measured win rates or guaranteed counters. They use the 17 November 2026, 17:30 AEDT public snapshot. Main allocations contain no duplicate selected characters; projects may overlap and identify the conflict.
+These are roster-specific coaching judgments, not measured win rates or guaranteed counters. They use the 23 November 2026, 10:37:57 am AEDT public snapshot. Main allocations contain no duplicate selected characters; projects may overlap and identify the conflict.
 
 ## Main 5v5 order
 
@@ -17,7 +17,7 @@ These are roster-specific coaching judgments, not measured win rates or guarante
 11. CLS / Chewbacca / Threepio & Chewie / R2-D2 / Old Ben
 12. Chirpa / Wicket / Elder / Logray / Paploo
 
-The Grievous squad rises because all four supports are now R7; it remains conditional because Grievous is 6★/R5 and most support mods are below level 15. Kelleran releases JKA and Snips for the premium Galactic Republic project by using new R7 Plo plus R0 Mace. Great Mothers remains intact.
+Grievous is now 7★/R7, with all six equipped mods at level 15, and all four Separatist droids are R7. B2 and MagnaGuard still each have four mods below 15; Droideka has one. It is a priority matchup-test squad, not a guaranteed win. Kelleran releases JKA and Snips for the premium Galactic Republic project by using new R7 Plo plus R0 Mace. Great Mothers remains intact.
 
 ## Main 3v3 order
 
@@ -38,22 +38,22 @@ The Grievous squad rises because all four supports are now R7; it remains condit
 
 | Project | Current evidence | Promotion gate |
 |---|---|---|
-| Padmé / CAT / General Kenobi / JKA / Snips | CAT R9, GK/JKA R7, Snips R9; Padmé G12 | Snapshot shows **zero mods on CAT and GK**, and Padmé has six underlevelled mods. User reports a later mod move, but exact current builds/speeds require refresh. Once verified, this likely enters near the top of both formats. |
-| Cere / Fulcrum / Cal / Ronin / KRU | Fulcrum R9; Cere R1, Cal R3, Ronin R0 | Fulcrum has zero saved mods; Cere/Ronin are low-star and several mods are underlevelled. KRU overlaps SLKR. |
-| Shaak clones | Shaak/Fives/Clone Sergeant R7; Rex R1 | Rex and the R7 clones have extensive mod-level gaps; Cody and Echo are only G8 and ARC Trooper is not unlocked. |
+| Padmé / CAT / General Kenobi / JKA / Snips | CAT R9, GK/JKA R7, Snips R9; Padmé G12 | CAT and GK each now have **six level-15 mods**, as does Padmé. Old zero-mod warnings are resolved. Padmé remains G12; check actual speeds, primaries and abilities before moving to the main counter list. |
+| Cere / Fulcrum / Cal / Ronin / KRU | Fulcrum R9; Cere R1, Cal R3, Ronin R0 | Fulcrum now has **six level-15 mods**. Cere/Ronin remain low-star and underlevelled, and KRU overlaps SLKR; keep this a project until usable without borrowing premium SLKR members. |
+| Shaak clones | Shaak/Fives/Clone Sergeant R7; regular Rex R1 (Captain Rex is a different unit at R5) | Rex and the R7 clones have extensive mod-level gaps; Cody and Echo are only G8 and ARC Trooper is not unlocked. |
 | Grand Inquisitor | All five prerequisites R5 | GI is not yet unlocked in the public roster. Finish the event, then budget GI’s own gear/mods. |
 
 ## Readiness gaps
 
 | Squad / unit | Verified status | Coaching consequence |
 |---|---|---|
-| SLKR | R7, about 561 saved sheet speed; four ability rows upgraded, two lower; ultimate absent | Main premium squad, but do not use completed-kit assumptions |
-| Great Mothers | Mothers/Morgan 6★ R5; Spirit R5; troopers R6 | Preserve the five; repair Spirit’s level-9 mod and Night Trooper’s two level-12 mods |
-| Grievous droids | Grievous 6★ R5; B1/B2/Magna/Droideka R7 | High investment; improve support mods and verify key abilities |
-| Imperial Troopers | Piett +106 flat speed and all mods level 15; Gideon now all 15 | Much better opener; Dark and Range still have underlevelled mods, so first-kill capacity remains the gate |
+| SLKR | R7 and six level-15 mods; owner reports build finished; public ultimate/ability purchases unverified | Main premium squad; verify ability details in game if a counter hinges on them |
+| Great Mothers | Mothers/Morgan 6★ R5; Spirit R5; troopers R6 | Preserve the five; Spirit has one level-9 mod and Night Trooper one level-12 mod |
+| Grievous droids | Grievous **7★/R7** with six level-15 mods; all four droids R7 | Ready for careful matchup testing; B2/Magna each need four useful mod-level repairs |
+| Imperial Troopers | Piett **R6**, six level-15 mods; Gideon six level-15 mods | Verify current speed and first-kill ability; Dark and Range still have underlevelled mods |
 | Empire | Mara +93 flat speed; Vader R7; all five have six level-15 mods | Reliable control option when Mara’s effective opening speed and debuffs clear the matchup |
-| Inquisitors | All five R5 | GI entry complete; Second has one level-1 mod and several others remain below 15 |
-| Galactic Republic project | Three R9 Ahsokas and several R7 Jedi/ships | Relic level is not readiness: CAT, GK and Fulcrum have zero mods in the saved snapshot |
+| Inquisitors | All five 7★/R5 | GI entry complete; several mods remain under 15, Second's lowest is level 9 |
+| Galactic Republic project | CAT R9 and GK R7 have six level-15 mods, plus R9 Snips; Padmé G12 | Missing-mod alert closed; verify actual turn order, primaries and ability readiness |
 
 ## Explicit overlaps
 
@@ -66,6 +66,6 @@ The Grievous squad rises because all four supports are now R7; it remains condit
 
 ## Maintenance
 
-Edit `squads.js` for coaching order and membership. First member is leader; `project: true` marks an alternative/build. Re-run non-browser squad and progression checks after changes. Refresh the public roster after the reported mod move before promoting the Padmé/CAT or Cere/Fulcrum projects.
+Edit `squads.js` for coaching order and membership. First member is leader; `project: true` marks an alternative/build. Re-run non-browser squad and progression checks after changes. The 23 November public refresh confirms CAT, GK and Fulcrum now have six level-15 mods. Check speeds and abilities before promoting Padmé/CAT; Cere/Fulcrum also needs stronger surrounding units.
 
 Reference: [AhnaldT101 team catalogue](https://www.ahnaldt101.com/swgoh/teams) for composition cross-checking only. Progression priorities are in [GOALS.md](GOALS.md).
