@@ -1,10 +1,30 @@
 import assert from 'node:assert/strict';
-import {WIND_BANDS,WIND_UNKNOWN,windBand,windTrend,timedWindHistory,windHistorySegments,sampleWindArrows,WIND_LEGEND_HTML} from '../../worker/hunter-wind-display.mjs';
+import {WIND_BANDS,WIND_UNKNOWN,windBand,coveredWindLabels,windTrend,timedWindHistory,windHistorySegments,sampleWindArrows,WIND_LEGEND_HTML} from '../../worker/hunter-wind-display.mjs';
 
 assert.deepEqual(WIND_BANDS.map(b=>b.id),['red','yellow','green','brown']);
 for(const [speed,band] of [[0,'red'],[11.9,'red'],[12,'yellow'],[15.9,'yellow'],[16,'green'],[29.9,'green'],[30,'brown'],[45,'brown']])assert.equal(windBand(speed).id,band,'Incorrect band at '+speed+' knots');
 for(const value of [null,undefined,NaN,-1,'12',Infinity])assert.equal(windBand(value),WIND_UNKNOWN,'Missing or invalid speeds must not look like light wind');
 for(const band of WIND_BANDS){assert.ok(WIND_LEGEND_HTML.includes(band.color));assert.ok(WIND_LEGEND_HTML.includes(band.description));}
+
+const rect=(left,top,right,bottom)=>({left,top,right,bottom});
+const gauges=[
+ {id:'nelson',reading:rect(257,153,333,192),label:rect(263,196,327,213)},
+ {id:'williamtown',reading:rect(157,182,233,222),label:rect(159,225,231,243)},
+ {id:'nobbys',reading:rect(146,227,222,267),label:rect(158,270,210,287)},
+ {id:'marks',reading:rect(49,247,125,287),label:rect(52,290,122,307)},
+ {id:'swansea',reading:rect(139,297,215,336),label:rect(149,340,205,357)},
+ {id:'cooranbong',reading:rect(41,291,117,330),label:rect(39,334,119,351)}
+];
+const original=structuredClone(gauges);
+assert.deepEqual(coveredWindLabels(gauges),['williamtown','marks'],'Only captions covered by neighbouring phone-sized readings should move');
+assert.deepEqual(gauges,original,'Checking coverage must not change the measured positions');
+assert.deepEqual(coveredWindLabels(gauges),['williamtown','marks'],'Repeated checks must make the same decision');
+assert.deepEqual(coveredWindLabels([{id:'self',reading:rect(0,0,76,39),label:rect(0,30,76,50)}]),[],'A station must not collide with itself');
+const edge=[{id:'label',label:rect(0,0,10,10)},{id:'card',reading:rect(10,0,20,10)}];
+assert.deepEqual(coveredWindLabels(edge,0),[],'Touching edges without a safety gap do not overlap');
+assert.deepEqual(coveredWindLabels(edge),['label'],'Leave a small gap around reading borders and selection rings');
+assert.deepEqual(coveredWindLabels([{id:'hidden',label:rect(0,0,0,0)},{id:'bad',label:rect(0,0,NaN,10)},{id:'card',reading:rect(-2,-2,20,20)}]),[],'Hidden or invalid labels must not trigger placement changes');
+assert.deepEqual(coveredWindLabels([]),[]);
 
 const now=Date.parse('2026-11-22T00:00:00Z'),at=(minutes,speed,gust=40,degrees=0)=>({time:new Date(now-minutes*60000).toISOString(),speed,gust,degrees});
 const reading=(speed,previous,mode='live')=>({mode,latest:at(0,speed),history:[at(30,previous-5),at(20,previous),at(5,previous+7),at(0,speed)]});
@@ -53,4 +73,4 @@ const burst=mixed.slice(-10);
 assert.deepEqual(sampleWindArrows(burst,limit,'speed',0,end),[burst.at(-1)],'Even a short series below the arrow limit must respect the full visible time range');
 assert.equal(mixed.length,41,'Arrow thinning must not remove readings from the source series');
 assert.deepEqual(sampleWindArrows([],limit),[]);
-console.log('Passed: exact speed changeovers, unknown readings, average-wind trends, station cadences, stale/untimed suppression, history gaps and arrow sampling.');
+console.log('Passed: caption coverage, exact speed changeovers, unknown readings, average-wind trends, station cadences, stale/untimed suppression, history gaps and arrow sampling.');

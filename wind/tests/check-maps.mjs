@@ -31,8 +31,7 @@ const node=id=>{
  return nodes.get(id);
 };
 const L={
- map(id,options){const map={id,options,layers:new Set(),fits:[],events:{},createPane(){return {style:{}};},on(name,fn){this.events[name]=fn;return this;},fitBounds(bounds){this.fits.push(bounds);return this;},addLayer(layer){this.layers.add(layer);return this;},removeLayer(layer){this.layers.delete(layer);return this;},hasLayer(layer){return this.layers.has(layer);},panTo(position){this.pan=position;return this;}};maps.set(id,map);return map;},
- tooltip:()=>({setLatLng(){return this;},setContent(){return this;},addTo(){return this;}}),
+ map(id,options){const map={id,options,layers:new Set(),fits:[],events:{},on(name,fn){this.events[name]=fn;return this;},fitBounds(bounds){this.fits.push(bounds);return this;},addLayer(layer){this.layers.add(layer);return this;},removeLayer(layer){this.layers.delete(layer);return this;},hasLayer(layer){return this.layers.has(layer);},panTo(position){this.pan=position;return this;}};maps.set(id,map);return map;},
  tileLayer:()=>({addTo(){return this;}}),control:{zoom:()=>({addTo(map){map.zoomControlAdded=true;}})},divIcon:options=>({options}),
  latLngBounds:positions=>positions,
  layerGroup(){return {layers:[],addTo(map){map.addLayer(this);return this;},addLayer(layer){this.layers.push(layer);},clearLayers(){this.layers=[];}};},

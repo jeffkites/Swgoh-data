@@ -18,6 +18,10 @@ wind map shows all seven gauges together, with all stations in its list.
 The wind map is fixed: dragging and map zoom are disabled, including automatic
 panning on gauge selection or focus. Phone swipes scroll the page over it;
 gauge pins remain clickable. The coast is fitted on load and viewport resize.
+Station captions normally sit below their reading. After fitting, resizing or
+refreshing, their screen rectangles are checked against the other reading
+cards. A covered caption moves immediately above its own reading; clear
+captions keep their usual position. No extra floating place-name tags are added.
 Kiting site reviews have a separate
 map with Lake Mac/Newcastle, Nelson Bay and Central Coast views. Site region
 buttons only change that review map and its cards; they preserve the selected

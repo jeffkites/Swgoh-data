@@ -11,6 +11,13 @@ export const WIND_ARROW_PATH='M12 1 22 11 16 11 16 23 8 23 8 11 2 11Z';
 export function windBand(speed){
  return Number.isFinite(speed)&&speed>=0?WIND_BANDS.find(b=>b.max===null||speed<b.max):WIND_UNKNOWN;
 }
+// Measure captions in their normal position before deciding which need to move.
+// Only other stations' reading cards count; a gauge must never cover itself.
+export function coveredWindLabels(items,gap=2){
+ const valid=rect=>rect&&['left','top','right','bottom'].every(key=>Number.isFinite(rect[key]))&&rect.right>rect.left&&rect.bottom>rect.top;
+ const overlaps=(label,card)=>label.left<card.right+gap&&label.right>card.left-gap&&label.top<card.bottom+gap&&label.bottom>card.top-gap;
+ return items.filter(item=>valid(item.label)&&items.some(other=>other.id!==item.id&&valid(other.reading)&&overlaps(item.label,other.reading))).map(item=>item.id);
+}
 export function timedWindHistory(history,start=0,end=Date.now()){
  const unique=new Map();
  for(const point of Array.isArray(history)?history:[]){
@@ -72,7 +79,7 @@ export const WIND_DISPLAY_SCRIPT=[
  'const WIND_BANDS='+JSON.stringify(WIND_BANDS)+';',
  'const WIND_UNKNOWN='+JSON.stringify(WIND_UNKNOWN)+';',
  'const WIND_ARROW_PATH='+JSON.stringify(WIND_ARROW_PATH)+';',
- windBand.toString(),timedWindHistory.toString(),windTrend.toString(),windHistorySegments.toString(),sampleWindArrows.toString()
+ windBand.toString(),coveredWindLabels.toString(),timedWindHistory.toString(),windTrend.toString(),windHistorySegments.toString(),sampleWindArrows.toString()
 ].join('\n')+String.raw`
 function color(speed){return windBand(speed).color;}
 function trendBadge(d,compact=false){
