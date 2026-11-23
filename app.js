@@ -26,16 +26,16 @@ const farmGoals = {
   ],
   // Fleet targets support Executor and First Order; they are not all journey prerequisites.
   fleet: [
-    {id:'PUNISHINGONE',name:'Punishing One',track:'stars',target:7,goal:'7★'},
-    {id:'FIRSTORDERTIEECHELON',name:'TIE Echelon',track:'stars',target:7,goal:'7★'},
-    {id:'TIEBOMBERIMPERIAL',name:'Imperial TIE Bomber',track:'stars',target:7,goal:'7★'}
+    {id:'PUNISHINGONE',name:'Punishing One · near-term fleet boost',track:'stars',target:7,goal:'7★'},
+    {id:'FIRSTORDERTIEECHELON',name:'TIE Echelon · Finalizer backup project',track:'stars',target:7,goal:'7★'},
+    {id:'TIEBOMBERIMPERIAL',name:'Imperial TIE Bomber · completed',track:'stars',target:7,goal:'7★'}
   ],
   slkrBuild: [
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · unlock relics',track:'gear',target:13,goal:'G13'},
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · first milestone',track:'relic',target:5,goal:'R5'},
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · main target',track:'relic',target:7,goal:'R7'},
-    {id:'SUPREMELEADERKYLOREN',name:'SLKR · remaining normal abilities',track:'manual',goal:'Press the Advantage, then Brutal Assault',status:'Four ability rows now show upgrades; these two remain at the lower exported tier. Verify the in-game screen before spending.'},
-    {id:'SUPREMELEADERKYLOREN',name:'SLKR · ultimate',track:'manual',goal:'Complete ultimate',status:'Not evidenced in the export; verify event progress and unlock in game.'}
+    {id:'SUPREMELEADERKYLOREN',name:'SLKR · ability confirmation only',track:'manual',goal:'Check in game',status:'Owner reports SLKR finished. Exact purchased abilities are not confirmed by the public roster; do not reserve new resources unless something is missing.'},
+    {id:'SUPREMELEADERKYLOREN',name:'SLKR · ultimate confirmation only',track:'manual',goal:'Check in game',status:'Owner reports SLKR finished; the ultimate cannot be independently checked from this roster export.'}
   ],
   inquisitors: [
     {id:'NINTHSISTER',name:'Ninth Sister · tank token',track:'relic',target:5,goal:'R5'},
@@ -44,9 +44,11 @@ const farmGoals = {
     {id:'SEVENTHSISTER',name:'Seventh Sister · healer token',track:'relic',target:5,goal:'R5'},
     {id:'FIFTHBROTHER',name:'Fifth Brother · completed support token',track:'relic',target:5,goal:'R5'}
   ],
-  grievous: [
-    {id:'GRIEVOUS',name:'General Grievous · R5 milestone',track:'relic',target:5,goal:'R5'},
-    {id:'GRIEVOUS',name:'General Grievous · remaining seventh star',track:'stars',target:7,goal:'7★'}
+  tokenCandidates: [
+    {id:'CT210408',name:'501st Echo · conditional LST candidate',track:'relic',target:5,goal:'R5'},
+    {id:'GREEFKARGA',name:'Greef Karga · conditional LST candidate',track:'relic',target:5,goal:'R5'},
+    {id:'CT7567',name:'Clone Rex · conditional LST candidate',track:'relic',target:5,goal:'R5'},
+    {id:'DAKA',name:'Old Daka · healer alternative',track:'relic',target:5,goal:'R5'}
   ],
   // Keep completed unlock requirements available for reference.
   slkr: [
@@ -140,7 +142,7 @@ function slkrProgressText(unit) {
   const milestone = (unit.gear ?? 0) < 13 ? 'Finish G13, then R5 and R7.'
     : (unit.relic ?? 0) < 7 ? 'G13 complete; R' + unit.relic + ' saved. Finish R7.'
     : 'R7 target complete. Reserve further relic spending for Executor.';
-  return 'SLKR is unlocked. ' + milestone + ' Four ability rows now show upgrades; Press the Advantage and Brutal Assault remain at the lower exported tier, and the ultimate is not evidenced. Verify the in-game screen before spending.';
+  return 'SLKR is unlocked. ' + milestone + ' The owner reports the build finished; public roster data does not verify final abilities or the ultimate. Treat further spending as a conditional in-game check, not the active farm.';
 }
 function modReadiness(unit) {
   if (!unit || !Array.isArray(unit.modLevels)) return null;
@@ -152,7 +154,7 @@ function renderFarmPlan() {
   renderGoalList('slkr-targets', farmGoals.slkr);
   renderGoalList('slkr-build-targets', farmGoals.slkrBuild);
   renderGoalList('inquisitor-targets', farmGoals.inquisitors);
-  renderGoalList('grievous-targets', farmGoals.grievous);
+  renderGoalList('grievous-targets', farmGoals.tokenCandidates);
   renderGoalList('era-targets', farmGoals.era);
   const unlocked = snapshot.units.some(u => u.name === 'Supreme Leader Kylo Ren');
   const slkrReady = farmGoals.slkr.every(goal => {
