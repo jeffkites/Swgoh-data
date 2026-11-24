@@ -1,59 +1,74 @@
-# SWGOH progression goals — reviewed 23 November 2026
+# SWGOH progression goals — reviewed 24 November 2026
 
 ## Evidence and operating rules
 
-Public roster: `data/dashboard.json` / `data/refresh.json` saved **23 November 2026, 10:37:57 am AEDT** (`2026-11-22T23:37:57Z`), **272 units**. These files refresh automatically; the strategy below is reviewed advice, not an automatic daily recommender. Compare the live counters with the latest saved roster after each refresh.
+Public roster: `data/dashboard.json` / `data/refresh.json` saved **24 November 2026, 2:58:07 pm AEDT** (`2026-11-24T03:58:07Z`), **278 units**. `data/player.json` and `data/unit-catalog.json` are present. The snapshot is current for this review.
 
-Public data supports stars, gear, relic level and *equipped mod levels*, not unequipped inventory, ability/ultimate purchases, event completion, token eligibility, shard balances, precise resource shortages, private GAC/TW battle outcomes or locked defence. In particular, the owner reported **SLKR finished** on 23 November; R7 and equipped mods are confirmed, but the ultimate and final ability purchases cannot be independently verified from this public snapshot.
+Public data supports stars, gear, relic level, equipped mods and exported skill tiers. It does **not** show unequipped inventory, shard progress between stars, currencies, shop stock, locked GAC/TW availability or a reliable plain-English mapping for every purchased zeta/ultimate. Do not infer balances or declare an ability purchased from relic level alone.
 
-**Resource rules:** Protect Cantina energy for Executor signal data (the owner considers additional 6★ Cantina shard farms low priority). Improve owned mods rather than blanket farming; use manual, selective mod upgrades, and keep automatic upgrade tools **off**. Keep important team speed engines—Mara Jade, Captain Rex, Piett and Hux—at the front of mod decisions. Do not consume premium GAC/TW attack teams merely to complete a defensive slot.
+**Resource rules:** finish near-complete journey gates before starting broad farms. Protect Cantina energy for the one active signal-data bottleneck. Improve useful owned mods selectively; relic level without mods and key abilities is not battle readiness. Keep Great Mothers / Morgan / Spirit / Night Trooper / Death Trooper (Peridea) intact in 5v5.
 
 ## Ranked priorities
 
-| Rank | Goal | Verified 23 November position | Next action / finish line |
+| Rank | Goal | Verified 24 November position | Next action / finish line |
 |---|---|---|---|
-| **1** | **Executor — main progression project** | Piett **R6**, Boba **R5**, Razor Crest **5★**, IG-2000 **6★**. Vader **R7** and Imperial TIE Bomber **7★** complete. | Continue Razor Crest store/event purchases and IG-2000 hard-node farm; plan Piett then Boba to **R8**, using only observed relic-material deficits. Track ships toward **7★** for complete event progression. |
-| **2** | **Finish Grand Inquisitor event** | All five original Inquisitors **7★/R5**; Grand Inquisitor absent from public roster. | Use existing requirements. Repair event mods/abilities and finish the event; do **not** buy extra Inquisitor relic levels. |
-| **3** | **General Skywalker journey** | Grievous **7★/R7** (new), B1/B2/Magna/Droideka **R7**; Snips **R9**, GK/Shaak/Asajj **R7**; Padmé **G12**, C-3PO **R1**. | Event attempts and targeted mod/ability corrections; no blanket relic push ahead of Executor. GAS remains unowned in public roster. |
-| **4** | **Immediate GAC/TW team readiness** | CAT **R9**, GK **R7**, Fulcrum **R9** now all have six equipped level-15 mods (previous missing-mod warnings resolved). Grievous is 7★/R7 with six level-15 mods. Captain Rex is **R5** with six level-15 mods. | Test Padmé/CAT/GK/JKA/Snips with checked speeds; improve weaker Grievous support mods and keep Great Mothers together. Do not claim teams are match-ready on mod *levels* alone. |
-| **5** | **Secondary farms and token efficiency** | Punishing One **6★**, TIE Echelon **2★**; Great Mothers and Morgan **6★/R5**. Threepio & Chewie **R5** already complete. | Punishing One/Echelon only as fleet energy permits; pause optional Cantina shard pushes when signal data binds Executor. Token candidates: Echo, Greef, regular Rex or Daka **only if live-eligible**; do **not** spend a token on already-R5 Threepio & Chewie. |
+| **1** | **Executor — main resource project** | Boba is now **R8** and complete. Piett is **R6**; Razor Crest **5★** and IG-2000 **6★** remain incomplete. Vader R7, Imperial TIE Bomber 7★ and the other relic pilots are complete. | Farm IG-2000 and buy confirmed Razor Crest appearances. Put signal data/relic materials into **Piett R6→R8 only**, subject to actual inventory. Preserve Executor prestige. |
+| **2** | **Finish General Skywalker** | GAS is absent from the saved roster, but every event unit is 7★. Snips R9, GK/Shaak/Asajj and all four Separatist droids are R7; Padmé is G12 and C-3PO R1. | Continue the event with tier-specific mods, speeds and ability checks. Do not add blanket relics: the roster already exceeds the event's recommended R3 baseline on most units. |
+| **3** | **Finish Grand Inquisitor** | All five original Inquisitors are 7★/R5; GI is absent. | Finish with mod/ability/tactics corrections. Do not buy extra Inquisitor relic levels merely to brute-force it. |
+| **4** | **Turn new R8 unlocks into usable squads** | Boba, Fennec, Dash, Han, Krrsantan, Boushh, Skiff, Greedo, Aurra, Gamorrean Guard, Jawa, Mob Enforcer and URoRRuR'R'R are R8. Several arrived with **zero mods** and exported abilities below zeta tiers. | First upgrade the active Bounty Hunter lineup. Add mods/abilities deliberately; do not count the unmodded Hutt/Smuggler units as independent battle-ready teams. |
+| **5** | **Jabba — best long-term GL after Executor** | Thirteen of Jabba's fifteen direct requirements meet or exceed their gates. The exceptions are **C-3PO R1→R7** and **Jedi Knight Luke**, who is not unlocked. | Do not start a blind Jabba relic push. JKL is the real gate: Hermit Yoda 2★, Wampa 3★, Captain Han/ROLO/Han's Falcon absent, plus several relic requirements. Accumulate the gated currency/ships while finishing Executor, GAS and GI. |
 
-### Executor: practical allocation
+### Executor allocation
 
-- **Normal energy:** IG-2000 (currently 6★) toward 7★. Do not restart the completed Imperial TIE Bomber farm.
-- **Store/event rewards:** buy confirmed Razor Crest appearances (currently 5★); shard-in-inventory and appearance timing are unknown.
-- **Relic/signal data:** Piett R6→R8, then Boba R5→R8. Save expensive relic resources until measured deficits are clear; do not divert to unrelated Cantina characters by default.
-- **Fleet energy:** Punishing One 6★→7★ strengthens the future bounty-hunter fleet; Echelon remains 2★ for the user's familiar Finalizer fleet, but neither is an Executor unlock prerequisite. Do not sacrifice Executor progress to force both hard nodes daily.
-- **Prestige:** preserve the Executor budget. Negotiator at 7★ and its strong Galactic Republic pilots provide a usable fleet in the meantime.
-- **Stars nuance:** the journey guide lists 6★ for certain ship entry requirements; tracking **7★** is the full-journey/completion target, not a claim that every initial tier requires 7★. See [Executor journey requirements](https://swgoh.gg/journey-guides/CAPITALEXECUTOR/).
+- **Normal energy:** IG-2000 6★→7★ on Light Side 6-E Hard.
+- **Store/event rewards:** buy confirmed Razor Crest appearances; its 5★ shard balance is unknown.
+- **Cantina/signal data:** Piett R6→R8 is now the only unfinished Executor relic target. Boba R8 is complete.
+- **Fleet energy:** Punishing One 6★→7★ on Fleet 5-F is the first discretionary fleet farm; TIE Echelon 3★→7★ on Fleet 4-E is second. Neither replaces Razor Crest/IG-2000 as an Executor gate.
+- **Prestige:** balance is private/unknown. Preserve the planned Executor budget; Negotiator and Malevolence are both 7★ working fleets.
 
-### GAC/TW improvement queue
+### General Skywalker and Jabba sequencing
 
-1. **Padmé/CAT project:** Old missing-mod alert is closed. CAT and GK now each have six level-15 equipped mods; Snips and JKA are also developed. Check **speed, primary stats and ability readiness** before promoting this squad to a routine counter or moving it to defence; Padmé is still G12.
-2. **Grievous droids:** Grievous is now **7★/R7 with six level-15 mods**; no longer a 6★ token/star project. B1 also has six level-15 mods. B2 has four equipped mods below 15, MagnaGuard four below 15, and Droideka one below 15—repair only useful pieces, with speed and durability requirements in mind.
-3. **Speed engines and Great Mothers:** Keep Mara Jade, Captain Rex, Piett and Hux turn order in working shape. Great Mothers / Morgan / Spirit / Night Trooper / Death Trooper (Peridea) stays together in 5v5; Spirit has a level-9 mod and Night Trooper a level-12 mod.
+General Skywalker is the best next unlock because no new shard or relic project is required to enter its character tiers. Padmé G12 and C-3PO R1 are the lowest-relic Phase 2 units, but the correct next move is event mod/ability execution before more relics.
 
-**Ability investment:** the public snapshot does not verify purchased zetas or the SLKR ultimate. Before applying the next zeta, check the live ability screen; CAT's Force Leap and Snips' Shien were discussed as high-value candidates **if unpurchased**. Do not claim a zeta is missing from a mod/roster summary.
+The new R8 bundle materially shortens Jabba, but it does not make Jabba immediate. Direct requirements now complete include Han, Krrsantan, Gamorrean Guard, Outrider, Greedo, Skiff, Jawa, URoRRuR'R'R, Boushh, Aurra, Fennec, Boba and Mob Enforcer. JKL's separate event is a substantial prerequisite tree, so farm its gated pieces opportunistically rather than diverting Executor signal data today.
 
-### Token and Cantina choices
+### Squad readiness and mods
 
-Recent account priorities favour **immediate usable squad upgrades over speculative long Cantina farms**. Threepio & Chewie is already R5, so remove that formerly recommended Aurodium pick. Other possible token accelerations, **conditional on the actual shop whitelist, role, rarity and balance**, are 501st Echo (7★/G8), Greef Karga (7★/R1), regular Clone Rex (7★/R1) and Old Daka (7★/G9). These are choices, not purchases or assumed eligible units.
+1. **Padmé/CAT:** CAT R9, GK/JKA R7 and Snips R9 all have six level-15 mods; Padmé G12 also has six level-15 mods. Promote this to a main roster allocation, but keep matchup judgments conditional on actual speed, primaries and abilities.
+2. **Bounty Hunters:** use Bossk / Greef / Mandalorian / Fennec / Boba as the main 5v5 allocation. Fennec and Boba are R8, but Fennec has four mods below 15 and Boba has two; contract timing and Greef/Mando ability readiness still control safety.
+3. **CLS upgrade project:** R8 Han unlocks the standard CLS shape, but Han currently has **zero equipped mods**. Keep the existing no-Han main team until Han is modded; then test CLS / Han / Chewbacca / C-3PO / Threepio & Chewie.
+4. **Hutt/Smuggler bundle:** Krrsantan, Skiff, Aurra, Gamorrean Guard, Jawa, Mob Enforcer and URoRRuR'R'R have zero equipped mods. Dash and Boushh have several underlevelled mods. They are progression assets and build projects, not seven ready counters.
+5. **Grievous:** Grievous and B1 have six level-15 mods. B2 and MagnaGuard still have underlevelled pieces; keep this a strong conditional counter rather than a claimed measured win rate.
 
-Great Mothers and Morgan are still 6★/R5; their seventh-star Cantina farms can resume when they beat the marginal value of Executor signal data. Neither their missing shards nor token balances are present in the public export.
+### Nightsisters
 
-### SLKR and completed projects
+The working Great Mothers five remains protected. A traditional Talzin team is not yet independent: Talzin is 5★/G8, Daka 7★/G9, Zombie 5★/level 1 and Merrin is absent; Asajj R7 is currently needed for GAS attempts. A Healer Aurodium token on Daka is efficient only as the start of that later project, not as permission to dismantle Great Mothers.
 
-SLKR is **7★/R7**, equipped with six level-15 mods, and the owner reports the build finished. Treat relic gearing as **complete**, not today's highest farm. Ultimate and the final ability tiers are **not evidenced in the public roster**, so verify them in game rather than creating a new automatic spending target. The earlier G13/R5/R7 milestones stay visible as completed history. General Grievous's earlier 7★ and R5 milestones are now complete, and Threepio & Chewie has already reached R5.
+### Aurodium Lightspeed tokens
 
-## Material changes since the 17 November review
+The live 24 November token set upgrades an eligible role-matched unit to **6★/R5**, ability tier 6, without zetas or omicrons. The last user-confirmed Aurodium price is **3,500**; current balance and exact in-game stock are unknown.
 
-- Piett advanced **R5 → R6**, reducing the remaining Executor relic gap.
-- Grievous advanced **6★/R5 → 7★/R7** and is now fully levelled in all six saved mod slots.
-- CAT, General Kenobi and Fulcrum moved from **zero saved mods → six level-15 mods each**; the earlier missing-mod warnings must not be repeated.
-- Captain Rex has six level-15 equipped mods; his gear is R5. C-3PO advanced **R0 → R1**.
-- Threepio & Chewie is **R5** now; stop recommending an Aurodium token on it.
-- Public roster now totals **272 units**, versus the previous 17 November snapshot. Recent named activity and fleet scores should still be checked from their own live/private sources; public data does not establish round results.
+Recommended order, conditional on the live whitelist:
 
-## Source boundaries
+1. **Support — Greef Karga R1→R5:** best immediate gain because it strengthens the now R8-heavy Bounty Hunter team.
+2. **Healer — Old Daka G9→R5:** largest raw saving, but creates only part of a future traditional Nightsister team.
+3. **Support — 501st Echo G8→R5:** valuable after GAS, but ARC Trooper is absent and the clone squad is not complete.
+4. **Tank — Royal Guard G8→R5:** usable Empire depth, lower marginal value while Shoretrooper is already R5.
 
-Progression and unit levels: [saved public dashboard](data/dashboard.json), [refresh metadata](data/refresh.json), [unit catalogue](data/unit-catalog.json). Unlock reference: [Executor](https://swgoh.gg/journey-guides/CAPITALEXECUTOR/). Squad allocation is in [SQUADS.md](SQUADS.md); the interactive roster and goal progress are in [index.html](index.html). Do not publish private inventory, battle logs or access tokens in this repository.
+Do not use a token on a character already at or above R5. Verify the displayed unit before purchase; eligibility lists and shipment slots can differ by account.
+
+### SLKR and completed milestones
+
+SLKR is 7★/R7 with six level-15 6-dot mods and **+129 flat mod speed**. All six exported normal skill rows now show the same upgraded state, and the owner reports SLKR finished. `purchasedAbilityId` remains empty, so the public export still does not independently prove the ultimate. Treat gear, relics and normal ability spending as complete; only check the ultimate in game. Do not retain obsolete R7 or zeta farms.
+
+## Material changes since 23 November
+
+- Boba advanced **R5→R8**, leaving Piett as the only unfinished Executor relic pilot.
+- TIE Echelon advanced **2★→3★**.
+- A large Hutt/Smuggler group reached R8 and Outrider reached 7★, making Jabba the strongest long-term GL opportunity—but JKL remains the real gate.
+- The main Bounty Hunter allocation now uses R8 Fennec and Boba; a standard CLS lineup is recorded as a project until R8 Han receives mods.
+- Padmé/CAT is promoted into both main ranked allocations. Great Mothers is unchanged.
+
+## Sources and privacy boundary
+
+Progression: [saved public dashboard](data/dashboard.json), [raw player snapshot](data/player.json), [unit catalogue](data/unit-catalog.json). Public reference: [Executor](https://swgoh.gg/journey-guides/CAPITALEXECUTOR/), [General Skywalker](https://swgoh.gg/journey-guides/GENERALSKYWALKER/), [Jabba](https://swgoh.gg/journey-guides/JABBATHEHUTT/) and [Jedi Knight Luke](https://swgoh.gg/journey-guides/JEDIKNIGHTLUKE/). Do not commit private inventory, currencies, GAC/TW boards, battle logs or credentials.

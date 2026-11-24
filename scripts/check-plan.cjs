@@ -34,6 +34,11 @@ const byId=new Map(view.units.map(u=>[u.id,u]));
 for (const id of ['NINTHSISTER','EIGHTHBROTHER','SECONDSISTER','SEVENTHSISTER','FIFTHBROTHER'])
   assert.ok((byId.get(id)?.relic ?? -1) >= 5, id + ' should meet the Grand Inquisitor relic gate');
 assert.ok((byId.get('VADER')?.relic ?? -1) >= 7, 'Vader Executor relic gate should remain complete');
+assert.ok((byId.get('BOBAFETT')?.relic ?? -1) >= 8, 'Boba Executor relic gate should now be complete');
+assert.ok((byId.get('ADMIRALPIETT')?.relic ?? -1) === 6, 'Piett should remain the sole Executor relic build');
+for (const id of ['HANSOLO','KRRSANTAN','BOUSHH','UNDERCOVERLANDO','FENNECSHAND','GREEDO','AURRA_SING','GAMORREANGUARD','JAWA','HUMANTHUG','URORRURRR'])
+  assert.ok((byId.get(id)?.relic ?? -1) >= 8, id + ' R8 bundle upgrade should be retained');
+assert.equal(byId.get('OUTRIDER')?.stars,7,'Outrider should satisfy the Jabba gate');
 for (const id of ['COMMANDERAHSOKA','FULCRUMAHSOKA','AHSOKATANO'])
   assert.ok((byId.get(id)?.relic ?? -1) >= 9, id + ' R9 roster upgrade should be retained');
 const html=fs.readFileSync('index.html','utf8');
@@ -46,4 +51,5 @@ for(const [attribute,expected] of [['data-tab',['farm-plan','squads-5v5','squads
 for(const match of html.matchAll(/aria-controls="([^"]+)"/g)) assert.ok(ids.includes(match[1]));
 for(const id of ['slkr-build-targets','executor-targets','inquisitor-targets','grievous-targets','fleet-targets']) assert.ok(ids.includes(id));
 assert.match(html,/General Skywalker/,'Next character journey should progress beyond completed GI prerequisites');
+assert.match(html,/13 of 15 direct gates complete/,'Jabba opportunity should progress beyond the completed mini-era');
 console.log('PASS: progression branches, unknown abilities, public mod evidence, snapshot timestamp and tab structure.');

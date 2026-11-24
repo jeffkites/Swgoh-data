@@ -60,43 +60,38 @@ try {
   const executorPlan = await page.locator('#executor-targets').textContent();
   assert.ok(executorPlan.includes('Dengar') && executorPlan.includes('R5'));
   assert.ok(executorPlan.includes('Razor Crest'));
-  assert.match(await page.locator('#farm-plan').textContent(), /Fleet (?:Arena )?Store/);
+  assert.match(await page.locator('#farm-plan').textContent(), /Razor Crest/);
   assert.ok((await page.locator('#fleet-targets').innerText()).includes('Punishing One'));
   assert.ok((await page.locator('#slkr-targets').textContent()).includes('Emperor Palpatine'));
   assert.ok((await page.locator('#slkr-build-targets').textContent()).includes('G13'));
   assert.ok((await page.locator('#slkr-build-targets').textContent()).includes('R7'));
   assert.equal(await page.locator('#inquisitor-targets .farm-target').count(), 5);
-  assert.ok((await page.locator('#grievous-targets').textContent()).includes('General Grievous'));
-  assert.ok((await page.locator('#slkr-status').textContent()).includes('Four ability rows now show upgrades'));
-  assert.ok((await page.locator('#era-targets').textContent()).includes('Adelphi Ranger'));
-  assert.ok((await page.locator('#era-targets').textContent()).includes('Mercenary Guard Droid (B1)'));
-  // The roster updates over time: never hardcode a character's current stars.
-  const adelphi = data.units.find(u => u.id === 'ADELPHIRANGER');
-  if (adelphi) {
-    assert.ok((await page.locator('#era-targets').textContent()).includes(adelphi.stars + '★ of 5★'));
-  }
-  assert.ok((await page.locator('#farm-plan').textContent()).includes('ended 17 Nov 2026'));
+  assert.ok((await page.locator('#grievous-targets').textContent()).includes('Greef Karga'));
+  assert.ok((await page.locator('#slkr-status').textContent()).includes('normal skill rows are upgraded'));
+  assert.ok((await page.locator('#era-targets').textContent()).includes('Jedi Knight Luke'));
+  assert.ok((await page.locator('#era-targets').textContent()).includes('C-3PO'));
+  assert.ok((await page.locator('#farm-plan').textContent()).includes('13 of 15 direct gates complete'));
   assert.ok((await page.locator('#executor-targets').textContent()).includes('Darth Vader'));
   // Once SLKR is unlocked the status legitimately changes, so check both cases.
   const slkrMessage = await page.locator('#slkr-status').textContent();
   assert.ok(slkrMessage.includes('prerequisites met') || slkrMessage.includes('SLKR is unlocked') ||
     slkrMessage.includes('Complete the outstanding prerequisites'), 'SLKR progression is shown');
   assert.ok(!(await page.locator('#era-targets').textContent()).includes('Darth Jar Jar'));
-  assert.ok((await page.locator('#farm-plan').textContent()).includes('Fleet 5-F Hard'));
+  assert.ok((await page.locator('#farm-plan').textContent()).includes('5-F'));
   assert.ok((await page.locator('#farm-plan').textContent()).includes('Light Side 6-E Hard'));
   await page.locator('[data-tab="squads-5v5"]').click();
   assert.ok(await page.locator('#squads-5v5').isVisible());
   assert.ok(!(await page.locator('#farm-plan').isVisible()));
-  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 18);
+  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 20);
   await page.locator('#squad-search-5v5').fill('Great Mothers');
   assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 1);
   await page.locator('#squad-list-5v5 summary').click();
   assert.ok((await page.locator('#squad-list-5v5').innerText()).includes('Night Trooper'));
   await page.locator('#squad-search-5v5').fill('');
   await page.locator('#squad-filter-5v5').selectOption('project');
-  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 6);
+  assert.equal(await page.locator('#squad-list-5v5 .squad-card').count(), 7);
   await page.locator('[data-tab="squads-3v3"]').click();
-  assert.equal(await page.locator('#squad-list-3v3 .squad-card').count(), 19);
+  assert.equal(await page.locator('#squad-list-3v3 .squad-card').count(), 21);
   assert.ok((await page.locator('#squad-list-3v3').textContent()).includes('Enoch'));
   await page.locator('#tab-squads-3v3').press('ArrowRight');
   assert.ok(await page.locator('#roster').isVisible(), 'Arrow navigation selects the roster');

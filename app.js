@@ -34,8 +34,8 @@ const farmGoals = {
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · unlock relics',track:'gear',target:13,goal:'G13'},
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · first milestone',track:'relic',target:5,goal:'R5'},
     {id:'SUPREMELEADERKYLOREN',name:'SLKR · main target',track:'relic',target:7,goal:'R7'},
-    {id:'SUPREMELEADERKYLOREN',name:'SLKR · ability confirmation only',track:'manual',goal:'Check in game',status:'Owner reports SLKR finished. Exact purchased abilities are not confirmed by the public roster; do not reserve new resources unless something is missing.'},
-    {id:'SUPREMELEADERKYLOREN',name:'SLKR · ultimate confirmation only',track:'manual',goal:'Check in game',status:'Owner reports SLKR finished; the ultimate cannot be independently checked from this roster export.'}
+    {id:'SUPREMELEADERKYLOREN',name:'SLKR · normal abilities complete',track:'manual',goal:'Complete',status:'Owner reports SLKR finished and all six exported normal skill rows now share the upgraded state. No further zeta budget is planned.'},
+    {id:'SUPREMELEADERKYLOREN',name:'SLKR · ultimate confirmation only',track:'manual',goal:'Check in game',status:'The public purchased-ability field remains empty, so the ultimate still cannot be independently proved from this export.'}
   ],
   inquisitors: [
     {id:'NINTHSISTER',name:'Ninth Sister · tank token',track:'relic',target:5,goal:'R5'},
@@ -45,10 +45,10 @@ const farmGoals = {
     {id:'FIFTHBROTHER',name:'Fifth Brother · completed support token',track:'relic',target:5,goal:'R5'}
   ],
   tokenCandidates: [
-    {id:'CT210408',name:'501st Echo · conditional LST candidate',track:'relic',target:5,goal:'R5'},
-    {id:'GREEFKARGA',name:'Greef Karga · conditional LST candidate',track:'relic',target:5,goal:'R5'},
-    {id:'CT7567',name:'Clone Rex · conditional LST candidate',track:'relic',target:5,goal:'R5'},
-    {id:'DAKA',name:'Old Daka · healer alternative',track:'relic',target:5,goal:'R5'}
+    {id:'GREEFKARGA',name:'Greef Karga · Support priority',track:'relic',target:5,goal:'R5'},
+    {id:'DAKA',name:'Old Daka · Healer alternative',track:'relic',target:5,goal:'R5'},
+    {id:'CT210408',name:'501st Echo · post-GAS Support option',track:'relic',target:5,goal:'R5'},
+    {id:'ROYALGUARD',name:'Royal Guard · lower-priority Tank option',track:'relic',target:5,goal:'R5'}
   ],
   // Keep completed unlock requirements available for reference.
   slkr: [
@@ -67,10 +67,22 @@ const farmGoals = {
     {id:'CAPITALFINALIZER',name:'Finalizer',track:'stars',target:5,goal:'5★'}
   ],
   era: [
-    // Mandalorian and Grogu mini-era: 20 Oct – 17 Nov 2026.
-    // 5★ is the current collection goal, not the GL requirement.
-    {id:'ADELPHIRANGER',name:'Adelphi Ranger',track:'stars',target:5,goal:'5★'},
-    {id:'B1MERCDROID',name:'Mercenary Guard Droid (B1)',track:'stars',target:5,goal:'5★',releaseDate:'2026-11-03'}
+    // The R8 Hutt/Smuggler bundle makes Jabba the best long-term GL after Executor.
+    {id:'KRRSANTAN',name:'Krrsantan',track:'relic',target:5,goal:'R5'},
+    {id:'HANSOLO',name:'Han Solo',track:'relic',target:8,goal:'R8'},
+    {id:'GAMORREANGUARD',name:'Gamorrean Guard',track:'relic',target:3,goal:'R3'},
+    {id:'OUTRIDER',name:'Outrider',track:'stars',target:7,goal:'7★'},
+    {id:'GREEDO',name:'Greedo',track:'relic',target:6,goal:'R6'},
+    {id:'UNDERCOVERLANDO',name:'Skiff Guard',track:'relic',target:5,goal:'R5'},
+    {id:'JEDIKNIGHTLUKE',name:'Jedi Knight Luke · major prerequisite tree',track:'relic',target:7,goal:'R7'},
+    {id:'JAWA',name:'Jawa',track:'relic',target:3,goal:'R3'},
+    {id:'URORRURRR',name:"URoRRuR'R'R",track:'relic',target:4,goal:'R4'},
+    {id:'C3POLEGENDARY',name:'C-3PO',track:'relic',target:7,goal:'R7'},
+    {id:'BOUSHH',name:'Boushh',track:'relic',target:5,goal:'R5'},
+    {id:'AURRA_SING',name:'Aurra Sing',track:'relic',target:6,goal:'R6'},
+    {id:'FENNECSHAND',name:'Fennec Shand',track:'relic',target:7,goal:'R7'},
+    {id:'BOBAFETT',name:'Boba Fett',track:'relic',target:7,goal:'R7'},
+    {id:'HUMANTHUG',name:'Mob Enforcer',track:'relic',target:3,goal:'R3'}
   ]
 };
 function renderGoalList(containerId, goals) {
@@ -142,7 +154,7 @@ function slkrProgressText(unit) {
   const milestone = (unit.gear ?? 0) < 13 ? 'Finish G13, then R5 and R7.'
     : (unit.relic ?? 0) < 7 ? 'G13 complete; R' + unit.relic + ' saved. Finish R7.'
     : 'R7 target complete. Reserve further relic spending for Executor.';
-  return 'SLKR is unlocked. ' + milestone + ' The owner reports the build finished; public roster data does not verify final abilities or the ultimate. Treat further spending as a conditional in-game check, not the active farm.';
+  return 'SLKR is unlocked. ' + milestone + ' The owner reports the build finished and all exported normal skill rows are upgraded. Only the ultimate remains an in-game verification; SLKR is not the active resource farm.';
 }
 function modReadiness(unit) {
   if (!unit || !Array.isArray(unit.modLevels)) return null;
@@ -649,7 +661,7 @@ function renderSquads(mode) {
   });
   if (!shown) container.append(squadElement('p','squad-empty','No squads match. Try another character or show all squads.'));
   $('squad-count-' + mode).textContent = shown + ' of ' + plans.length + ' squads shown';
-  $('squad-freshness-' + mode).textContent = 'Order reviewed 17 Nov 2026 · live roster ' + new Date(snapshot.refreshedAt).toLocaleString();
+  $('squad-freshness-' + mode).textContent = 'Order reviewed 24 Nov 2026 · live roster ' + new Date(snapshot.refreshedAt).toLocaleString();
 }
 ['5v5','3v3'].forEach(mode => {
   $('squad-search-' + mode).addEventListener('input', () => snapshot && renderSquads(mode));

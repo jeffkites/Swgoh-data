@@ -18,14 +18,17 @@ for (const [mode, squads] of Object.entries(plans)) {
 const mothers5 = plans['5v5'].find(s => s.name==='Great Mothers');
 assert.ok(mothers5.members.includes('NIGHTTROOPER') && mothers5.members.includes('DEATHTROOPERPERIDEA'));
 const padme5 = plans['5v5'].find(s => s.name.startsWith('Padmé'));
-assert.ok(padme5?.project, 'Padmé/CAT should remain a readiness project until saved mods are verified');
+assert.ok(padme5 && !padme5.project, 'Padmé/CAT should graduate after the saved mod move');
 const kelleran5 = plans['5v5'].find(s => s.name.startsWith('Kelleran'));
-assert.ok(!kelleran5.members.includes('ANAKINKNIGHT') && !kelleran5.members.includes('AHSOKATANO'), 'JKA and Snips should be released for the Padmé project');
+assert.ok(!kelleran5.members.includes('ANAKINKNIGHT') && !kelleran5.members.includes('AHSOKATANO'), 'JKA and Snips should remain in the Padmé main allocation');
 assert.ok(!plans['5v5'].some(s=>s.members[0]==='CAPTAINENOCH'));
 assert.ok(plans['3v3'].find(s=>s.members[0]==='CAPTAINENOCH').project);
+assert.ok(plans['5v5'].find(s=>s.project && s.members.includes('HANSOLO')), 'Unmodded Han CLS must remain a project');
+assert.ok(plans['5v5'].find(s=>s.members[0]==='KRRSANTAN').project, 'Unmodded Hutt bundle must remain a project');
+assert.ok(plans['5v5'].find(s=>s.name.startsWith('Bounty Hunters')).members.includes('FENNECSHAND'));
 for(const mode of Object.keys(plans)) {
   assert.ok(!plans[mode].find(s=>s.members[0]==='SUPREMELEADERKYLOREN').project, mode + ': SLKR should be a main allocation');
   assert.ok(!plans[mode].find(s=>s.members[0]==='GRIEVOUS').project, mode + ': Grievous should be a conditional main allocation');
   assert.ok(plans[mode].find(s=>s.name.includes('KRU alternative')).project, mode + ': KRU alternative should be an overlapping project');
 }
-console.log('PASS: both formats have correct sizes, valid IDs, no repeated main-lineup characters, promoted SLKR/Grievous, and protected Mothers allocation.');
+console.log('PASS: both formats have valid IDs, duplicate-free main allocations, promoted Padmé/Fennec, project-gated unmodded R8s, and protected Mothers.');
