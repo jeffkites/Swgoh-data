@@ -12900,6 +12900,49 @@
     {
       "skill": [
         {
+          "id": "specialskill_KRRSANTAN02",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_KRRSANTAN01",
+          "tier": 5
+        },
+        {
+          "id": "contractskill_KRRSANTAN01",
+          "tier": 1
+        },
+        {
+          "id": "basicskill_KRRSANTAN",
+          "tier": 5
+        },
+        {
+          "id": "leaderskill_KRRSANTAN",
+          "tier": 5
+        },
+        {
+          "id": "uniqueskill_KRRSANTAN01",
+          "tier": 5
+        }
+      ],
+      "equipment": [],
+      "equippedStatModOld": [],
+      "equippedStatMod": [],
+      "purchasedAbilityId": [],
+      "id": "fp9aYaUGQb6uoegf3_Z92g",
+      "definitionId": "KRRSANTAN:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
+      "promotionRecipeReference": "",
+      "unitStat": null,
+      "currentTier": 13,
+      "relic": {
+        "currentTier": 10
+      }
+    },
+    {
+      "skill": [
+        {
           "id": "basicskill_KYLOREN",
           "tier": 6
         },
@@ -19626,21 +19669,34 @@
       }
     },
     {
-      "skill": [],
+      "skill": [
+        {
+          "id": "basicskill_JAWA",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_JAWA01",
+          "tier": 5
+        },
+        {
+          "id": "uniqueskill_JAWA01",
+          "tier": 5
+        }
+      ],
       "equipment": [],
       "equippedStatModOld": [],
       "equippedStatMod": [],
       "purchasedAbilityId": [],
       "id": "d-xp2P3QR62ImKyhWCgjPw",
-      "definitionId": "JAWA:THREE_STAR",
-      "currentRarity": 3,
-      "currentLevel": 1,
-      "currentXp": 0,
+      "definitionId": "JAWA:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
       "promotionRecipeReference": "",
       "unitStat": null,
-      "currentTier": 1,
+      "currentTier": 13,
       "relic": {
-        "currentTier": 1
+        "currentTier": 10
       }
     },
     {
@@ -30881,21 +30937,38 @@
       }
     },
     {
-      "skill": [],
+      "skill": [
+        {
+          "id": "specialskill_GAMORREANGUARD02",
+          "tier": 5
+        },
+        {
+          "id": "basicskill_GAMORREANGUARD",
+          "tier": 5
+        },
+        {
+          "id": "uniqueskill_GAMORREANGUARD01",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_GAMORREANGUARD01",
+          "tier": 5
+        }
+      ],
       "equipment": [],
       "equippedStatModOld": [],
       "equippedStatMod": [],
       "purchasedAbilityId": [],
       "id": "KFkfQGWNR3e2lJM-M2JpdA",
-      "definitionId": "GAMORREANGUARD:TWO_STAR",
-      "currentRarity": 2,
-      "currentLevel": 1,
-      "currentXp": 0,
+      "definitionId": "GAMORREANGUARD:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
       "promotionRecipeReference": "",
       "unitStat": null,
-      "currentTier": 1,
+      "currentTier": 13,
       "relic": {
-        "currentTier": 1
+        "currentTier": 10
       }
     },
     {
@@ -55202,23 +55275,23 @@
       "skill": [
         {
           "id": "basicskill_DASHRENDAR",
-          "tier": 4
+          "tier": 5
         },
         {
           "id": "leaderskill_DASHRENDAR",
-          "tier": 4
+          "tier": 5
         },
         {
           "id": "uniqueskill_DASHRENDAR",
-          "tier": 4
+          "tier": 5
         },
         {
           "id": "specialskill_DASHRENDAR02",
-          "tier": 4
+          "tier": 5
         },
         {
           "id": "specialskill_DASHRENDAR01",
-          "tier": 4
+          "tier": 5
         }
       ],
       "equipment": [],
@@ -55919,15 +55992,15 @@
       ],
       "purchasedAbilityId": [],
       "id": "LCLZ7bhCRTikmpgrO7i_hQ",
-      "definitionId": "DASHRENDAR:SIX_STAR",
-      "currentRarity": 6,
+      "definitionId": "DASHRENDAR:SEVEN_STAR",
+      "currentRarity": 7,
       "currentLevel": 85,
       "currentXp": 883025,
       "promotionRecipeReference": "",
       "unitStat": null,
       "currentTier": 13,
       "relic": {
-        "currentTier": 7
+        "currentTier": 10
       }
     },
     {
@@ -59691,6 +59764,43 @@
     {
       "skill": [
         {
+          "id": "uniqueskill_OUTRIDER01",
+          "tier": 5
+        },
+        {
+          "id": "hardwareskill_OUTRIDER",
+          "tier": 1
+        },
+        {
+          "id": "basicskill_OUTRIDER",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_OUTRIDER01",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_OUTRIDER02",
+          "tier": 5
+        }
+      ],
+      "equipment": [],
+      "equippedStatModOld": [],
+      "equippedStatMod": [],
+      "purchasedAbilityId": [],
+      "id": "xjRBFXvgQMSD3tOcg8oAUg",
+      "definitionId": "OUTRIDER:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 873200,
+      "promotionRecipeReference": "",
+      "unitStat": null,
+      "currentTier": 1,
+      "relic": null
+    },
+    {
+      "skill": [
+        {
           "id": "basicskill_OLDBENKENOBI",
           "tier": 6
         },
@@ -62666,6 +62776,41 @@
       "currentTier": 13,
       "relic": {
         "currentTier": 7
+      }
+    },
+    {
+      "skill": [
+        {
+          "id": "specialskill_HANSOLO01",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_HANSOLO02",
+          "tier": 5
+        },
+        {
+          "id": "basicskill_HANSOLO",
+          "tier": 5
+        },
+        {
+          "id": "uniqueskill_HANSOLO01",
+          "tier": 5
+        }
+      ],
+      "equipment": [],
+      "equippedStatModOld": [],
+      "equippedStatMod": [],
+      "purchasedAbilityId": [],
+      "id": "ZMypfV0cR1iRV9xXQmdahQ",
+      "definitionId": "HANSOLO:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
+      "promotionRecipeReference": "",
+      "unitStat": null,
+      "currentTier": 13,
+      "relic": {
+        "currentTier": 10
       }
     },
     {
@@ -68686,21 +68831,34 @@
       "relic": null
     },
     {
-      "skill": [],
+      "skill": [
+        {
+          "id": "uniqueskill_HUMANTHUG01",
+          "tier": 5
+        },
+        {
+          "id": "basicskill_HUMANTHUG",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_HUMANTHUG01",
+          "tier": 5
+        }
+      ],
       "equipment": [],
       "equippedStatModOld": [],
       "equippedStatMod": [],
       "purchasedAbilityId": [],
       "id": "6zyUSVhBShexLUFhYNaxkw",
-      "definitionId": "HUMANTHUG:TWO_STAR",
-      "currentRarity": 2,
-      "currentLevel": 1,
-      "currentXp": 0,
+      "definitionId": "HUMANTHUG:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
       "promotionRecipeReference": "",
       "unitStat": null,
-      "currentTier": 1,
+      "currentTier": 13,
       "relic": {
-        "currentTier": 1
+        "currentTier": 10
       }
     },
     {
@@ -73965,6 +74123,10 @@
           "slot": 1
         },
         {
+          "equipmentId": "159",
+          "slot": 2
+        },
+        {
           "equipmentId": "G12Finisher_PADMEAMIDALA_C",
           "slot": 5
         }
@@ -77672,7 +77834,7 @@
       "unitStat": null,
       "currentTier": 13,
       "relic": {
-        "currentTier": 2
+        "currentTier": 10
       }
     },
     {
@@ -78466,15 +78628,15 @@
       "skill": [
         {
           "id": "basicskill_EDRIOTWOTUBES",
-          "tier": 0
+          "tier": 1
         },
         {
           "id": "specialskill_EDRIOTWOTUBES01",
-          "tier": 0
+          "tier": 1
         },
         {
           "id": "specialskill_EDRIOTWOTUBES02",
-          "tier": 0
+          "tier": 1
         },
         {
           "id": "uniqueskill_EDRIOTWOTUBES01",
@@ -78488,8 +78650,8 @@
       "id": "OxIiiAo6QJSH8kjwS710-A",
       "definitionId": "EDRIOTWOTUBES:FIVE_STAR",
       "currentRarity": 5,
-      "currentLevel": 14,
-      "currentXp": 1525,
+      "currentLevel": 17,
+      "currentXp": 2305,
       "promotionRecipeReference": "",
       "unitStat": null,
       "currentTier": 4,
@@ -80769,7 +80931,7 @@
       "unitStat": null,
       "currentTier": 13,
       "relic": {
-        "currentTier": 2
+        "currentTier": 10
       }
     },
     {
@@ -95985,15 +96147,15 @@
       "skill": [
         {
           "id": "uniqueskill_GREEDO01",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "specialskill_GREEDO01",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "specialskill_GREEDO02",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "contractskill_GREEDO01",
@@ -96001,11 +96163,11 @@
         },
         {
           "id": "leaderskill_GREEDO",
-          "tier": 3
+          "tier": 5
         },
         {
           "id": "basicskill_GREEDO",
-          "tier": 3
+          "tier": 5
         }
       ],
       "equipment": [],
@@ -96702,15 +96864,15 @@
       ],
       "purchasedAbilityId": [],
       "id": "Ao6sqrr4TeqguXdDBj_uZQ",
-      "definitionId": "GREEDO:FIVE_STAR",
-      "currentRarity": 5,
-      "currentLevel": 80,
-      "currentXp": 653025,
+      "definitionId": "GREEDO:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
       "promotionRecipeReference": "",
       "unitStat": null,
-      "currentTier": 8,
+      "currentTier": 13,
       "relic": {
-        "currentTier": 1
+        "currentTier": 10
       }
     },
     {
@@ -98934,7 +99096,7 @@
       "unitStat": null,
       "currentTier": 13,
       "relic": {
-        "currentTier": 7
+        "currentTier": 10
       }
     },
     {
@@ -107175,6 +107337,41 @@
       }
     },
     {
+      "skill": [
+        {
+          "id": "specialskill_URORRURRR01",
+          "tier": 5
+        },
+        {
+          "id": "leaderskill_URORRURRR",
+          "tier": 5
+        },
+        {
+          "id": "basicskill_URORRURRR",
+          "tier": 5
+        },
+        {
+          "id": "uniqueskill_URORRURRR01",
+          "tier": 5
+        }
+      ],
+      "equipment": [],
+      "equippedStatModOld": [],
+      "equippedStatMod": [],
+      "purchasedAbilityId": [],
+      "id": "d8GLAC3jSQynNy3jWIc_kQ",
+      "definitionId": "URORRURRR:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
+      "promotionRecipeReference": "",
+      "unitStat": null,
+      "currentTier": 13,
+      "relic": {
+        "currentTier": 10
+      }
+    },
+    {
       "skill": [],
       "equipment": [],
       "equippedStatModOld": [],
@@ -110874,6 +111071,41 @@
       "currentTier": 13,
       "relic": {
         "currentTier": 7
+      }
+    },
+    {
+      "skill": [
+        {
+          "id": "uniqueskill_UNDERCOVERLANDO01",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_UNDERCOVERLANDO02",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_UNDERCOVERLANDO01",
+          "tier": 5
+        },
+        {
+          "id": "basicskill_UNDERCOVERLANDO",
+          "tier": 5
+        }
+      ],
+      "equipment": [],
+      "equippedStatModOld": [],
+      "equippedStatMod": [],
+      "purchasedAbilityId": [],
+      "id": "S62IPk6qTz-udBHMMVJEEA",
+      "definitionId": "UNDERCOVERLANDO:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
+      "promotionRecipeReference": "",
+      "unitStat": null,
+      "currentTier": 13,
+      "relic": {
+        "currentTier": 10
       }
     },
     {
@@ -116148,6 +116380,49 @@
       }
     },
     {
+      "skill": [
+        {
+          "id": "specialskill_AURRA_SING02",
+          "tier": 5
+        },
+        {
+          "id": "specialskill_AURRA_SING01",
+          "tier": 5
+        },
+        {
+          "id": "leaderskill_AURRA_SING",
+          "tier": 5
+        },
+        {
+          "id": "uniqueskill_AURRA_SING01",
+          "tier": 5
+        },
+        {
+          "id": "basicskill_AURRA_SING",
+          "tier": 5
+        },
+        {
+          "id": "contractskill_AURRA_SING01",
+          "tier": 1
+        }
+      ],
+      "equipment": [],
+      "equippedStatModOld": [],
+      "equippedStatMod": [],
+      "purchasedAbilityId": [],
+      "id": "pYRKmVXDTRuViBJf78F0EA",
+      "definitionId": "AURRA_SING:SEVEN_STAR",
+      "currentRarity": 7,
+      "currentLevel": 85,
+      "currentXp": 883025,
+      "promotionRecipeReference": "",
+      "unitStat": null,
+      "currentTier": 13,
+      "relic": {
+        "currentTier": 10
+      }
+    },
+    {
       "skill": [],
       "equipment": [],
       "equippedStatModOld": [],
@@ -119878,16 +120153,16 @@
   ],
   "profileStat": [
     {
-      "nameKey": "STAT_GUILD_RAID_WON_NAME_TU07_2",
+      "nameKey": "STAT_SEASON_PROMOTIONS_EARNED_NAME",
       "versionKey": "NULL",
-      "value": "13",
-      "index": 10
+      "value": "0",
+      "index": 13
     },
     {
-      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
+      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
       "versionKey": "NULL",
-      "value": "19534",
-      "index": 16
+      "value": "88",
+      "index": 19
     },
     {
       "nameKey": "STAT_SEASON_FULL_CLEAR_ROUND_WINS_NAME",
@@ -119902,10 +120177,28 @@
       "index": 21
     },
     {
-      "nameKey": "STAT_SEASON_PROMOTIONS_EARNED_NAME",
+      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
       "versionKey": "NULL",
-      "value": "0",
-      "index": 13
+      "value": "12950",
+      "index": 7
+    },
+    {
+      "nameKey": "STAT_TOTAL_GUILD_EXCHANGE_DONATIONS_TU07_2",
+      "versionKey": "NULL",
+      "value": "9",
+      "index": 12
+    },
+    {
+      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "2592245",
+      "index": 3
+    },
+    {
+      "nameKey": "STAT_SEASON_UNDERSIZED_SQUAD_WINS_NAME",
+      "versionKey": "NULL",
+      "value": "3",
+      "index": 18
     },
     {
       "nameKey": "STAT_PVP_BATTLES_WIN_LEGACY_NAME",
@@ -119916,8 +120209,26 @@
     {
       "nameKey": "STAT_PVE_HARD_BATTLES_WIN_NAME_TU07_2",
       "versionKey": "NULL",
-      "value": "6773",
+      "value": "6799",
       "index": 8
+    },
+    {
+      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "6264798",
+      "index": 1
+    },
+    {
+      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "1472",
+      "index": 9
+    },
+    {
+      "nameKey": "STAT_ERA_ARENA_BATTLES_WIN_NAME",
+      "versionKey": "NULL",
+      "value": "9",
+      "index": 4
     },
     {
       "nameKey": "STAT_TOTAL_GUILD_CONTRIBUTION_NAME_TU07_2",
@@ -119926,34 +120237,34 @@
       "index": 11
     },
     {
-      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
-      "versionKey": "NULL",
-      "value": "0",
-      "index": 20
-    },
-    {
-      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "2509063",
-      "index": 3
-    },
-    {
       "nameKey": "STAT_SEASON_OFFENSIVE_BATTLES_WON_NAME",
       "versionKey": "NULL",
       "value": "88",
       "index": 14
     },
     {
-      "nameKey": "STAT_SEASON_SUCCESSFUL_DEFENDS_NAME",
+      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
       "versionKey": "NULL",
-      "value": "30",
-      "index": 15
+      "value": "19534",
+      "index": 16
     },
     {
-      "nameKey": "STAT_TOTAL_GUILD_EXCHANGE_DONATIONS_TU07_2",
+      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
       "versionKey": "NULL",
-      "value": "9",
-      "index": 12
+      "value": "0",
+      "index": 20
+    },
+    {
+      "nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "3672553",
+      "index": 2
+    },
+    {
+      "nameKey": "STAT_GUILD_RAID_WON_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "13",
+      "index": 10
     },
     {
       "nameKey": "STAT_PVP_SHIP_BATTLES_WIN_NAME",
@@ -119962,46 +120273,10 @@
       "index": 5
     },
     {
-      "nameKey": "STAT_SEASON_UNDERSIZED_SQUAD_WINS_NAME",
+      "nameKey": "STAT_SEASON_SUCCESSFUL_DEFENDS_NAME",
       "versionKey": "NULL",
-      "value": "3",
-      "index": 18
-    },
-    {
-      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "5907920",
-      "index": 1
-    },
-    {
-      "nameKey": "STAT_ERA_ARENA_BATTLES_WIN_NAME",
-      "versionKey": "NULL",
-      "value": "8",
-      "index": 4
-    },
-    {
-      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
-      "versionKey": "NULL",
-      "value": "88",
-      "index": 19
-    },
-    {
-      "nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "3398857",
-      "index": 2
-    },
-    {
-      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "1460",
-      "index": 9
-    },
-    {
-      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
-      "versionKey": "NULL",
-      "value": "12843",
-      "index": 7
+      "value": "30",
+      "index": 15
     }
   ],
   "pvpProfile": [
@@ -120176,8 +120451,8 @@
         "cell": [
           {
             "crewBattleStat": [],
-            "unitId": "pzFV9PXRRKirNg8kXE1epA",
-            "unitDefId": "CAPITALMALEVOLENCE:SEVEN_STAR",
+            "unitId": "v2Ts19MXS32c4cc8zsEj6g",
+            "unitDefId": "CAPITALNEGOTIATOR:SEVEN_STAR",
             "cellIndex": 0,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120191,8 +120466,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "1sZFb-ouTw6U24UNvbIE9w",
-            "unitDefId": "GEONOSIANSTARFIGHTER1:SEVEN_STAR",
+            "unitId": "AYwGq5KbTLaLtCfnOC9LsQ",
+            "unitDefId": "JEDISTARFIGHTERAHSOKATANO:SEVEN_STAR",
             "cellIndex": 1,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120206,8 +120481,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "TZ9fg1-CS3eeWZEkOrwoCw",
-            "unitDefId": "HYENABOMBER:SEVEN_STAR",
+            "unitId": "8uM-CAF1RXWsMsUIqiF2Eg",
+            "unitDefId": "JEDISTARFIGHTERANAKIN:SEVEN_STAR",
             "cellIndex": 2,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120221,8 +120496,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "L-vvjN4MR7iG8bowL1zjNQ",
-            "unitDefId": "VULTUREDROID:SEVEN_STAR",
+            "unitId": "BWUU_Gm-R62okqTT_tI_Dw",
+            "unitDefId": "HOUNDSTOOTH:SEVEN_STAR",
             "cellIndex": 3,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120236,8 +120511,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "sc4xaNFmQCimxsMf-wou8w",
-            "unitDefId": "IG2000:SIX_STAR",
+            "unitId": "Ap39DFF2RmeHiGXd87RVyQ",
+            "unitDefId": "UMBARANSTARFIGHTER:SEVEN_STAR",
             "cellIndex": 4,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120251,8 +120526,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "3KAm1HYnR8yWsiQuUZ1a9A",
-            "unitDefId": "GEONOSIANSTARFIGHTER3:SEVEN_STAR",
+            "unitId": "Tjec9uTuTQKGOT-VO-KXPw",
+            "unitDefId": "BLADEOFDORIN:SEVEN_STAR",
             "cellIndex": 5,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120266,8 +120541,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "_5mMBDUyTzeM9vNaCMl1og",
-            "unitDefId": "GEONOSIANSTARFIGHTER2:SEVEN_STAR",
+            "unitId": "i8VinTjkSVq_XfN3TNBRwA",
+            "unitDefId": "ARC170CLONESERGEANT:SEVEN_STAR",
             "cellIndex": 6,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120281,8 +120556,8 @@
           },
           {
             "crewBattleStat": [],
-            "unitId": "BWUU_Gm-R62okqTT_tI_Dw",
-            "unitDefId": "HOUNDSTOOTH:SEVEN_STAR",
+            "unitId": "D9L74gFqQ0usqHLBCgVmbA",
+            "unitDefId": "YWINGREBEL:FIVE_STAR",
             "cellIndex": 7,
             "unitBattleStat": null,
             "messageReticle": "",
@@ -120299,7 +120574,7 @@
         "squadType": 5,
         "targetingSetId": "",
         "expireTime": "0",
-        "lastSaveTime": "1795362841000",
+        "lastSaveTime": "1795484727000",
         "supportInheritFromDefinitionId": "",
         "datacron": null
       },
@@ -120307,7 +120582,7 @@
     },
     {
       "tab": 4,
-      "rank": 93,
+      "rank": 68,
       "squad": {
         "cell": [
           {
@@ -120398,6 +120673,12 @@
     }
   ],
   "unlockedPlayerTitle": [
+    {
+      "id": "PLAYERTITLE_GLJABBA_QUEST_003"
+    },
+    {
+      "id": "PLAYERTITLE_GLJABBA_QUEST_001"
+    },
     {
       "id": "PLAYERTITLE_MARQUEE_STORMTROOPERCONCEPT"
     },
@@ -120673,7 +120954,7 @@
       "joinTime": "1793756547000",
       "endTime": "1796076000000",
       "remove": false,
-      "rank": 10105
+      "rank": 10172
     }
   ],
   "datacron": [
@@ -120856,6 +121137,18 @@
       "rerollIndex": 0,
       "rerollCount": 0,
       "focused": true
+    },
+    {
+      "tag": [],
+      "affix": [],
+      "rerollOption": [],
+      "id": "cDRc44CHTv6wDTNmZ8LPOA",
+      "setId": 37,
+      "templateId": "datacron_set_37_base",
+      "locked": false,
+      "rerollIndex": 0,
+      "rerollCount": 0,
+      "focused": false
     }
   ],
   "eraUnitStatus": [
@@ -120863,7 +121156,7 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_percent_speed_stat_group_01",
@@ -120875,7 +121168,7 @@
         }
       ],
       "unitBaseId": "EDRIOTWOTUBES",
-      "eraLevel": 23,
+      "eraLevel": 26,
       "appliedOverchargePoints": 0
     }
   ],
@@ -120892,7 +121185,7 @@
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_negate_percent_speed_stat_group_01",
@@ -120910,7 +121203,7 @@
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_negate_percent_speed_stat_group_01",
@@ -120924,7 +121217,7 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_percent_speed_stat_group_01",
@@ -120942,7 +121235,7 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_percent_speed_stat_group_01",
@@ -120960,11 +121253,11 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 10
+          "level": 12
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 4
+          "level": 3
         }
       ],
       "unitBaseId": "THIRDSISTER",
@@ -120978,7 +121271,7 @@
         },
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
@@ -120992,7 +121285,7 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_percent_speed_stat_group_01",
@@ -121010,7 +121303,7 @@
       "statGroupStatus": [
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 10
+          "level": 11
         },
         {
           "id": "potency_speed_stat_group_01",
@@ -121032,7 +121325,7 @@
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_negate_percent_speed_stat_group_01",
@@ -121046,7 +121339,7 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
@@ -121072,7 +121365,7 @@
         },
         {
           "id": "potency_speed_stat_group_01",
-          "level": 6
+          "level": 7
         }
       ],
       "unitBaseId": "GRANDMOFFTARKIN",
@@ -121090,7 +121383,7 @@
         },
         {
           "id": "potency_speed_stat_group_01",
-          "level": 6
+          "level": 7
         }
       ],
       "unitBaseId": "JYNERSO",
@@ -121104,7 +121397,7 @@
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_negate_percent_speed_stat_group_01",
@@ -121122,7 +121415,7 @@
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "potency_speed_stat_group_01",
@@ -121136,7 +121429,7 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_percent_speed_stat_group_01",
@@ -121158,7 +121451,7 @@
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_negate_percent_speed_stat_group_01",
@@ -121172,7 +121465,7 @@
       "statGroupStatus": [
         {
           "id": "offense_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "crit_damage_percent_speed_stat_group_01",
@@ -121194,7 +121487,7 @@
         },
         {
           "id": "crit_damage_percent_speed_stat_group_01",
-          "level": 6
+          "level": 7
         },
         {
           "id": "max_health_percent_speed_stat_group_01",
@@ -121219,7 +121512,7 @@
   },
   "guildTypeId": "NORMAL",
   "localTimeZoneOffsetMinutes": 600,
-  "lastActivityTime": "1795424495000",
+  "lastActivityTime": "1795489322000",
   "selectedPlayerPortrait": {
     "id": "PLAYERPORTRAIT_CANTINAKEEPER"
   },
@@ -121234,31 +121527,22 @@
     }
   },
   "nucleusId": "1000703366225",
-  "loanedUnitEraLevel": 25,
+  "loanedUnitEraLevel": 27,
   "eraArenaProfile": {
-    "previousDayRank": 120,
+    "previousDayRank": 103,
     "previousDaySquad": {
       "cell": [
         {
           "crewBattleStat": [],
-          "unitId": "4ARpGnIQTHS8ReFG0wL-Yg",
+          "unitId": "W1d-64pKR8qNOP-20W1M1Q",
           "unitDefId": "SAWGERRERA:LOANED",
           "cellIndex": 0,
           "unitBattleStat": {
-            "equipment": [
-              {
-                "equipmentId": "060",
-                "slot": 0
-              },
-              {
-                "equipmentId": "050",
-                "slot": 1
-              }
-            ],
+            "equipment": [],
             "skill": [
               {
                 "id": "specialskill_SAWGERRERA01",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "uniqueskill_SAWGERRERA01",
@@ -121266,7 +121550,7 @@
               },
               {
                 "id": "basicskill_SAWGERRERA",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "leaderskill_SAWGERRERA",
@@ -121283,7 +121567,7 @@
               },
               {
                 "id": "max_health_percent_speed_stat_group_01",
-                "level": 5
+                "level": 6
               },
               {
                 "id": "potency_speed_stat_group_01",
@@ -121296,29 +121580,29 @@
               "stat": [
                 {
                   "unitStatId": 2,
-                  "statValueDecimal": "480000",
-                  "unscaledDecimalValue": "4800000000",
+                  "statValueDecimal": "950000",
+                  "unscaledDecimalValue": "9500000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 3,
+                  "statValueDecimal": "390000",
+                  "unscaledDecimalValue": "3900000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 4,
                   "statValueDecimal": "340000",
                   "unscaledDecimalValue": "3400000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
-                  "unitStatId": 4,
-                  "statValueDecimal": "290000",
-                  "unscaledDecimalValue": "2900000000",
-                  "uiDisplayOverrideValue": "-1",
-                  "scalar": "0"
-                },
-                {
                   "unitStatId": 5,
-                  "statValueDecimal": "1130000",
-                  "unscaledDecimalValue": "11300000000",
+                  "statValueDecimal": "1230000",
+                  "unscaledDecimalValue": "12300000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
@@ -121331,38 +121615,38 @@
                 },
                 {
                   "unitStatId": 6,
-                  "statValueDecimal": "130000",
-                  "unscaledDecimalValue": "1300000000",
+                  "statValueDecimal": "330000",
+                  "unscaledDecimalValue": "3300000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 8,
-                  "statValueDecimal": "20000",
-                  "unscaledDecimalValue": "200000000",
+                  "statValueDecimal": "50000",
+                  "unscaledDecimalValue": "500000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 18,
-                  "statValueDecimal": "100",
-                  "unscaledDecimalValue": "1000000",
+                  "statValueDecimal": "300",
+                  "unscaledDecimalValue": "3000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 }
               ]
             },
-            "level": 13,
-            "tier": 3,
+            "level": 15,
+            "tier": 4,
             "unitDefId": "SAWGERRERA:LOANED",
-            "unitId": "4ARpGnIQTHS8ReFG0wL-Yg",
+            "unitId": "W1d-64pKR8qNOP-20W1M1Q",
             "unitRelicTier": 1,
             "overrideAllStatsMultiplier": 0,
             "skipStatsOverwrite": false,
             "enableLeaderAbility": false,
             "threatLevelOverride": 4,
             "overrideAllStatsTable": "",
-            "eraLevel": 20
+            "eraLevel": 25
           },
           "messageReticle": "",
           "progressItem": true,
@@ -121375,24 +121659,15 @@
         },
         {
           "crewBattleStat": [],
-          "unitId": "WrBK0BBXTKOnBSyMk7QHFQ",
+          "unitId": "fipBZSD3TlOAdd_qk6VK4g",
           "unitDefId": "CASSIANANDOR:LOANED",
           "cellIndex": 1,
           "unitBattleStat": {
-            "equipment": [
-              {
-                "equipmentId": "049",
-                "slot": 0
-              },
-              {
-                "equipmentId": "054",
-                "slot": 1
-              }
-            ],
+            "equipment": [],
             "skill": [
               {
                 "id": "basicskill_CASSIANANDOR",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "uniqueskill_CASSIANANDOR01",
@@ -121400,11 +121675,11 @@
               },
               {
                 "id": "specialskill_CASSIANANDOR01",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "specialskill_CASSIANANDOR02",
-                "tier": 0
+                "tier": 1
               }
             ],
             "statMod": [],
@@ -121413,7 +121688,7 @@
             "statGroupStatus": [
               {
                 "id": "offense_percent_speed_stat_group_01",
-                "level": 5
+                "level": 6
               },
               {
                 "id": "max_health_percent_speed_stat_group_01",
@@ -121430,36 +121705,36 @@
               "stat": [
                 {
                   "unitStatId": 2,
-                  "statValueDecimal": "330000",
-                  "unscaledDecimalValue": "3300000000",
+                  "statValueDecimal": "460000",
+                  "unscaledDecimalValue": "4600000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 3,
-                  "statValueDecimal": "320000",
-                  "unscaledDecimalValue": "3200000000",
+                  "statValueDecimal": "450000",
+                  "unscaledDecimalValue": "4500000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 4,
-                  "statValueDecimal": "420000",
-                  "unscaledDecimalValue": "4200000000",
+                  "statValueDecimal": "650000",
+                  "unscaledDecimalValue": "6500000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 5,
-                  "statValueDecimal": "1080000",
-                  "unscaledDecimalValue": "10800000000",
+                  "statValueDecimal": "1120000",
+                  "unscaledDecimalValue": "11200000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 1,
-                  "statValueDecimal": "3880000",
-                  "unscaledDecimalValue": "38800000000",
+                  "statValueDecimal": "5880000",
+                  "unscaledDecimalValue": "58800000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
@@ -121472,8 +121747,8 @@
                 },
                 {
                   "unitStatId": 7,
-                  "statValueDecimal": "630000",
-                  "unscaledDecimalValue": "6300000000",
+                  "statValueDecimal": "1510000",
+                  "unscaledDecimalValue": "15100000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
@@ -121490,20 +121765,34 @@
                   "unscaledDecimalValue": "1000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
+                },
+                {
+                  "unitStatId": 10,
+                  "statValueDecimal": "50000",
+                  "unscaledDecimalValue": "500000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 17,
+                  "statValueDecimal": "400",
+                  "unscaledDecimalValue": "4000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
                 }
               ]
             },
-            "level": 13,
-            "tier": 3,
+            "level": 15,
+            "tier": 4,
             "unitDefId": "CASSIANANDOR:LOANED",
-            "unitId": "WrBK0BBXTKOnBSyMk7QHFQ",
+            "unitId": "fipBZSD3TlOAdd_qk6VK4g",
             "unitRelicTier": 1,
             "overrideAllStatsMultiplier": 0,
             "skipStatsOverwrite": false,
             "enableLeaderAbility": false,
             "threatLevelOverride": 4,
             "overrideAllStatsTable": "",
-            "eraLevel": 20
+            "eraLevel": 25
           },
           "messageReticle": "",
           "progressItem": true,
@@ -121516,28 +121805,19 @@
         },
         {
           "crewBattleStat": [],
-          "unitId": "2Ku0hVxoQpaYTrC7UOTi6w",
+          "unitId": "EAwwd9DWTQe6ddLqZzQBIg",
           "unitDefId": "K2SO:LOANED",
           "cellIndex": 2,
           "unitBattleStat": {
-            "equipment": [
-              {
-                "equipmentId": "055",
-                "slot": 0
-              },
-              {
-                "equipmentId": "049",
-                "slot": 1
-              }
-            ],
+            "equipment": [],
             "skill": [
               {
                 "id": "basicskill_K2SO",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "specialskill_K2SO01",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "uniqueskill_K2SO01",
@@ -121562,7 +121842,7 @@
               },
               {
                 "id": "max_health_percent_speed_stat_group_01",
-                "level": 5
+                "level": 6
               },
               {
                 "id": "crit_damage_negate_percent_speed_stat_group_01",
@@ -121575,57 +121855,57 @@
               "stat": [
                 {
                   "unitStatId": 2,
-                  "statValueDecimal": "440000",
-                  "unscaledDecimalValue": "4400000000",
+                  "statValueDecimal": "760000",
+                  "unscaledDecimalValue": "7600000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 3,
-                  "statValueDecimal": "280000",
-                  "unscaledDecimalValue": "2800000000",
+                  "statValueDecimal": "380000",
+                  "unscaledDecimalValue": "3800000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 4,
-                  "statValueDecimal": "310000",
-                  "unscaledDecimalValue": "3100000000",
+                  "statValueDecimal": "410000",
+                  "unscaledDecimalValue": "4100000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 5,
-                  "statValueDecimal": "1000000",
-                  "unscaledDecimalValue": "10000000000",
+                  "statValueDecimal": "1100000",
+                  "unscaledDecimalValue": "11000000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 1,
-                  "statValueDecimal": "7370000",
-                  "unscaledDecimalValue": "73700000000",
+                  "statValueDecimal": "9370000",
+                  "unscaledDecimalValue": "93700000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 6,
-                  "statValueDecimal": "250000",
-                  "unscaledDecimalValue": "2500000000",
+                  "statValueDecimal": "450000",
+                  "unscaledDecimalValue": "4500000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 17,
-                  "statValueDecimal": "100",
-                  "unscaledDecimalValue": "1000000",
+                  "statValueDecimal": "400",
+                  "unscaledDecimalValue": "4000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 8,
-                  "statValueDecimal": "40000",
-                  "unscaledDecimalValue": "400000000",
+                  "statValueDecimal": "70000",
+                  "unscaledDecimalValue": "700000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
@@ -121642,20 +121922,41 @@
                   "unscaledDecimalValue": "200000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
+                },
+                {
+                  "unitStatId": 10,
+                  "statValueDecimal": "50000",
+                  "unscaledDecimalValue": "500000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 18,
+                  "statValueDecimal": "200",
+                  "unscaledDecimalValue": "2000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 7,
+                  "statValueDecimal": "180000",
+                  "unscaledDecimalValue": "1800000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
                 }
               ]
             },
-            "level": 13,
-            "tier": 3,
+            "level": 15,
+            "tier": 4,
             "unitDefId": "K2SO:LOANED",
-            "unitId": "2Ku0hVxoQpaYTrC7UOTi6w",
+            "unitId": "EAwwd9DWTQe6ddLqZzQBIg",
             "unitRelicTier": 1,
             "overrideAllStatsMultiplier": 0,
             "skipStatsOverwrite": false,
             "enableLeaderAbility": false,
             "threatLevelOverride": 4,
             "overrideAllStatsTable": "",
-            "eraLevel": 20
+            "eraLevel": 25
           },
           "messageReticle": "",
           "progressItem": true,
@@ -121669,19 +121970,10 @@
         {
           "crewBattleStat": [],
           "unitId": "OxIiiAo6QJSH8kjwS710-A",
-          "unitDefId": "EDRIOTWOTUBES:FOUR_STAR",
+          "unitDefId": "EDRIOTWOTUBES:FIVE_STAR",
           "cellIndex": 3,
           "unitBattleStat": {
-            "equipment": [
-              {
-                "equipmentId": "030",
-                "slot": 0
-              },
-              {
-                "equipmentId": "047",
-                "slot": 1
-              }
-            ],
+            "equipment": [],
             "skill": [
               {
                 "id": "basicskill_EDRIOTWOTUBES",
@@ -121706,7 +121998,7 @@
             "statGroupStatus": [
               {
                 "id": "offense_percent_speed_stat_group_01",
-                "level": 5
+                "level": 6
               },
               {
                 "id": "crit_damage_percent_speed_stat_group_01",
@@ -121723,36 +122015,36 @@
               "stat": [
                 {
                   "unitStatId": 2,
-                  "statValueDecimal": "370000",
-                  "unscaledDecimalValue": "3700000000",
-                  "uiDisplayOverrideValue": "-1",
-                  "scalar": "0"
-                },
-                {
-                  "unitStatId": 3,
-                  "statValueDecimal": "310000",
-                  "unscaledDecimalValue": "3100000000",
-                  "uiDisplayOverrideValue": "-1",
-                  "scalar": "0"
-                },
-                {
-                  "unitStatId": 4,
                   "statValueDecimal": "470000",
                   "unscaledDecimalValue": "4700000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
+                  "unitStatId": 3,
+                  "statValueDecimal": "410000",
+                  "unscaledDecimalValue": "4100000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 4,
+                  "statValueDecimal": "570000",
+                  "unscaledDecimalValue": "5700000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
                   "unitStatId": 5,
-                  "statValueDecimal": "1130000",
-                  "unscaledDecimalValue": "11300000000",
+                  "statValueDecimal": "1180000",
+                  "unscaledDecimalValue": "11800000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 1,
-                  "statValueDecimal": "4050000",
-                  "unscaledDecimalValue": "40500000000",
+                  "statValueDecimal": "6050000",
+                  "unscaledDecimalValue": "60500000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
@@ -121772,23 +122064,51 @@
                 },
                 {
                   "unitStatId": 8,
-                  "statValueDecimal": "50000",
-                  "unscaledDecimalValue": "500000000",
+                  "statValueDecimal": "130000",
+                  "unscaledDecimalValue": "1300000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 18,
-                  "statValueDecimal": "200",
-                  "unscaledDecimalValue": "2000000",
+                  "statValueDecimal": "500",
+                  "unscaledDecimalValue": "5000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 9,
+                  "statValueDecimal": "120000",
+                  "unscaledDecimalValue": "1200000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 7,
+                  "statValueDecimal": "180000",
+                  "unscaledDecimalValue": "1800000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 10,
+                  "statValueDecimal": "110000",
+                  "unscaledDecimalValue": "1100000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 17,
+                  "statValueDecimal": "300",
+                  "unscaledDecimalValue": "3000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 }
               ]
             },
-            "level": 12,
-            "tier": 3,
-            "unitDefId": "EDRIOTWOTUBES:FOUR_STAR",
+            "level": 14,
+            "tier": 4,
+            "unitDefId": "EDRIOTWOTUBES:FIVE_STAR",
             "unitId": "OxIiiAo6QJSH8kjwS710-A",
             "unitRelicTier": 1,
             "overrideAllStatsMultiplier": 0,
@@ -121796,7 +122116,7 @@
             "enableLeaderAbility": false,
             "threatLevelOverride": 4,
             "overrideAllStatsTable": "",
-            "eraLevel": 19
+            "eraLevel": 23
           },
           "messageReticle": "",
           "progressItem": true,
@@ -121809,20 +122129,11 @@
         },
         {
           "crewBattleStat": [],
-          "unitId": "haOaywOhRteLu6pdUnji4Q",
+          "unitId": "Q1jlczk_QUyjePEA6g-vOw",
           "unitDefId": "CHIRRUTIMWE:LOANED",
           "cellIndex": 4,
           "unitBattleStat": {
-            "equipment": [
-              {
-                "equipmentId": "056",
-                "slot": 0
-              },
-              {
-                "equipmentId": "069",
-                "slot": 1
-              }
-            ],
+            "equipment": [],
             "skill": [
               {
                 "id": "uniqueskill_CHIRRUTIMWE02",
@@ -121830,15 +122141,15 @@
               },
               {
                 "id": "specialskill_CHIRRUTIMWE01",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "basicskill_CHIRRUTIMWE",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "specialskill_CHIRRUTIMWE02",
-                "tier": 0
+                "tier": 1
               },
               {
                 "id": "uniqueskill_CHIRRUTIMWE01",
@@ -121851,7 +122162,7 @@
             "statGroupStatus": [
               {
                 "id": "offense_percent_speed_stat_group_01",
-                "level": 5
+                "level": 6
               },
               {
                 "id": "crit_damage_percent_speed_stat_group_01",
@@ -121868,43 +122179,43 @@
               "stat": [
                 {
                   "unitStatId": 2,
-                  "statValueDecimal": "310000",
-                  "unscaledDecimalValue": "3100000000",
+                  "statValueDecimal": "390000",
+                  "unscaledDecimalValue": "3900000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 3,
-                  "statValueDecimal": "440000",
-                  "unscaledDecimalValue": "4400000000",
+                  "statValueDecimal": "760000",
+                  "unscaledDecimalValue": "7600000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 4,
-                  "statValueDecimal": "250000",
-                  "unscaledDecimalValue": "2500000000",
+                  "statValueDecimal": "330000",
+                  "unscaledDecimalValue": "3300000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 5,
-                  "statValueDecimal": "1130000",
-                  "unscaledDecimalValue": "11300000000",
+                  "statValueDecimal": "1160000",
+                  "unscaledDecimalValue": "11600000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 1,
-                  "statValueDecimal": "4160000",
-                  "unscaledDecimalValue": "41600000000",
+                  "statValueDecimal": "6660000",
+                  "unscaledDecimalValue": "66600000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
                 {
                   "unitStatId": 6,
-                  "statValueDecimal": "340000",
-                  "unscaledDecimalValue": "3400000000",
+                  "statValueDecimal": "390000",
+                  "unscaledDecimalValue": "3900000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
@@ -121917,8 +122228,8 @@
                 },
                 {
                   "unitStatId": 14,
-                  "statValueDecimal": "50000",
-                  "unscaledDecimalValue": "500000000",
+                  "statValueDecimal": "260000",
+                  "unscaledDecimalValue": "2600000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
                 },
@@ -121928,20 +122239,34 @@
                   "unscaledDecimalValue": "300000000",
                   "uiDisplayOverrideValue": "-1",
                   "scalar": "0"
+                },
+                {
+                  "unitStatId": 10,
+                  "statValueDecimal": "60000",
+                  "unscaledDecimalValue": "600000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
+                },
+                {
+                  "unitStatId": 27,
+                  "statValueDecimal": "500",
+                  "unscaledDecimalValue": "5000000",
+                  "uiDisplayOverrideValue": "-1",
+                  "scalar": "0"
                 }
               ]
             },
-            "level": 13,
-            "tier": 3,
+            "level": 15,
+            "tier": 4,
             "unitDefId": "CHIRRUTIMWE:LOANED",
-            "unitId": "haOaywOhRteLu6pdUnji4Q",
+            "unitId": "Q1jlczk_QUyjePEA6g-vOw",
             "unitRelicTier": 1,
             "overrideAllStatsMultiplier": 0,
             "skipStatsOverwrite": false,
             "enableLeaderAbility": false,
             "threatLevelOverride": 4,
             "overrideAllStatsTable": "",
-            "eraLevel": 20
+            "eraLevel": 25
           },
           "messageReticle": "",
           "progressItem": true,
@@ -121957,11 +122282,11 @@
       "squadType": 1,
       "targetingSetId": "",
       "expireTime": "0",
-      "lastSaveTime": "1795429670373",
+      "lastSaveTime": "1795492687122",
       "supportInheritFromDefinitionId": "",
       "datacron": null
     }
   },
-  "overchargePoints": 145,
+  "overchargePoints": 150,
   "eraStatusId": "ERA11_ROGUEONE"
 }
