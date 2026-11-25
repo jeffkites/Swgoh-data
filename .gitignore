@@ -1,0 +1,5 @@
+/mechanics/data/
+/mechanics/data.lock/
+/mechanics/data.staging-*/
+/mechanics/data.backup-*/
+node_modules/
