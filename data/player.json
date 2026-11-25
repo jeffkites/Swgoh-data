@@ -9075,7 +9075,24 @@
       }
     },
     {
-      "skill": [],
+      "skill": [
+        {
+          "id": "specialskill_MILLENNIUMFALCON01",
+          "tier": 4
+        },
+        {
+          "id": "specialskill_MILLENNIUMFALCON02",
+          "tier": 4
+        },
+        {
+          "id": "basicskill_MILLENNIUMFALCON",
+          "tier": 5
+        },
+        {
+          "id": "uniqueskill_MILLENNIUMFALCON01",
+          "tier": 4
+        }
+      ],
       "equipment": [],
       "equippedStatModOld": [],
       "equippedStatMod": [],
@@ -120218,58 +120235,10 @@
   ],
   "profileStat": [
     {
-      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
-      "versionKey": "NULL",
-      "value": "19750",
-      "index": 16
-    },
-    {
-      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
-      "versionKey": "NULL",
-      "value": "2687094",
-      "index": 3
-    },
-    {
-      "nameKey": "STAT_PVP_BATTLES_WIN_LEGACY_NAME",
-      "versionKey": "NULL",
-      "value": "94",
-      "index": 106
-    },
-    {
-      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
-      "versionKey": "NULL",
-      "value": "13018",
-      "index": 7
-    },
-    {
-      "nameKey": "STAT_ERA_ARENA_BATTLES_WIN_NAME",
-      "versionKey": "NULL",
-      "value": "10",
-      "index": 4
-    },
-    {
-      "nameKey": "STAT_TOTAL_GUILD_CONTRIBUTION_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "45103",
-      "index": 11
-    },
-    {
       "nameKey": "STAT_GUILD_RAID_WON_NAME_TU07_2",
       "versionKey": "NULL",
       "value": "13",
       "index": 10
-    },
-    {
-      "nameKey": "STAT_SEASON_SUCCESSFUL_DEFENDS_NAME",
-      "versionKey": "NULL",
-      "value": "32",
-      "index": 15
-    },
-    {
-      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
-      "versionKey": "NULL",
-      "value": "89",
-      "index": 19
     },
     {
       "nameKey": "STAT_SEASON_OFFENSIVE_BATTLES_WON_NAME",
@@ -120278,28 +120247,34 @@
       "index": 14
     },
     {
+      "nameKey": "STAT_SEASON_BANNERS_EARNED_NAME",
+      "versionKey": "NULL",
+      "value": "19750",
+      "index": 16
+    },
+    {
+      "nameKey": "STAT_SEASON_SUCCESSFUL_DEFENDS_NAME",
+      "versionKey": "NULL",
+      "value": "32",
+      "index": 15
+    },
+    {
+      "nameKey": "STAT_PVE_HARD_BATTLES_WIN_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "6859",
+      "index": 8
+    },
+    {
+      "nameKey": "STAT_SEASON_TERRITORIES_DEFEATED_NAME",
+      "versionKey": "NULL",
+      "value": "89",
+      "index": 19
+    },
+    {
       "nameKey": "STAT_SEASON_PROMOTIONS_EARNED_NAME",
       "versionKey": "NULL",
       "value": "0",
       "index": 13
-    },
-    {
-      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
-      "versionKey": "NULL",
-      "value": "0",
-      "index": 20
-    },
-    {
-      "nameKey": "STAT_SEASON_FULL_CLEAR_ROUND_WINS_NAME",
-      "versionKey": "NULL",
-      "value": "12",
-      "index": 17
-    },
-    {
-      "nameKey": "STAT_SEASON_BEST_RANK_NAME",
-      "versionKey": "NULL",
-      "value": "22076131902883",
-      "index": 21
     },
     {
       "nameKey": "STAT_CHARACTER_GALACTIC_POWER_ACQUIRED_NAME",
@@ -120308,16 +120283,40 @@
       "index": 2
     },
     {
+      "nameKey": "STAT_SHIP_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "2688861",
+      "index": 3
+    },
+    {
+      "nameKey": "STAT_TOTAL_GUILD_CONTRIBUTION_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "45103",
+      "index": 11
+    },
+    {
       "nameKey": "STAT_TOTAL_GUILD_EXCHANGE_DONATIONS_TU07_2",
       "versionKey": "NULL",
       "value": "9",
       "index": 12
     },
     {
-      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
+      "nameKey": "STAT_SEASON_FULL_CLEAR_ROUND_WINS_NAME",
       "versionKey": "NULL",
-      "value": "1484",
-      "index": 9
+      "value": "12",
+      "index": 17
+    },
+    {
+      "nameKey": "STAT_SEASON_MOST_LEAGUE_SCORE_NAME",
+      "versionKey": "NULL",
+      "value": "0",
+      "index": 20
+    },
+    {
+      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
+      "versionKey": "NULL",
+      "value": "6595873",
+      "index": 1
     },
     {
       "nameKey": "STAT_PVP_SHIP_BATTLES_WIN_NAME",
@@ -120326,22 +120325,40 @@
       "index": 5
     },
     {
+      "nameKey": "STAT_TOTAL_GALACTIC_WON_NAME_TU07_2",
+      "versionKey": "NULL",
+      "value": "1484",
+      "index": 9
+    },
+    {
+      "nameKey": "STAT_ERA_ARENA_BATTLES_WIN_NAME",
+      "versionKey": "NULL",
+      "value": "10",
+      "index": 4
+    },
+    {
+      "nameKey": "STAT_SEASON_BEST_RANK_NAME",
+      "versionKey": "NULL",
+      "value": "22076131902883",
+      "index": 21
+    },
+    {
+      "nameKey": "STAT_PVE_BATTLES_WIN_NAME_TU15",
+      "versionKey": "NULL",
+      "value": "13028",
+      "index": 7
+    },
+    {
       "nameKey": "STAT_SEASON_UNDERSIZED_SQUAD_WINS_NAME",
       "versionKey": "NULL",
       "value": "4",
       "index": 18
     },
     {
-      "nameKey": "STAT_GALACTIC_POWER_ACQUIRED_NAME",
+      "nameKey": "STAT_PVP_BATTLES_WIN_LEGACY_NAME",
       "versionKey": "NULL",
-      "value": "6594106",
-      "index": 1
-    },
-    {
-      "nameKey": "STAT_PVE_HARD_BATTLES_WIN_NAME_TU07_2",
-      "versionKey": "NULL",
-      "value": "6849",
-      "index": 8
+      "value": "94",
+      "index": 106
     }
   ],
   "pvpProfile": [
@@ -120861,7 +120878,7 @@
       "joinTime": "1793756547000",
       "endTime": "1796076000000",
       "remove": false,
-      "rank": 10091
+      "rank": 10070
     }
   ],
   "datacron": [
@@ -121419,7 +121436,7 @@
   },
   "guildTypeId": "NORMAL",
   "localTimeZoneOffsetMinutes": 600,
-  "lastActivityTime": "1795573041000",
+  "lastActivityTime": "1795584130000",
   "selectedPlayerPortrait": {
     "id": "PLAYERPORTRAIT_CANTINAKEEPER"
   },
@@ -122225,7 +122242,7 @@
       "squadType": 1,
       "targetingSetId": "",
       "expireTime": "0",
-      "lastSaveTime": "1795573915902",
+      "lastSaveTime": "1795584315948",
       "supportInheritFromDefinitionId": "",
       "datacron": null
     }
