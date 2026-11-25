@@ -2,22 +2,21 @@
   "name": "Faberzen",
   "allyCode": "843153117",
   "guild": "The Secondhand Scoundrels",
-  "refreshedAt": "2026-11-24T08:48:32Z",
+  "refreshedAt": "2026-11-25T02:31:55Z",
   "source": "SWGoH Comlink",
   "arena": {
-    "1": 281,
     "2": 41,
-    "4": 76
+    "4": 60
   },
   "units": [
     {
       "id": "MAGMATROOPER",
       "name": "Magmatrooper",
       "type": "Character",
-      "stars": 4,
-      "level": 1,
-      "gear": 1,
-      "relic": null,
+      "stars": 7,
+      "level": 85,
+      "gear": 13,
+      "relic": 9,
       "mods": 0,
       "modLevels": []
     },
@@ -179,8 +178,8 @@
       "type": "Character",
       "stars": 7,
       "level": 85,
-      "gear": 11,
-      "relic": null,
+      "gear": 13,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         12,
@@ -302,6 +301,17 @@
         15,
         15
       ]
+    },
+    {
+      "id": "MILLENNIUMFALCON",
+      "name": "Han's Millennium Falcon",
+      "type": "Ship",
+      "stars": 6,
+      "level": 70,
+      "gear": null,
+      "relic": null,
+      "mods": null,
+      "modLevels": null
     },
     {
       "id": "JAWASCAVENGER",
@@ -579,10 +589,10 @@
       "id": "RANGETROOPER",
       "name": "Range Trooper",
       "type": "Character",
-      "stars": 6,
+      "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         12,
@@ -869,6 +879,17 @@
       ]
     },
     {
+      "id": "SCOUTTROOPER_V3",
+      "name": "Scout Trooper",
+      "type": "Character",
+      "stars": 7,
+      "level": 85,
+      "gear": 13,
+      "relic": 9,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
       "id": "EWOKELDER",
       "name": "Ewok Elder",
       "type": "Character",
@@ -1117,7 +1138,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 6,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         15,
@@ -1246,8 +1267,8 @@
       "type": "Character",
       "stars": 7,
       "level": 85,
-      "gear": 10,
-      "relic": null,
+      "gear": 13,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         9,
@@ -1385,7 +1406,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         15,
@@ -2301,7 +2322,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         15,
@@ -2587,7 +2608,7 @@
       "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         15,
@@ -3291,6 +3312,17 @@
       "modLevels": null
     },
     {
+      "id": "IDENVERSIOEMPIRE",
+      "name": "Iden Versio",
+      "type": "Character",
+      "stars": 7,
+      "level": 85,
+      "gear": 13,
+      "relic": 9,
+      "mods": 0,
+      "modLevels": []
+    },
+    {
       "id": "CAPITALCHIMAERA",
       "name": "Chimaera",
       "type": "Ship",
@@ -3464,10 +3496,10 @@
       "id": "DEATHTROOPER",
       "name": "Death Trooper",
       "type": "Character",
-      "stars": 5,
+      "stars": 7,
       "level": 85,
-      "gear": 9,
-      "relic": null,
+      "gear": 13,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         12,
@@ -3727,8 +3759,8 @@
       "type": "Character",
       "stars": 7,
       "level": 85,
-      "gear": 8,
-      "relic": null,
+      "gear": 13,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         12,
@@ -3743,10 +3775,10 @@
       "id": "SHORETROOPER",
       "name": "Shoretrooper",
       "type": "Character",
-      "stars": 6,
+      "stars": 7,
       "level": 85,
       "gear": 13,
-      "relic": 5,
+      "relic": 9,
       "mods": 6,
       "modLevels": [
         9,
