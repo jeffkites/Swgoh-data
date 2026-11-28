@@ -1,4 +1,4 @@
-# SWGOH modeling control document
+# SWGOH character data control document
 
 Updated 28 November 2026 (Sydney). Use this file to coordinate work on the SWGOH character database across Codex, Google Antigravity, and Claude.
 
@@ -8,9 +8,18 @@ Jeff clarified that this build is for his own characters: readable equipped stat
 
 | Active task | Status | Owner / branch / files | Acceptance check |
 | --- | --- | --- | --- |
-| M4. Personal roster stats and speed tuning | Implemented; final validation in progress | Codex / feature/mechanics-database / scripts/modding/, modding/, data/modding.json, roster refresh workflow, dashboard entry and docs; reuse scripts/mechanics/source.mjs for verified inputs | 233 personal character records built and verified from the latest saved main snapshot. Unit tests, cold/warm generation and browser interaction checks passed. Finish CI and review handoff. |
+| M4. Personal roster stats and speed tuning | Complete; ready for review | Codex / feature/mechanics-database / scripts/modding/, modding/, data/modding.json, roster refresh workflow, dashboard entry and docs; reuse scripts/mechanics/source.mjs for verified inputs | 233 personal character records verified. All 16 tests, cold/warm generation, dashboard regressions and full desktop/phone browser checks passed in CI at 33bd97d. |
 
 The historical mechanics handoff below records earlier work; M4 is the current priority. A fresh, clean checkout is at `/workspace/scratch/916878238eff/Swgoh-data`; other checkouts with unfinished edits are preserved.
+
+## Current handoff — 28 November 2026
+
+- Implementation: `ea00e17`; selector fix: `33bd97d`; [PR #2](https://github.com/jeffkites/Swgoh-data/pull/2) remains open and unmerged.
+- [Personal stat and browser checks](https://github.com/jeffkites/Swgoh-data/actions/runs/46139310313): succeeded. Includes reproducible builds, all 16 tests, existing regressions and desktop/390px phone interactions.
+- [Existing mechanics checks](https://github.com/jeffkites/Swgoh-data/actions/runs/46139310286): succeeded; publication job correctly skipped for the PR.
+- Readable page: `modding/`. Source snapshot: 27 November, 12:45:24 pm AEDT; visible stale-data warning. Stat calculations reproduce the five Inquisitor speeds Jeff supplied.
+- Exact next step: review this personal modding page and verify any new stat claims against the game as needed. Preserve the current development boundary; do not merge, deploy the live dashboard or begin a battle simulator automatically.
+- No active code-writing claim remains. For new work, first read `BUILD_PROGRESS.md`, check branch/status and claim a bounded next task here.
 
 ## Start and hand off
 
@@ -26,7 +35,7 @@ Use each tool in its own app under your existing account. Start with Antigravity
 
 Claude in the browser can review a patch or help diagnose a specific failure. Give it the latest handoff and the smallest relevant excerpt of public source or test output. Keep the patch owner responsible for applying any accepted fixes and recording the result. Once M1 passes, the next available tool can claim M2.
 
-## Current state
+## Earlier mechanics state — 25 November 2026
 
 - Branch `feature/mechanics-database` at base commit `6c23950`. The mechanics feature is in local edits, including the dashboard entry, workflow, browser UI, normalizers, and tests.
 - `node --test mechanics/test/*.test.mjs` passed 10 tests on 25 November.
@@ -38,7 +47,7 @@ Claude in the browser can review a patch or help diagnose a specific failure. Gi
 - Workflow `.github/workflows/mechanics.yml` reviewed: verified that snapshot generation runs in CI and publishes isolated output to the dedicated `mechanics-db-v1` branch without committing raw data to `main`.
 - The separate roster progression plan lives in [GOALS.md](GOALS.md). Mechanics field notes live in [docs/mechanics/combat-fields.md](docs/mechanics/combat-fields.md).
 
-## Work queue
+## Earlier mechanics work queue
 
 | Task | Status | Owner / branch | Acceptance check |
 | --- | --- | --- | --- |
@@ -46,7 +55,7 @@ Claude in the browser can review a patch or help diagnose a specific failure. Gi
 | M2. Verify the mechanics browser UI with generated data | Completed | Google Antigravity / feature/mechanics-database (`mechanics/test/browser.mjs`) | Run `node mechanics/test/browser.mjs --generated-data` with Playwright available and record results. |
 | M3. Review the feature for GitHub delivery | Completed | Google Antigravity / feature/mechanics-database | Review the full diff and workflow, confirm generated data and credentials are excluded, and record the branch or PR and publication status. |
 
-## Latest handoff
+## Earlier mechanics handoff — 25 November 2026
 
 - **Completed** — M1, M2, and M3 are all completed and verified:
   - **M1**: Implemented `scripts/mechanics/units.mjs` (`buildUnits`), normalized 421 unit profiles, and verified snapshot build.

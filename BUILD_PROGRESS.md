@@ -24,10 +24,11 @@ Jeff clarified the current task: readable stats for **his characters**, modding 
 - Inquisitor speed cross-check matches Jeff's reported speeds: Fifth 331; Seventh 288; Eighth 256; Second 237; Ninth 202.
 - Existing progression, squad-allocation and private-data checks passed. The private-data test intentionally exercises safe failure responses with synthetic credentials.
 - Local browser: search and Fifth Brother breakdown verified; five-character manual selection verified; moving Ninth to 400 puts her first, 331 reports an unresolved tie, initial TM 101% is rejected and 50% changes first-fill ordering.
-- The container's `/usr/bin/chromium` wrapper lacks its binary, so the standalone Playwright suite cannot launch locally. Cloud-browser interaction checks work. The dedicated CI workflow installs Chromium and runs the full desktop/phone suite.
+- Full desktop and 390px phone browser suite passed in [GitHub CI](https://github.com/jeffkites/Swgoh-data/actions/runs/46139310313) at `33bd97d`. This covers all presets, filters, six mod slots, speed edits, TM, ties, the five-character limit, CSV and page width. The first CI run caught a malformed Inquisitors option; `33bd97d` corrected it, and the full suite then passed. The container's separate Chromium wrapper lacks its binary; cloud-browser checks and CI supplied the browser verification.
+- The [existing mechanics pipeline](https://github.com/jeffkites/Swgoh-data/actions/runs/46139310286) also passed at `33bd97d`; PR publication was skipped as intended.
 
 ### Remaining review boundary
 
-Finish CI against this exact branch head and record the result. Do not merge, deploy the live dashboard or start a battle simulator. The latest saved roster is over 24 hours old and correctly labelled; a fresh public refresh will update mods/stats together once this feature is merged.
+Implementation and verification are complete: code `ea00e17`, browser-selector fix `33bd97d`, PR #2 open for review. Subsequent handoff documentation does not change the tested source. Exact next step: review the personal modding page; do not merge, deploy the live dashboard or start a battle simulator automatically. The latest saved roster is over 24 hours old and correctly labelled; a fresh public refresh will update mods/stats together once this feature is merged.
 
 Earlier source-download HTTP 403 failures were addressed by commits `eabe4f7` and `afdd6fd`; the latest pre-continuation mechanics CI at `8da9028` succeeded. Do not repeat that repair without a new failure.
