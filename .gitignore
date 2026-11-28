@@ -3,3 +3,4 @@
 /mechanics/data.staging-*/
 /mechanics/data.backup-*/
 node_modules/
+__pycache__/

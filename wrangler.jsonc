@@ -7,7 +7,6 @@
     "nodejs_compat"
   ],
   "workers_dev": true,
-  "previews": {},
   "observability": {
     "logs": {
       "enabled": true,

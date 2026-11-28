@@ -32,3 +32,12 @@ Jeff clarified the current task: readable stats for **his characters**, modding 
 Implementation and verification are complete: code `ea00e17`, browser-selector fix `33bd97d`, PR #2 open for review. Subsequent handoff documentation does not change the tested source. Exact next step: review the personal modding page; do not merge, deploy the live dashboard or start a battle simulator automatically. The latest saved roster is over 24 hours old and correctly labelled; a fresh public refresh will update mods/stats together once this feature is merged.
 
 Earlier source-download HTTP 403 failures were addressed by commits `eabe4f7` and `afdd6fd`; the latest pre-continuation mechanics CI at `8da9028` succeeded. Do not repeat that repair without a new failure.
+
+## 28 November 2026 — live publication and refresh repair
+
+Jeff reports that the live site still shows old data after refreshing and expects the new pages to be live. This supersedes the earlier pre-publication boundary above. Scope: publish the tested pages to the existing GitHub Pages site, repair the public roster refresh and verify fresh character stats. Preserve the production Worker configuration and keep battle simulation outside this task.
+
+- His button-triggered refresh, run `46140557579`, fetched 285 units at 22:35:05 AEDT but failed before saving because the validator rejected a name equal to its ID. The canonical catalog contains the valid `STAP` → `STAP` mapping.
+- Replaced that heuristic with catalog-based name/type/identity validation, before snapshot writes and in the workflow/dashboard browser check. Added four focused regression tests, including accepting STAP while rejecting unresolved definitions.
+- All four Python tests, 16 JavaScript tests, progression checks and squad checks pass locally. Full PR checks and live publication verification are pending.
+- Restored both Wrangler configuration files to the existing main versions so publishing these static pages does not change production Worker configuration.

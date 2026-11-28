@@ -2,9 +2,11 @@ import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 const data = JSON.parse(readFileSync('data/dashboard.json', 'utf8'));
+const catalog = JSON.parse(readFileSync('data/unit-catalog.json', 'utf8')).units;
 assert.ok(data.units.length > 0);
 assert.equal(data.units.filter(u => u.type === 'Unknown').length, 0, 'Missing unit definitions');
-assert.equal(data.units.filter(u => u.name === u.id).length, 0, 'Missing unit names');
+assert.equal(data.units.filter(u => !catalog[u.id]?.name || u.name !== catalog[u.id].name).length, 0,
+  'Roster names must match official localization, including STAP');
 const browser = await chromium.launch({headless:true});
 const page = await browser.newPage({viewport:{width:1280,height:900}});
 const errors = [];

@@ -4,7 +4,7 @@ A read-only roster dashboard for ally code **843153117**.
 
 ## My character stats and speed tuning
 
-Open **My character stats & speed tuning** from the dashboard or Roster tab. The development version lives at `modding/` and contains your own characters, with current equipped stats, stats without mods, mod contributions, completed set bonuses and the six equipped mod slots. Search/filter the roster, sort by speed or another stat, copy a selected squad, or download the filtered rows as CSV.
+Open **My character stats & speed tuning** from the dashboard or Roster tab. The page lives at `modding/` and contains your own characters, with current equipped stats, stats without mods, mod contributions, completed set bonuses and the six equipped mod slots. Search/filter the roster, sort by speed or another stat, copy a selected squad, or download the filtered rows as CSV.
 
 Select up to five characters to compare opening speeds. Planned speed, a known flat speed bonus and starting turn meter are editable. Bonuses from leader/unique abilities are entered manually. The comparison only models first turn-meter fill; it marks ties as unresolved and does not infer ability events or battle outcomes.
 
@@ -22,7 +22,9 @@ npm test
 npm run dev
 ```
 
-For an offline repeatable build, pass `--source-repo /absolute/path/to/gamedata` (the checkout must have its original public upstream remote). Both cold and warm caches produce the same file for the same inputs. Browser regression checks run with `node modding/test/browser.mjs` after Playwright's Chromium is installed. This work remains on the development branch and is not merged into the live dashboard.
+For an offline repeatable build, pass `--source-repo /absolute/path/to/gamedata` (the checkout must have its original public upstream remote). Both cold and warm caches produce the same file for the same inputs. Browser regression checks run with `node modding/test/browser.mjs` after Playwright's Chromium is installed.
+
+Roster validation checks the official catalog instead of assuming every localized name differs from its ID. This accepts valid names such as **STAP** and still rejects missing definitions, incorrect names/types, duplicate IDs and the wrong account. Run `python3 -m unittest discover -s scripts -p test_refresh.py` for these regression checks.
 
 ## Hunter Wind
 

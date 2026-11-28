@@ -80,14 +80,12 @@ jobs:
           python3 - <<'PY'
           import json
           from pathlib import Path
+          from scripts.refresh import validate_dashboard
 
           data = json.loads(Path("data/dashboard.json").read_text())
+          catalog = json.loads(Path("data/unit-catalog.json").read_text())["units"]
           units = data.get("units", [])
-          assert str(data.get("allyCode")) == "843153117", "Unexpected ally code"
-          assert len(units) >= 100, "Roster unexpectedly small"
-          assert all(u.get("type") in ("Character", "Ship") for u in units), "Unknown unit type"
-          assert all(u.get("name") and u.get("name") != u.get("id") for u in units), "Unknown unit name"
-          assert data.get("refreshedAt"), "Missing roster refresh timestamp"
+          validate_dashboard(data, catalog)
           print("Validated", len(units), "units at", data["refreshedAt"])
           PY
 

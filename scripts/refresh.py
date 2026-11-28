@@ -71,6 +71,31 @@ def dashboard(player, catalog, refreshed_at):
             "source": "SWGoH Comlink", "arena": arena, "units": roster}
 
 
+def validate_dashboard(view, catalog, min_units=100):
+    """Validate against definitions, including names identical to IDs (STAP)."""
+    if str(view.get("allyCode")) != ALLY_CODE:
+        raise ValueError("Unexpected ally code")
+    units = view.get("units", [])
+    if len(units) < min_units:
+        raise ValueError("Roster unexpectedly small")
+    if not view.get("refreshedAt"):
+        raise ValueError("Missing roster refresh timestamp")
+    seen = set()
+    for unit in units:
+        unit_id = unit.get("id")
+        if not unit_id or unit_id in seen:
+            raise ValueError("Missing or duplicate roster unit ID")
+        seen.add(unit_id)
+        definition = catalog.get(unit_id)
+        if not definition or not definition.get("name"):
+            raise ValueError(f"Missing localized definition: {unit_id}")
+        if unit.get("name") != definition["name"]:
+            raise ValueError(f"Unit name differs from localization: {unit_id}")
+        expected_type = {1: "Character", 2: "Ship"}.get(definition.get("combatType"))
+        if expected_type is None or unit.get("type") != expected_type:
+            raise ValueError(f"Unit type differs from definition: {unit_id}")
+
+
 def main():
     DATA.mkdir(exist_ok=True)
     metadata = post("/metadata", {})
@@ -88,6 +113,7 @@ def main():
     player = post("/player", {"payload": {"allyCode": ALLY_CODE}, "enums": False})
     now = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     view = dashboard(player, cached["units"], now)
+    validate_dashboard(view, cached["units"])
     # Validate every response before replacing the last successful snapshot.
     outputs = {"player.json": player, "refresh.json": {
         "allyCode": ALLY_CODE, "refreshedAt": now, "source": "SWGoH Comlink"},

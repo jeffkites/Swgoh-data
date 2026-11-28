@@ -2,10 +2,10 @@ name: Test character stats and speed tuning
 on:
   workflow_dispatch:
   pull_request:
-    paths: ['modding/**', 'scripts/modding/**', 'scripts/mechanics/source.mjs', 'data/**', 'package*.json', '.github/workflows/check-modding.yml', '.github/workflows/refresh-player.yml']
+    paths: ['modding/**', 'scripts/modding/**', 'scripts/mechanics/source.mjs', 'scripts/refresh.py', 'scripts/test_refresh.py', 'data/**', 'package*.json', '.github/workflows/check-modding.yml', '.github/workflows/refresh-player.yml']
   push:
     branches: [main]
-    paths: ['modding/**', 'scripts/modding/**', 'scripts/mechanics/source.mjs', 'package*.json', '.github/workflows/check-modding.yml']
+    paths: ['modding/**', 'scripts/modding/**', 'scripts/mechanics/source.mjs', 'scripts/refresh.py', 'scripts/test_refresh.py', 'package*.json', '.github/workflows/check-modding.yml']
 permissions:
   contents: read
 jobs:
@@ -19,6 +19,8 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Test roster validation
+        run: python3 -m unittest discover -s scripts -p test_refresh.py
       - name: Test stat calculations and comparisons
         run: npm test
       - name: Rebuild from the pinned game definitions twice
