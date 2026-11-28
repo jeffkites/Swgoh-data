@@ -8,18 +8,18 @@ Jeff clarified that this build is for his own characters: readable equipped stat
 
 | Active task | Status | Owner / branch / files | Acceptance check |
 | --- | --- | --- | --- |
-| M4. Personal roster stats and speed tuning | Complete; ready for review | Codex / feature/mechanics-database / scripts/modding/, modding/, data/modding.json, roster refresh workflow, dashboard entry and docs; reuse scripts/mechanics/source.mjs for verified inputs | 233 personal character records verified. All 16 tests, cold/warm generation, dashboard regressions and full desktop/phone browser checks passed in CI at 33bd97d. |
-| M5. Publish pages and repair roster refresh | Claimed | Codex / feature/mechanics-database / scripts/refresh.py, focused validation tests and workflows, publication handoff | Accept valid official names such as STAP; keep rejecting unresolved definitions; pass checks, merge PR #2, verify Pages deployment and fresh roster/stat timestamps. |
+| M4. Personal roster stats and speed tuning | Complete; published | Codex / main / scripts/modding/, modding/, data/modding.json and roster refresh workflow | Live page verified with 234 personal characters and the fresh 28 November roster. |
+| M5. Publish pages and repair roster refresh | Complete; verified live | Codex / main / scripts/refresh.py, focused validation tests and workflows, publication handoff | Four Python and 16 JavaScript tests, desktop/phone checks and dashboard checks passed. PR #2 merged; fresh roster/stats saved together; Pages deployment succeeded. |
 
-The historical mechanics handoff below records earlier work; M4 is the current priority. A fresh, clean checkout is at `/workspace/scratch/916878238eff/Swgoh-data`; other checkouts with unfinished edits are preserved.
+The historical mechanics handoff below records earlier work. The current checkout is at `/workspace/scratch/916878238eff/Swgoh-data` on main; other checkouts with unfinished edits are preserved.
 
 ## Current handoff — 28 November 2026
 
-- Implementation: `ea00e17`; selector fix: `33bd97d`; [PR #2](https://github.com/jeffkites/Swgoh-data/pull/2) remains open and unmerged.
-- [Personal stat and browser checks](https://github.com/jeffkites/Swgoh-data/actions/runs/46139310313): succeeded. Includes reproducible builds, all 16 tests, existing regressions and desktop/390px phone interactions.
-- [Existing mechanics checks](https://github.com/jeffkites/Swgoh-data/actions/runs/46139310286): succeeded; publication job correctly skipped for the PR.
-- Readable page: `modding/`. Source snapshot: 27 November, 12:45:24 pm AEDT; visible stale-data warning. Stat calculations reproduce the five Inquisitor speeds Jeff supplied.
-- Exact next step: review this personal modding page and verify any new stat claims against the game as needed. Preserve the current development boundary; do not merge, deploy the live dashboard or begin a battle simulator automatically.
+- [PR #2](https://github.com/jeffkites/Swgoh-data/pull/2) merged as `3b4c6e9`; roster validation repair `3e5911d`; refreshed data commit `4fb0964`.
+- [Personal stat and desktop/phone checks](https://github.com/jeffkites/Swgoh-data/actions/runs/46141148712), [dashboard checks](https://github.com/jeffkites/Swgoh-data/actions/runs/46141148703) and [mechanics publication](https://github.com/jeffkites/Swgoh-data/actions/runs/46141148661): succeeded.
+- [Roster refresh](https://github.com/jeffkites/Swgoh-data/actions/runs/46141148715) succeeded, including stat calculation and saving. Both snapshots use **28 November 2026, 10:42:42 pm AEDT**: 285 roster units / 234 characters, including STAP.
+- [Pages deployment](https://github.com/jeffkites/Swgoh-data/actions/runs/46141170862) succeeded. [Live personal stats](https://jeffkites.github.io/Swgoh-data/modding/) verified in the browser: Seventh 331, Fifth 315, Eighth 256, Ninth 244, Second 237.
+- Production Worker code/configuration remain the same as before publication. Exact next step: use normal roster refresh after changing mods; if freshness stalls, inspect the refresh workflow and its stat-calculation step. Battle simulation remains outside this task.
 - No active code-writing claim remains. For new work, first read `BUILD_PROGRESS.md`, check branch/status and claim a bounded next task here.
 
 ## Start and hand off

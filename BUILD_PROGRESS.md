@@ -41,3 +41,12 @@ Jeff reports that the live site still shows old data after refreshing and expect
 - Replaced that heuristic with catalog-based name/type/identity validation, before snapshot writes and in the workflow/dashboard browser check. Added four focused regression tests, including accepting STAP while rejecting unresolved definitions.
 - All four Python tests, 16 JavaScript tests, progression checks and squad checks pass locally. Full PR checks and live publication verification are pending.
 - Restored both Wrangler configuration files to the existing main versions so publishing these static pages does not change production Worker configuration.
+
+### Publication completed
+
+- Fix `3e5911d` passed PR checks; PR #2 merged as `3b4c6e9`.
+- Main checks passed: character stats/browser `46141148712`, existing dashboard `46141148703`, mechanics publication `46141148661`.
+- Refresh run `46141148715` succeeded, including the calculated-stat step. Commit `4fb0964` contains 285 roster units and 234 personal characters, with both snapshots dated **28 November 2026, 10:42:42 pm AEDT**. STAP is correctly named and accepted.
+- Pages deployment `46141170862` succeeded for `4fb0964`. Browser verification at `https://jeffkites.github.io/Swgoh-data/modding/` showed 234 characters, the current timestamp, and Inquisitor speeds: Seventh 331, Fifth 315, Eighth 256, Ninth 244, Second 237.
+- Reverified fresh snapshot hashes/timestamps with `node scripts/modding/build.mjs --verify`; progression and squad checks still pass.
+- Live publication and refresh repair are complete. No active implementation claim remains; the earlier review boundary in this document is historical.
