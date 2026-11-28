@@ -4,11 +4,12 @@ Updated 28 November 2026 (Sydney). Use this file to coordinate work on the SWGOH
 
 ## Active scope — owner's clarification
 
-Jeff clarified that this build is for his own characters: readable equipped stats for modding, speed comparisons and turn-order planning. Battle simulation is outside this task. Continue the existing development branch and PR; do not merge into main or change production Worker configuration.
+Jeff clarified that this build is for his own characters: readable equipped stats for modding, speed comparisons and turn-order planning. Battle simulation is outside this task. His latest request expects the pages to be live and reports stale data after a refresh. Publish the tested personal stat pages to the existing GitHub Pages site and fix the failed refresh, preserving the production Worker configuration.
 
 | Active task | Status | Owner / branch / files | Acceptance check |
 | --- | --- | --- | --- |
 | M4. Personal roster stats and speed tuning | Complete; ready for review | Codex / feature/mechanics-database / scripts/modding/, modding/, data/modding.json, roster refresh workflow, dashboard entry and docs; reuse scripts/mechanics/source.mjs for verified inputs | 233 personal character records verified. All 16 tests, cold/warm generation, dashboard regressions and full desktop/phone browser checks passed in CI at 33bd97d. |
+| M5. Publish pages and repair roster refresh | Claimed | Codex / feature/mechanics-database / scripts/refresh.py, focused validation tests and workflows, publication handoff | Accept valid official names such as STAP; keep rejecting unresolved definitions; pass checks, merge PR #2, verify Pages deployment and fresh roster/stat timestamps. |
 
 The historical mechanics handoff below records earlier work; M4 is the current priority. A fresh, clean checkout is at `/workspace/scratch/916878238eff/Swgoh-data`; other checkouts with unfinished edits are preserved.
 
