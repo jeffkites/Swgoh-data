@@ -1,0 +1,5 @@
+Mechanics facts normalized by the Swgoh-data project from swgoh-utils/gamedata.
+https://github.com/swgoh-utils/gamedata/tree/e96f00d4bcddb41d9bb93428a00ab7b4bb6fcdef
+The upstream repository includes the accompanying GNU GPL version 3.
+Normalization source: https://github.com/jeffkites/Swgoh-data/tree/main/scripts/mechanics
+Game names and third-party material retain their respective rights. This project is not endorsed by or affiliated with EA or its licensors.
