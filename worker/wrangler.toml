@@ -8,6 +8,8 @@ compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 # Keep Cloudflare Builds root directory set to worker; Git pushes to main deploy this Worker.
 
+[previews]
+
 # Limits anonymous roster refresh to 2 requests per minute per Cloudflare edge.
 # A separate 30-minute global cooldown checks GitHub run history in index.js.
 [[ratelimits]]
