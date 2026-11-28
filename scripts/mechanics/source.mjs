@@ -18,10 +18,15 @@ export const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 export const gitBlob = bytes => createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex');
 const sourceLimit = 80 * 1024 * 1024;
 
+const githubToken = process.env.GITHUB_TOKEN;
+const authHeader = githubToken ? { Authorization: 'Bearer ' + githubToken } : {};
+
 async function download(url) {
+  const headers = url.startsWith('https://api.github.com/') || url.startsWith('https://raw.githubusercontent.com/')
+    ? authHeader : {};
   for (let attempt = 0; ; attempt++) {
     try {
-      const response = await fetch(url, { signal: AbortSignal.timeout(90_000), redirect: 'error' });
+      const response = await fetch(url, { headers, signal: AbortSignal.timeout(90_000), redirect: 'error' });
       if (!response.ok) throw new Error('Game definition source returned HTTP ' + response.status);
       assert.ok(Number(response.headers.get('content-length')) <= sourceLimit, 'Unexpected input size');
       const bytes = Buffer.from(await response.arrayBuffer());
