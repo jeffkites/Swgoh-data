@@ -1,6 +1,16 @@
 # SWGOH modeling control document
 
-Updated 25 November 2026 (Sydney). Use this file to coordinate work on the SWGOH mechanics database across Codex, Google Antigravity, and Claude.
+Updated 28 November 2026 (Sydney). Use this file to coordinate work on the SWGOH character database across Codex, Google Antigravity, and Claude.
+
+## Active scope — owner's clarification
+
+Jeff clarified that this build is for his own characters: readable equipped stats for modding, speed comparisons and turn-order planning. Battle simulation is outside this task. Continue the existing development branch and PR; do not merge into main or change production Worker configuration.
+
+| Active task | Status | Owner / branch / files | Acceptance check |
+| --- | --- | --- | --- |
+| M4. Personal roster stats and speed tuning | Claimed | Codex / feature/mechanics-database / scripts/modding/, modding/, data/modding.json, roster refresh workflow, dashboard entry and docs; reuse scripts/mechanics/source.mjs for verified inputs | Build current roster stats from pinned game definitions and equipped mods; verify base/mod totals, filtering, squad comparisons and explicit unknowns; run existing regression checks; push for review. |
+
+The historical mechanics handoff below records earlier work; M4 is the current priority. A fresh, clean checkout is at `/workspace/scratch/916878238eff/Swgoh-data`; other checkouts with unfinished edits are preserved.
 
 ## Start and hand off
 
