@@ -1,0 +1,49 @@
+name: Test character stats and speed tuning
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['modding/**', 'scripts/modding/**', 'scripts/mechanics/source.mjs', 'scripts/refresh.py', 'scripts/test_refresh.py', 'data/**', 'package*.json', '.github/workflows/check-modding.yml', '.github/workflows/refresh-player.yml']
+  push:
+    branches: [main]
+    paths: ['modding/**', 'scripts/modding/**', 'scripts/mechanics/source.mjs', 'scripts/refresh.py', 'scripts/test_refresh.py', 'package*.json', '.github/workflows/check-modding.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Test roster validation
+        run: python3 -m unittest discover -s scripts -p test_refresh.py
+      - name: Test stat calculations and comparisons
+        run: npm test
+      - name: Rebuild from the pinned game definitions twice
+        shell: bash
+        run: |
+          set -euo pipefail
+          revision=$(node -p "require('./data/modding.json').source.commit")
+          [[ "$revision" =~ ^[a-f0-9]{40}$ ]]
+          git init "$RUNNER_TEMP/gamedata"
+          git -C "$RUNNER_TEMP/gamedata" remote add origin https://github.com/swgoh-utils/gamedata.git
+          git -C "$RUNNER_TEMP/gamedata" fetch --depth=1 origin "$revision"
+          git -C "$RUNNER_TEMP/gamedata" checkout --detach FETCH_HEAD
+          for pass in 1 2; do
+            node scripts/modding/build.mjs --source-repo "$RUNNER_TEMP/gamedata" --out "$RUNNER_TEMP/modding.json" --cache "$RUNNER_TEMP/modding-raw"
+            node scripts/modding/build.mjs --verify --out "$RUNNER_TEMP/modding.json"
+            cmp data/modding.json "$RUNNER_TEMP/modding.json"
+          done
+      - name: Preserve dashboard and private-data behavior
+        run: |
+          node scripts/check-plan.cjs
+          node scripts/check-squads.cjs
+          node scripts/check-private-data.mjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Check character page interactions on desktop and phone
+        run: node modding/test/browser.mjs

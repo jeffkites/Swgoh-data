@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Character and ship mechanics · SWGOH command centre</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main>
+    <nav aria-label="Breadcrumb"><a href="../">SWGOH command centre</a><span aria-hidden="true">/</span>Mechanics</nav>
+    <header>
+      <h1>Character and ship mechanics</h1>
+      <p id="version"></p>
+    </header>
+    <div class="library">
+      <section class="panel finder" aria-labelledby="search-heading">
+        <h2 id="search-heading">Find a unit</h2>
+        <label for="query">Name or unit ID</label>
+        <input type="search" id="query" autocomplete="off" placeholder="e.g. Darth Vader">
+        <label for="kind">Unit type</label>
+        <select id="kind">
+          <option value="">All units</option>
+          <option value="character">Characters</option>
+          <option value="ship">Ships</option>
+        </select>
+        <p id="count" role="status">Loading unit index…</p>
+        <ul id="results" aria-label="Matching units"></ul>
+      </section>
+      <section id="profile" class="panel profile" aria-labelledby="profile-title" aria-busy="true">
+        <h2 id="profile-title" tabindex="-1">Unit details</h2>
+        <p id="profile-status" role="status"></p>
+        <div id="detail"></div>
+      </section>
+    </div>
+    <footer><a id="index-link">Unit index (JSON)</a><a id="manifest-link">Dataset manifest (JSON)</a></footer>
+    <p class="credit">This project is not endorsed by or affiliated with EA or its licensors.</p>
+    <noscript>Enable JavaScript to search the library, or open the unit index above.</noscript>
+  </main>
+</body>
+</html>

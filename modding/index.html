@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>My character stats · Faberzen</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<main>
+  <nav aria-label="Breadcrumb"><a href="../">SWGOH command centre</a><span>/</span><span>My character stats</span></nav>
+  <header>
+    <p class="eyebrow">Your roster · Modding &amp; speed tuning</p>
+    <h1>My character stats</h1>
+    <p class="intro">Find the stats behind your mods. Pick a squad and compare its opening speeds.</p>
+    <p id="freshness" class="muted" role="status">Loading saved roster…</p>
+    <p id="stale" class="notice" hidden></p>
+    <div id="totals" class="totals" aria-label="Roster overview"></div>
+  </header>
+  <section class="panel planner" aria-labelledby="planner-heading">
+    <div class="section-heading">
+      <div><p class="eyebrow">Squad comparison</p><h2 id="planner-heading">Plan your opening order</h2></div>
+      <div class="actions">
+        <label class="sr-only" for="preset">Choose a squad</label>
+        <select id="preset">
+          <option value="">Choose a squad</option>
+          <option value="inquisitors">Inquisitors</option>
+          <option value="firstOrder">SLKR · First Order</option>
+          <option value="bountyHunters">Bounty Hunters</option>
+        </select>
+        <button id="clear" class="secondary" type="button">Clear squad</button>
+      </div>
+    </div>
+    <p class="muted help">Select up to five characters below, or choose a squad. Leave planned speed blank to use equipped speed. Add any known flat speed bonus and starting turn meter.</p>
+    <p id="squad-message" class="muted" role="status"></p>
+    <div id="tuning-wrap" class="tablewrap" hidden>
+      <table class="tuning"><caption class="sr-only">Squad speed settings</caption><thead><tr><th scope="col">Character</th><th scope="col">Equipped</th><th scope="col">Planned speed</th><th scope="col">Flat bonus</th><th scope="col">Starting TM %</th><th scope="col">Effective speed</th><th scope="col">Order</th></tr></thead><tbody id="tuning"></tbody></table>
+    </div>
+    <ol id="opening-order" class="opening-order" aria-label="Opening order"></ol>
+    <p class="muted help">Order compares first turn-meter fill using the values entered. Leader and unique bonuses are manual. Turn-meter gains during battle, extra turns and tie-breaking can change the actual order.</p>
+    <div class="actions"><button id="copy" type="button" disabled>Copy squad stats</button><span id="copy-status" class="muted" role="status"></span></div>
+  </section>
+  <div class="workspace">
+    <section class="panel roster" aria-labelledby="roster-heading">
+      <div class="section-heading"><div><p class="eyebrow">Equipped stats</p><h2 id="roster-heading">Your characters</h2></div><button id="csv" class="secondary" type="button" disabled>Download CSV</button></div>
+      <div class="controls">
+        <div class="search"><label for="query">Find a character</label><input type="search" id="query" placeholder="Name or unit ID" autocomplete="off"></div>
+        <div><label for="filter">Show</label><select id="filter"><option value="">All characters</option><option value="relic">Relic characters</option><option value="gaps">Mod gaps or below level 15</option><option value="unmodded">No mods equipped</option></select></div>
+        <div><label for="sort">Sort by</label><select id="sort"><option value="speed">Speed</option><option value="modSpeed">Speed from mods</option><option value="health">Health</option><option value="protection">Protection</option><option value="potency">Potency</option><option value="tenacity">Tenacity</option><option value="name">Name</option></select></div>
+      </div>
+      <p id="count" class="muted" role="status"></p>
+      <div class="tablewrap" tabindex="0" aria-label="Character stats, scroll horizontally for more columns">
+        <table class="roster-table"><caption class="sr-only">Saved character stats including equipped mods</caption><thead><tr><th scope="col">Compare</th><th scope="col">Character</th><th scope="col">Speed</th><th scope="col">Mods +</th><th scope="col">Health</th><th scope="col">Protection</th><th scope="col">Potency</th><th scope="col">Tenacity</th></tr></thead><tbody id="rows"></tbody></table>
+      </div>
+    </section>
+    <aside id="profile" class="panel profile" aria-labelledby="character-name">
+      <p class="eyebrow">Character details</p><h2 id="character-name" tabindex="-1">Choose a character</h2><div id="character-details"><p class="muted">Select a name to inspect stats and all six mod slots.</p></div>
+    </aside>
+  </div>
+  <footer><p id="source" class="muted"></p><p>Stats include current gear, relics and equipped mod sets. <a href="../#roster">Refresh your roster</a> after moving mods, then reload this page.</p><a href="./NOTICE.md">Data sources and attribution</a></footer>
+  <noscript>Enable JavaScript to search your character stats and compare speeds.</noscript>
+</main>
+</body>
+</html>
