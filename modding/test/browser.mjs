@@ -1,0 +1,77 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {chromium} from 'playwright';
+
+const root = new URL('../../', import.meta.url);
+const origin = 'http://localhost';
+const base = origin + '/Swgoh-data/';
+const saved = JSON.parse(await readFile(new URL('data/modding.json', root)));
+const browser = await chromium.launch({headless: true, executablePath: process.env.CHROME_BIN || undefined});
+try {
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', async route => {
+    const url = route.request().url();
+    if (!url.startsWith(base)) return route.abort();
+    const pathname = new URL(url).pathname.slice('/Swgoh-data/'.length);
+    const file = pathname.endsWith('/') ? pathname + 'index.html' : pathname;
+    if (!/^(modding\/|data\/(modding|refresh)\.json$)/.test(file) || file.includes('..')) return route.abort();
+    const type = file.endsWith('.mjs') ? 'text/javascript' : file.endsWith('.css') ? 'text/css' : file.endsWith('.json') ? 'application/json' : 'text/html';
+    try {await route.fulfill({contentType: type, body: await readFile(new URL(file, root))});}
+    catch {await route.fulfill({status: 404});}
+  });
+  await page.goto(base + 'modding/');
+  await page.locator('#rows input').first().waitFor();
+  assert.equal(await page.locator('#rows tr').count(), saved.characters.length);
+  await page.locator('#query').fill('fifth brother');
+  assert.equal(await page.locator('#rows tr').count(), 1);
+  await page.getByRole('button', {name: 'Fifth Brother', exact: true}).click();
+  assert.equal(await page.locator('#character-name').textContent(), 'Fifth Brother');
+  assert.ok((await page.locator('#character-details').textContent()).includes(String(saved.characters.find(u => u.id === 'FIFTHBROTHER').stats.equipped.speed)));
+  assert.equal(await page.locator('.mod-slot').count(), 6);
+  await page.locator('#preset').selectOption('inquisitors');
+  assert.equal(await page.locator('#tuning tr').count(), 5);
+  const squad = saved.characters.filter(u => ['FIFTHBROTHER', 'SEVENTHSISTER', 'EIGHTHBROTHER', 'SECONDSISTER', 'NINTHSISTER'].includes(u.id));
+  const fastest = [...squad].sort((a, b) => b.stats.equipped.speed - a.stats.equipped.speed || a.name.localeCompare(b.name))[0];
+  assert.ok((await page.locator('#opening-order li').first().textContent()).includes(fastest.name));
+  const planned = page.getByLabel('Planned speed for Ninth Sister', {exact: true});
+  const plannedSpeed = Math.max(...squad.map(u => u.stats.equipped.speed)) + 100;
+  await planned.fill(String(plannedSpeed));
+  assert.match(await page.locator('#opening-order li').first().textContent(), /Ninth Sister/);
+  assert.equal(await planned.inputValue(), String(plannedSpeed));
+  await planned.fill(String(fastest.stats.equipped.speed));
+  assert.match(await page.locator('#opening-order li').first().textContent(), /1=/);
+  await planned.fill('');
+  await page.getByLabel('Starting TM % for Ninth Sister', {exact: true}).fill('101');
+  assert.match(await page.locator('tr[data-unit="NINTHSISTER"] [data-order]').textContent(), /Check inputs/);
+  await page.getByLabel('Starting TM % for Ninth Sister', {exact: true}).fill('99');
+  assert.match(await page.locator('#opening-order li').first().textContent(), /Ninth Sister/);
+  await page.locator('#query').fill('bos');
+  const extra = page.getByLabel('Compare Bossk', {exact: true});
+  await extra.click();
+  assert.equal(await extra.isChecked(), false);
+  assert.match(await page.locator('#squad-message').textContent(), /Five selected/);
+  await page.locator('#clear').click();
+  assert.equal(await page.locator('#tuning tr').count(), 0);
+  await page.locator('#filter').selectOption('unmodded');
+  await page.locator('#query').fill('');
+  assert.ok(await page.locator('#rows tr').count() > 0);
+  assert.match(await page.locator('#rows tr').first().textContent(), /0\/6 mods/);
+  const downloadPromise = page.waitForEvent('download');
+  await page.locator('#csv').click();
+  const download = await downloadPromise;
+  assert.equal(download.suggestedFilename(), saved.refreshedAt.slice(0, 10) + '-Character-Stats.csv');
+  await page.locator('#preset').selectOption('firstOrder');
+  assert.equal(await page.locator('#tuning tr').count(), 5);
+  await page.locator('#preset').selectOption('bountyHunters');
+  assert.equal(await page.locator('#tuning tr').count(), 5);
+  await page.setViewportSize({width: 390, height: 844});
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Only tables scroll horizontally on phone');
+  await page.locator('#query').fill('ninth');
+  await page.locator('#filter').selectOption('');
+  await page.getByRole('button', {name: 'Ninth Sister', exact: true}).click();
+  assert.equal(await page.locator('#character-name').textContent(), 'Ninth Sister');
+  assert.deepEqual(errors, []);
+  console.log('PASS: real roster search, all presets, speed/TM edits, ties, invalid input, five-person limit, mod details, CSV and phone layout.');
+} finally {await browser.close();}

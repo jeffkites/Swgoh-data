@@ -39,7 +39,7 @@ async function download(url) {
   }
 }
 
-export async function openSource(checkout, revision) {
+export async function openSource(checkout, revision, requestedFiles = sourceFiles) {
   let commit, entries, readBlob;
   if (checkout) {
     const git = (...args) => execFileSync('git', ['-C', checkout, ...args], { maxBuffer: sourceLimit });
@@ -62,7 +62,7 @@ export async function openSource(checkout, revision) {
   }
   assert.match(commit, /^[a-f0-9]{40}$/);
   const tree = Object.fromEntries(entries);
-  const blobs = Object.fromEntries(sourceFiles.map(name => {
+  const blobs = Object.fromEntries(requestedFiles.map(name => {
     assert.match(tree[name] ?? '', /^[a-f0-9]{40}$/, 'Missing source file ' + name);
     return [name, tree[name]];
   }));
@@ -79,7 +79,7 @@ export function unwrap(name, bytes, versions) {
   return envelope.data;
 }
 
-export async function readSource(source, cacheDir, retrievedAt) {
+export async function readSource(source, cacheDir, retrievedAt, requestedFiles = sourceFiles) {
   const objects = path.join(cacheDir, 'objects');
   await mkdir(objects, {recursive: true});
   const files = {};
@@ -102,7 +102,7 @@ export async function readSource(source, cacheDir, retrievedAt) {
   const versions = JSON.parse(await get('allVersions.json'));
   assert.ok(versions.gameVersion && versions.localeVersion, 'Missing completion sentinel');
   const collections = {};
-  for (const name of sourceFiles.filter(n => n.endsWith('.json') || n.endsWith('.br'))) {
+  for (const name of requestedFiles.filter(n => n.endsWith('.json') || n.endsWith('.br'))) {
     if (name === 'allVersions.json') continue;
     collections[name.replace(/\.json(?:\.br)?$/, '')] = unwrap(name, await get(name), versions);
   }

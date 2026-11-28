@@ -1,0 +1,15 @@
+{
+  "name": "faberzen-swgoh-dashboard",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test mechanics/test/*.test.mjs modding/test/*.test.mjs",
+    "build:modding": "node scripts/modding/build.mjs"
+  },
+  "dependencies": {
+    "@swgoh-utils/swgoh-stat-calc": "1.0.1"
+  },
+  "devDependencies": {
+    "playwright": "1.58.2"
+  }
+}

@@ -91,6 +91,22 @@ jobs:
           print("Validated", len(units), "units at", data["refreshedAt"])
           PY
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Calculate equipped character stats
+        # A delayed game-data mirror must not block the existing public roster refresh.
+        # The stats page compares timestamps and explicitly marks an older stat snapshot.
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm ci --ignore-scripts --omit=dev --no-audit --no-fund
+          node scripts/modding/build.mjs
+          node scripts/modding/build.mjs --verify
+
       - name: Commit changed data
         shell: bash
         run: |
@@ -98,6 +114,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/player.json data/refresh.json data/dashboard.json data/unit-catalog.json
+          if [[ -f data/modding.json ]]; then git add data/modding.json; fi
           if git diff --cached --quiet; then
             echo "Roster data is unchanged."
             exit 0

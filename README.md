@@ -2,6 +2,28 @@
 
 A read-only roster dashboard for ally code **843153117**.
 
+## My character stats and speed tuning
+
+Open **My character stats & speed tuning** from the dashboard or Roster tab. The development version lives at `modding/` and contains your own characters, with current equipped stats, stats without mods, mod contributions, completed set bonuses and the six equipped mod slots. Search/filter the roster, sort by speed or another stat, copy a selected squad, or download the filtered rows as CSV.
+
+Select up to five characters to compare opening speeds. Planned speed, a known flat speed bonus and starting turn meter are editable. Bonuses from leader/unique abilities are entered manually. The comparison only models first turn-meter fill; it marks ties as unresolved and does not infer ability events or battle outcomes.
+
+The builder uses the maintained `@swgoh-utils/swgoh-stat-calc` package pinned to 1.0.1, with Git-blob-verified definitions from a pinned `swgoh-utils/gamedata` revision. `data/modding.json` records roster input hashes, the original roster timestamp, game version and definition checksums. Calculations include current gear/relics and equipped mod sets. Unknown or unsupported inputs stay unknown. Raw game definitions remain outside the repository; only readable personal stat records are committed. See [source notes and licenses](modding/NOTICE.md).
+
+The existing roster refresh now also rebuilds the stat file. A definition download/version failure preserves the previous stats and allows the public roster refresh to complete; the page detects the newer roster timestamp and warns that the stats need updating. It also marks snapshots older than 24 hours.
+
+For local development:
+
+```sh
+npm ci --ignore-scripts
+node scripts/modding/build.mjs
+node scripts/modding/build.mjs --verify
+npm test
+npm run dev
+```
+
+For an offline repeatable build, pass `--source-repo /absolute/path/to/gamedata` (the checkout must have its original public upstream remote). Both cold and warm caches produce the same file for the same inputs. Browser regression checks run with `node modding/test/browser.mjs` after Playwright's Chromium is installed. This work remains on the development branch and is not merged into the live dashboard.
+
 ## Hunter Wind
 
 Open [Hunter Wind](https://jeffkites.github.io/wind/) for live wind stations,

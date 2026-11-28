@@ -35,7 +35,7 @@ for (const id of ['NINTHSISTER','EIGHTHBROTHER','SECONDSISTER','SEVENTHSISTER','
   assert.ok((byId.get(id)?.relic ?? -1) >= 5, id + ' should meet the Grand Inquisitor relic gate');
 assert.ok((byId.get('VADER')?.relic ?? -1) >= 7, 'Vader Executor relic gate should remain complete');
 assert.ok((byId.get('BOBAFETT')?.relic ?? -1) >= 8, 'Boba Executor relic gate should now be complete');
-assert.ok((byId.get('ADMIRALPIETT')?.relic ?? -1) === 6, 'Piett should remain the sole Executor relic build');
+assert.ok((byId.get('ADMIRALPIETT')?.relic ?? -1) >= 6, 'Retain Piett relic progress as new roster snapshots advance');
 for (const id of ['HANSOLO','KRRSANTAN','BOUSHH','UNDERCOVERLANDO','FENNECSHAND','GREEDO','AURRA_SING','GAMORREANGUARD','JAWA','HUMANTHUG','URORRURRR'])
   assert.ok((byId.get(id)?.relic ?? -1) >= 8, id + ' R8 bundle upgrade should be retained');
 assert.equal(byId.get('OUTRIDER')?.stars,7,'Outrider should satisfy the Jabba gate');

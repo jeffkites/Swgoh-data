@@ -8,7 +8,7 @@ Jeff clarified that this build is for his own characters: readable equipped stat
 
 | Active task | Status | Owner / branch / files | Acceptance check |
 | --- | --- | --- | --- |
-| M4. Personal roster stats and speed tuning | Claimed | Codex / feature/mechanics-database / scripts/modding/, modding/, data/modding.json, roster refresh workflow, dashboard entry and docs; reuse scripts/mechanics/source.mjs for verified inputs | Build current roster stats from pinned game definitions and equipped mods; verify base/mod totals, filtering, squad comparisons and explicit unknowns; run existing regression checks; push for review. |
+| M4. Personal roster stats and speed tuning | Implemented; final validation in progress | Codex / feature/mechanics-database / scripts/modding/, modding/, data/modding.json, roster refresh workflow, dashboard entry and docs; reuse scripts/mechanics/source.mjs for verified inputs | 233 personal character records built and verified from the latest saved main snapshot. Unit tests, cold/warm generation and browser interaction checks passed. Finish CI and review handoff. |
 
 The historical mechanics handoff below records earlier work; M4 is the current priority. A fresh, clean checkout is at `/workspace/scratch/916878238eff/Swgoh-data`; other checkouts with unfinished edits are preserved.
 
