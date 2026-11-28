@@ -60,6 +60,7 @@ jobs:
         id: build
         env:
           REVISION: ${{ steps.upstream.outputs.revision }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -eu -o pipefail
